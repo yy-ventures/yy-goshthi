@@ -1,0 +1,16 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.count_programs {
+  --num: 11;
+}
+
+.count_startups {
+  --num: 64;
+}
+
+.count_lives {
+  --num: 107756;
+}
+/*# sourceMappingURL=animations.css.map */

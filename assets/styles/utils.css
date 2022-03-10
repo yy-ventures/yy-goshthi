@@ -1,0 +1,316 @@
+.center {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.scale:after {
+  -webkit-transition-delay: 500ms;
+          transition-delay: 500ms;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.scale_down {
+  -webkit-transform: scaleX(0.95);
+          transform: scaleX(0.95);
+}
+
+.scaled_up:after {
+  -webkit-transition-delay: 500ms;
+          transition-delay: 500ms;
+}
+
+.reel_right {
+  -webkit-animation: reel_right 1s linear calc(var(--scroll) * -0.9s) 1 normal both paused;
+          animation: reel_right 1s linear calc(var(--scroll) * -0.9s) 1 normal both paused;
+}
+
+@media (min-width: 601px) {
+  .reel_right {
+    -webkit-animation: reel_right 1s linear calc(var(--scroll) * -0.8s) 1 normal both paused;
+            animation: reel_right 1s linear calc(var(--scroll) * -0.8s) 1 normal both paused;
+  }
+}
+
+@-webkit-keyframes reel_right {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+
+@keyframes reel_right {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+
+.reel_left {
+  -webkit-animation: reel_left 1s linear calc(var(--scroll) * -0.9s) 1 normal both paused;
+          animation: reel_left 1s linear calc(var(--scroll) * -0.9s) 1 normal both paused;
+}
+
+@media (min-width: 601px) {
+  .reel_left {
+    -webkit-animation: reel_left 1s linear calc(var(--scroll) * -0.8s) 1 normal both paused;
+            animation: reel_left 1s linear calc(var(--scroll) * -0.8s) 1 normal both paused;
+  }
+}
+
+@-webkit-keyframes reel_left {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+
+@keyframes reel_left {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+
+.pulse {
+  -webkit-animation: pulse 1s linear infinite alternate;
+          animation: pulse 1s linear infinite alternate;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+
+.pulse:hover {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.type__l1, .type__l2, .type__l3 {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+}
+
+.type__l1 {
+  -webkit-animation: type_l1 1500ms steps(13) 500ms 1 normal forwards;
+          animation: type_l1 1500ms steps(13) 500ms 1 normal forwards;
+}
+
+@-webkit-keyframes type_l1 {
+  100% {
+    width: 13ch;
+  }
+}
+
+@keyframes type_l1 {
+  100% {
+    width: 13ch;
+  }
+}
+
+.type__l2 {
+  -webkit-animation: type_l2 1500ms steps(12) 2000ms 1 normal forwards;
+          animation: type_l2 1500ms steps(12) 2000ms 1 normal forwards;
+}
+
+@-webkit-keyframes type_l2 {
+  100% {
+    width: 12ch;
+  }
+}
+
+@keyframes type_l2 {
+  100% {
+    width: 12ch;
+  }
+}
+
+.type__l3 {
+  -webkit-animation: type_l3 1500ms steps(5) 3500ms 1 normal forwards;
+          animation: type_l3 1500ms steps(5) 3500ms 1 normal forwards;
+}
+
+@-webkit-keyframes type_l3 {
+  100% {
+    width: 5ch;
+  }
+}
+
+@keyframes type_l3 {
+  100% {
+    width: 5ch;
+  }
+}
+
+.glass:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  -webkit-box-shadow: inset 0 0 500px rgba(255, 255, 255, 0.5);
+          box-shadow: inset 0 0 500px rgba(255, 255, 255, 0.5);
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+}
+
+.underline:after {
+  content: "";
+  display: block;
+  height: 3px;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+  transition: -webkit-transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.underline:hover:after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.faded_out {
+  opacity: 0;
+  -webkit-transform: translateY(25%);
+          transform: translateY(25%);
+  -webkit-transition: opacity 500ms linear, -webkit-transform 500ms linear;
+  transition: opacity 500ms linear, -webkit-transform 500ms linear;
+  transition: opacity 500ms linear, transform 500ms linear;
+  transition: opacity 500ms linear, transform 500ms linear, -webkit-transform 500ms linear;
+  -webkit-transition-delay: 250ms;
+          transition-delay: 250ms;
+}
+
+.fade_in {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.hover_grow {
+  -webkit-transition: -webkit-transform 500ms;
+  transition: -webkit-transform 500ms;
+  transition: transform 500ms;
+  transition: transform 500ms, -webkit-transform 500ms;
+}
+
+.hover_grow:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.typewriter {
+  position: relative;
+}
+
+.typewriter:after {
+  content: "";
+  margin-left: 5px;
+  -webkit-animation: blink 0.5s linear infinite alternate;
+          animation: blink 0.5s linear infinite alternate;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.change_background {
+  -webkit-animation: change_background 1s linear calc(var(--scroll) * -1s) 1 normal both paused;
+          animation: change_background 1s linear calc(var(--scroll) * -1s) 1 normal both paused;
+}
+
+@-webkit-keyframes change_background {
+  0% {
+    background: white;
+  }
+  50% {
+    background: lightgrey;
+  }
+  100% {
+    background: white;
+  }
+}
+
+@keyframes change_background {
+  0% {
+    background: white;
+  }
+  50% {
+    background: lightgrey;
+  }
+  100% {
+    background: white;
+  }
+}
+
+@property --num {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: false;
+}
+
+.count_up {
+  transition: --num 5s;
+  counter-reset: num var(--num);
+}
+
+.count_up:after {
+  content: counter(num);
+}
+/*# sourceMappingURL=utils.css.map */
