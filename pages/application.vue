@@ -1,7 +1,7 @@
 <template>
     <div id="application">
         <h1 class="heading">YY Goshthi Spring 2022 Application</h1>
-        <form>
+        <form @submit.prevent="submit()">
             <h5>Name of your enterprise</h5>
             <input type="text" v-model="enterpriseName" required>
 
@@ -28,6 +28,91 @@
             <div class="option">
                 <input type="radio" id="team_no" v-model="team" name="team" value="No">
                 <label for="team_no">No</label>
+            </div>
+            <p>**To ensure gender equality within our program, we appreciate applications that have at least one female co-founder.</p>
+
+            <h5>Co-founder 1</h5>
+            <div class="option h-align">
+                <label for="co-founder_1">Name:</label>
+                <input type="text" id="co-founder_1" v-model="cofounderName1" required>
+            </div>
+            <div class="option">
+                <label>Gender:</label>
+                <input type="radio" id="male1" v-model="gender1" name="gender1" value="Male" required>
+                <label for="male1">Male</label>
+                <input type="radio" id="female1" v-model="gender1" name="gender1" value="Female">
+                <label for="female1">Female</label>
+                <input type="radio" id="not-prefer1" v-model="gender1" name="gender1" value="Prefer not to say">
+                <label for="not-prefer1">Prefer not to say</label>
+            </div>
+            <div class="option">
+                <label for="email1">Email:</label>
+                <input type="email" v-model="email1" name="email1" id="email1" required>
+            </div>
+            <div class="option">
+                <label for="tel1">Phone:</label>
+                <input type="tel" v-model="phone1" name="tel1" id="tel1" required>
+            </div>
+            <div class="option h-align">
+                <label for="linkedin1">LinkedIn:</label>
+                <input type="url" v-model="linkedin1" name="linkedin1" id="linkedin1" required>
+            </div>
+
+            <h5>Co-founder 2</h5>
+            <div class="option h-align">
+                <label for="co-founder_2">Name:</label>
+                <input type="text" id="co-founder_2" v-model="cofounderName2" required>
+            </div>
+            <div class="option">
+                <label>Gender:</label>
+                <input type="radio" id="male2" v-model="gender2" name="gender2" value="Male" required>
+                <label for="male2">Male</label>
+                <input type="radio" id="female2" v-model="gender2" name="gender2" value="Female">
+                <label for="female2">Female</label>
+                <input type="radio" id="not-prefer2" v-model="gender2" name="gender2" value="Prefer not to say">
+                <label for="not-prefer2">Prefer not to say</label>
+            </div>
+            <div class="option">
+                <label for="email2">Email:</label>
+                <input type="email" v-model="email2" name="email2" id="email2" required>
+            </div>
+            <div class="option">
+                <label for="tel2">Phone:</label>
+                <input type="tel" v-model="phone2" name="tel2" id="tel2" required>
+            </div>
+            <div class="option h-align">
+                <label for="linkedin2">LinkedIn:</label>
+                <input type="url" v-model="linkedin2" name="linkedin2" id="linkedin2" required>
+            </div>
+
+            <h5>Does your enterprise work to reduce any of the following:</h5>
+            <div class="option">
+                <input type="checkbox" name="reduce" id="carbon-emission" v-model="reduce" value="Carbon emission">
+                <label for="carbon-emission">Carbon emission</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" name="reduce" id="unemployment" v-model="reduce" value="Unemployment">
+                <label for="unemployment">Unemployment</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" name="reduce" id="poverty" v-model="reduce" value="Poverty">
+                <label for="poverty">Poverty</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" name="reduce" id="none" v-model="reduce" value="None of the above">
+                <label for="none">None of the above</label>
+            </div>
+            <h5>If yes, how is your enterprise reducing carbon emission, creating jobs or fighting poverty? (100 words max)</h5>
+            <textarea name="reducing" v-model="howEnterpriseReduce" cols="30" rows="10"></textarea>
+        
+            <h5>Do you know how to measure the impact of your work?</h5>
+            <div class="option">
+                <input type="radio" id="measure_yes" v-model="impactMeasure" name="measure" value="Yes" required>
+                <label for="measure_yes">Yes</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="measure_no" v-model="impactMeasure" name="measure" value="No">
+                <label for="measure_no">No</label>
             </div>
             <h5 class="mb">If yes, please tell us what methodology you use. (100 words max)</h5>
             <textarea v-model="methodology" cols="30" rows="10"></textarea>
@@ -143,11 +228,101 @@
             <input type="file">
 
             <input type="submit">
+
+            <p v-if="this.show_message">Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.</p>
         </form>
     </div>
 </template>
 
 <script>
+    import { post } from '@/assets/scripts/api';
+
+    export default {
+        methods: {
+            submit: async function () {
+            this.show_message = true;
+            const body = {
+                records: [
+                {
+                    fields: {
+                    enterpriseName: this.enterpriseName,
+                    enterpriseSummary: this.enterpriseSummary,
+                    enterpriseMission: this.enterpriseMission,
+                    enterpriseVision: this.enterpriseVision,
+                    enterpriseSocialMedia: this.enterpriseSocialMedia,
+                    enterpriseWebsite: this.enterpriseWebsite,
+                    team: this.team,
+                    cofounderName1: this.cofounderName1,
+                    gender1: this.gender1,
+                    email1: this.email1,
+                    phone1: this.phone1,
+                    linkedin1: this.linkedin1,
+                    cofounderName2: this.cofounderName2,
+                    gender2: this.gender2,
+                    email2: this.email2,
+                    phone2: this.phone2,
+                    linkedin2: this.linkedin2,
+                    reduce: this.reduce.toString(),
+                    howEnterpriseReduce: this.howEnterpriseReduce,
+                    impactMeasure : this.impactMeasure,
+                    methodology: this.methodology,
+                    enterpriseInnovation: this.enterpriseInnovation,
+                    enterpriseInnovationMore: this.enterpriseInnovationMore,
+                    stage: this.stage,
+                    registered: this.registered,
+                    legalStatus: this.legalStatus,
+                    enterpriseMakeMoney: this.enterpriseMakeMoney,
+                    revenue: this.revenue,
+                    customers: this.customers,
+                    mediaLink: this.mediaLink,
+                    },
+                },
+                ],
+            };
+            const result = await post(
+                'http://yyv.yyventures.org/api/yyg-application-submit-form/create',
+                body
+            );
+            console.log(result);
+            setTimeout(() => {
+                window.location.href = 'https://yy.ventures';
+            }, 3000);
+            },
+        },
+        data: () => ({
+            enterpriseName: '',
+            enterpriseSummary: '',
+            enterpriseMission: '',
+            enterpriseVision: '',
+            enterpriseSocialMedia: '',
+            enterpriseWebsite: '',
+            team: '',
+            cofounderName1: '',
+            gender1: '',
+            email1: '',
+            phone1: '',
+            linkedin1: '',
+            cofounderName2: '',
+            gender2: '',
+            email2: '',
+            phone2: '',
+            linkedin2: '',
+            reduce: [],
+            howEnterpriseReduce: '',
+            impactMeasure : '',
+            methodology: '',
+            enterpriseInnovation: '',
+            enterpriseInnovationMore: '',
+            stage: '',
+            registered: '',
+            legalStatus: '',
+            enterpriseMakeMoney: '',
+            revenue: '',
+            customers: '',
+            mediaLink: '',
+            show_message: false,
+        }),
+    }
 
 </script>
 
