@@ -1,6 +1,6 @@
 <template>
     <div id="application">
-        <h1 class="heading">YY Goshthi Spring 2022 Application</h1>
+        <h1 class="heading">YY Goshthi Spring {{getCurrentyear()}} Application</h1>
         <form @submit.prevent="submit()">
             <h5>Name of your enterprise</h5>
             <input type="text" v-model="enterpriseName" required>
@@ -275,10 +275,12 @@
                     revenue: this.revenue,
                     customers: this.customers,
                     mediaLink: this.mediaLink,
+                    year: getCurrentyear(),
                     },
                 },
                 ],
             };
+            console.log(body.records);
             const result = await post(
                 'http://yyv.yyventures.org/api/yyg-application-submit-form/create',
                 body
@@ -288,6 +290,12 @@
                 window.location.href = 'https://yy.ventures';
             }, 3000);
             },
+            getCurrentyear: function(){
+                const date = new Date();
+                const year = date.getFullYear();
+
+                return year;
+            }
         },
         data: () => ({
             enterpriseName: '',
