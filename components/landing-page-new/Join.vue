@@ -4,7 +4,7 @@
         <h1 class="text text-lg-space">Social Business?</h1>
         <h1 class="join-text highlight">JOIN</h1>
         <p class="dhaka-text">OUR INCUBATION PROGRAM IN DHAKA</p>
-        <span class="yyg-application">Application opens on March 2022</span>
+        <span class="yyg-application">Application opens on March 20, 2022</span>
     </div>
 </template>
 

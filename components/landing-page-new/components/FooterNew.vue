@@ -31,7 +31,7 @@
         <div class="footer__follow-ventures">
             <h4 class='footer__heading mb-1'>Follow YY Ventures</h4>
             <a href="https://www.facebook.com/yyventures" target="_blank">Facebook</a>
-            <a href="https://www.linkedin.com/company/yyventures" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/company/yyventures" target="_blank">LinkedIn</a>
             <a href="https://www.instagram.com/yyventures/" target="_blank">Instagram</a>
             <a href="https://twitter.com/yyventures" target="_blank">Twitter</a>
         </div>
@@ -50,12 +50,17 @@
         color: white;
 
         display: grid;
-        grid-template-columns: repeat(auto-fill, [col-start] minmax(300px, 1fr) [col-end]);
+        grid-template-columns: repeat(3, [col-start] minmax(250px, 1fr) [col-end]);
         grid-gap: 80px 60px;
 
         @media screen and (max-width: 600px){
+            grid-template-columns: [col-start] 1fr [col-end];
             padding: 40px;
             grid-gap: 40px;
+        }
+
+        @media screen and (max-width: 800px){
+            grid-template-columns: repeat(2, [col-start] minmax(250px, 1fr) [col-end]);
         }
 
         @media screen and (min-width: 1440px){
