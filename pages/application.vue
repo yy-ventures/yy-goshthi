@@ -6,13 +6,13 @@
             <input type="text" v-model="enterpriseName" required>
 
             <h5>Summary of your enterprise (100 words max)</h5>
-            <textarea v-model="enterpriseSummary" cols="50" rows="5" maxlength="500" required></textarea>
+            <textarea v-model="enterpriseSummary" cols="30" rows="10" maxlength="500" required></textarea>
 
             <h5>Mission</h5>
-            <textarea v-model="enterpriseMission" cols="50" rows="5" required></textarea>
+            <textarea v-model="enterpriseMission" maxlength="300" cols="50" rows="5" required></textarea>
 
             <h5>Vision</h5>
-            <textarea v-model="enterpriseVision" cols="50" rows="5" required></textarea>
+            <textarea v-model="enterpriseVision" maxlength="300" cols="50" rows="5" required></textarea>
 
             <h5>Enterprise Social Media Handle</h5>
             <input type="url" v-model="enterpriseSocialMedia">
@@ -29,7 +29,7 @@
                 <input type="radio" id="team_no" v-model="team" name="team" value="No">
                 <label for="team_no">No</label>
             </div>
-            <p>**To ensure gender equality within our program, we appreciate applications that have at least one female co-founder.</p>
+            <p class='important-text'>**To ensure gender equality within our program, we appreciate applications that have at least one female co-founder.</p>
 
             <h5>Co-founder 1</h5>
             <div class="option h-align">
@@ -212,7 +212,7 @@
             <input type="url" v-model="mediaLink">
 
             <h5>Please upload your pitch deck</h5>
-            <p>**Your pitch deck will be provided with your full application to the panel of judges. Please make sure your pitch deck has the following components:</p>
+            <p class='important-text'>**Your pitch deck will be provided with your full application to the panel of judges. Please make sure your pitch deck has the following components:</p>
             <ul>
                 <li>Problem</li>
                 <li>Market Opportunity</li>
@@ -336,15 +336,16 @@
 
 <style lang="scss" scoped>
     #application{
-        padding: 10rem 8rem;
+        padding: 10rem 15rem;
 
         .heading{
             text-align: center;
+            margin-bottom: 5rem;
         }
 
         form{
             // border: 1px solid black;
-            padding: 30px 50px;
+            padding: 50px 70px;
             background-color: #eee;
 
             h5{
@@ -360,9 +361,16 @@
                 display: flex;
                 gap: 20px;
             }
+
+            .option{
+                margin-bottom: 10px;
+            }
     
             input[type='text'],
-            input[type='url']{
+            input[type='url'],
+            input[type='tel'],
+            input[type='email']
+            {
                 height: 30px;
                 border: none;
                 // border-bottom: 1px solid #3A3B3A;
@@ -376,8 +384,38 @@
             input[type='text'],
             input[type='url'],
             textarea{
+                font-size: 16px;
                 width: 100%;
                 border: none;
+            }
+
+            input[type='file']{
+                padding: 10px 20px;
+                border: 1px solid grey;
+                width: 100%;
+                border-radius: 5px;
+                margin-bottom: 25px;
+            }
+
+            input[type='submit']{
+                display: block;
+                width: 100%;
+                border-radius: 5px;
+                font-size: 20px;
+                font-weight: 700;
+                color: white;
+                background: #c7265b;
+                border: none;
+                padding: 10px 20px;
+                &:hover{
+                    filter: brightness(90%);
+                    cursor: pointer;
+                }
+            }
+
+            .important-text{
+                font-style: italic;
+                color: #1e87f0;
             }
         }
 
