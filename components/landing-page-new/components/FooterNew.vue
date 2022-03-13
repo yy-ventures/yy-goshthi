@@ -53,18 +53,17 @@
         grid-template-columns: repeat(3, [col-start] minmax(250px, 1fr) [col-end]);
         grid-gap: 80px 60px;
 
+
+        @media screen and (min-width: 1440px){
+            padding: 50px 10%;
+        }
+        @media screen and (max-width: 800px){
+            grid-template-columns: repeat(2, [col-start] minmax(250px, 1fr) [col-end]);
+        }
         @media screen and (max-width: 600px){
             grid-template-columns: [col-start] 1fr [col-end];
             padding: 40px;
             grid-gap: 40px;
-        }
-
-        @media screen and (max-width: 800px){
-            grid-template-columns: repeat(2, [col-start] minmax(250px, 1fr) [col-end]);
-        }
-
-        @media screen and (min-width: 1440px){
-            padding: 50px 10%;
         }
 
 

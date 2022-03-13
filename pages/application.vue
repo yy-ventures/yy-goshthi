@@ -32,57 +32,53 @@
             <p class='important-text'>**To ensure gender equality within our program, we appreciate applications that have at least one female co-founder.</p>
 
             <h5>Co-founder 1</h5>
-            <div class="option h-align">
-                <label for="co-founder_1">Name:</label>
-                <input type="text" id="co-founder_1" v-model="cofounderName1" required>
-            </div>
-            <div class="option">
-                <label>Gender:</label>
-                <input type="radio" id="male1" v-model="gender1" name="gender1" value="Male" required>
-                <label for="male1">Male</label>
-                <input type="radio" id="female1" v-model="gender1" name="gender1" value="Female">
-                <label for="female1">Female</label>
-                <input type="radio" id="not-prefer1" v-model="gender1" name="gender1" value="Prefer not to say">
-                <label for="not-prefer1">Prefer not to say</label>
-            </div>
-            <div class="option">
-                <label for="email1">Email:</label>
-                <input type="email" v-model="email1" name="email1" id="email1" required>
-            </div>
-            <div class="option">
-                <label for="tel1">Phone:</label>
-                <input type="tel" v-model="phone1" name="tel1" id="tel1" required>
-            </div>
-            <div class="option h-align">
-                <label for="linkedin1">LinkedIn:</label>
-                <input type="url" v-model="linkedin1" name="linkedin1" id="linkedin1" required>
+            <div class="co-founder">
+                <div class="option label-container">
+                    <label for="co-founder_1">Name:</label>
+                    <label>Gender:</label>
+                    <label for="email1">Email:</label>
+                    <label for="tel1">Phone:</label>
+                    <label for="linkedin1">LinkedIn:</label>
+                </div>
+                <div class="option input-container">
+                    <input type="text" id="co-founder_1" v-model="cofounderName1" required>
+                    <div class="option">
+                        <input type="radio" id="male1" v-model="gender1" name="gender1" value="Male" required>
+                        <label for="male1">Male</label>
+                        <input type="radio" id="female1" v-model="gender1" name="gender1" value="Female">
+                        <label for="female1">Female</label>
+                        <input type="radio" id="not-prefer1" v-model="gender1" name="gender1" value="Prefer not to say">
+                        <label for="not-prefer1">Prefer not to say</label>
+                    </div>
+                    <input type="email" v-model="email1" name="email1" id="email1" required>
+                    <input type="tel" v-model="phone1" name="tel1" id="tel1" required>
+                    <input type="url" v-model="linkedin1" name="linkedin1" id="linkedin2" required>
+                </div>
             </div>
 
             <h5>Co-founder 2</h5>
-            <div class="option h-align">
-                <label for="co-founder_2">Name:</label>
-                <input type="text" id="co-founder_2" v-model="cofounderName2" required>
-            </div>
-            <div class="option">
-                <label>Gender:</label>
-                <input type="radio" id="male2" v-model="gender2" name="gender2" value="Male" required>
-                <label for="male2">Male</label>
-                <input type="radio" id="female2" v-model="gender2" name="gender2" value="Female">
-                <label for="female2">Female</label>
-                <input type="radio" id="not-prefer2" v-model="gender2" name="gender2" value="Prefer not to say">
-                <label for="not-prefer2">Prefer not to say</label>
-            </div>
-            <div class="option">
-                <label for="email2">Email:</label>
-                <input type="email" v-model="email2" name="email2" id="email2" required>
-            </div>
-            <div class="option">
-                <label for="tel2">Phone:</label>
-                <input type="tel" v-model="phone2" name="tel2" id="tel2" required>
-            </div>
-            <div class="option h-align">
-                <label for="linkedin2">LinkedIn:</label>
-                <input type="url" v-model="linkedin2" name="linkedin2" id="linkedin2" required>
+            <div class="co-founder">
+                <div class="option label-container">
+                    <label for="co-founder_2">Name:</label>
+                    <label>Gender:</label>
+                    <label for="email2">Email:</label>
+                    <label for="tel2">Phone:</label>
+                    <label for="linkedin2">LinkedIn:</label>
+                </div>
+                <div class="option input-container">
+                    <input type="text" id="co-founder_2" v-model="cofounderName2" required>
+                    <div class="option">
+                        <input type="radio" id="male2" v-model="gender2" name="gender2" value="Male" required>
+                        <label for="male2">Male</label>
+                        <input type="radio" id="female2" v-model="gender2" name="gender2" value="Female">
+                        <label for="female2">Female</label>
+                        <input type="radio" id="not-prefer2" v-model="gender2" name="gender2" value="Prefer not to say">
+                        <label for="not-prefer2">Prefer not to say</label>
+                    </div>
+                    <input type="email" v-model="email2" name="email2" id="email2" required>
+                    <input type="tel" v-model="phone2" name="tel2" id="tel2" required>
+                    <input type="url" v-model="linkedin2" name="linkedin2" id="linkedin2" required>
+                </div>
             </div>
 
             <h5>Does your enterprise work to reduce any of the following:</h5>
@@ -162,7 +158,7 @@
             </div>
             <div class="option h-align">
                 <label for="other">Other: </label>
-                <input type="text" id="other" v-model="legalStatus">
+                <input type="text" id="other" v-model="otherLegalStatus">
             </div>
 
             <h5>How does your enterprise make money? (100 words max)</h5>
@@ -170,41 +166,41 @@
 
             <h5>How much revenue do you have at the moment (in BDT)?</h5>
             <div class="option">
-                <input type="radio" id="revenue-a" v-model="revenue" name="revenue" value="Idea Stage" required>
+                <input type="radio" id="revenue-a" v-model="revenue" name="revenue" value="0 - 100000" required>
                 <label for="revenue-a">0 - 100000</label>
             </div>
             <div class="option">
-                <input type="radio" id="revenue-b" v-model="revenue" name="revenue" value="Feasibility/Prototype/Pilot Stage">
+                <input type="radio" id="revenue-b" v-model="revenue" name="revenue" value="100000 - 500000">
                 <label for="revenue-b">100000 - 500000</label>
             </div>
             <div class="option">
-                <input type="radio" id="revenue-c" v-model="revenue" name="revenue" value="Growth Stage">
+                <input type="radio" id="revenue-c" v-model="revenue" name="revenue" value="500000 - 2000000">
                 <label for="revenue-c">500000 - 2000000</label>
             </div>
             <div class="option">
-                <input type="radio" id="revenue-d" v-model="revenue" name="revenue" value="Growth Stage">
+                <input type="radio" id="revenue-d" v-model="revenue" name="revenue" value="2000000 - 5000000">
                 <label for="revenue-d">2000000 - 5000000</label>
             </div>
             <div class="option">
-                <input type="radio" id="revenue-e" v-model="revenue" name="revenue" value="Growth Stage">
+                <input type="radio" id="revenue-e" v-model="revenue" name="revenue" value="> 5000000">
                 <label for="revenue-e">> 5000000</label>
             </div>
 
             <h5>How many customers are you serving right now?</h5>
             <div class="option">
-                <input type="radio" id="customers-a" v-model="customers" name="customers" value="Idea Stage" required>
+                <input type="radio" id="customers-a" v-model="customers" name="customers" value="0 - 100" required>
                 <label for="customers-a">0 - 100</label>
             </div>
             <div class="option">
-                <input type="radio" id="customers-b" v-model="customers" name="customers" value="Feasibility/Prototype/Pilot Stage">
+                <input type="radio" id="customers-b" v-model="customers" name="customers" value="100 - 1000">
                 <label for="customers-b">100 - 1000</label>
             </div>
             <div class="option">
-                <input type="radio" id="customers-c" v-model="customers" name="customers" value="Growth Stage">
+                <input type="radio" id="customers-c" v-model="customers" name="customers" value="1000 - 10000">
                 <label for="customers-c">1000 - 10000</label>
             </div>
             <div class="option">
-                <input type="radio" id="customers-d" v-model="customers" name="customers" value="Growth Stage">
+                <input type="radio" id="customers-d" v-model="customers" name="customers" value="> 10000">
                 <label for="customers-d">> 10000</label>
             </div>
 
@@ -245,37 +241,37 @@
                 records: [
                 {
                     fields: {
-                    enterpriseName: this.enterpriseName,
-                    enterpriseSummary: this.enterpriseSummary,
-                    enterpriseMission: this.enterpriseMission,
-                    enterpriseVision: this.enterpriseVision,
-                    enterpriseSocialMedia: this.enterpriseSocialMedia,
-                    enterpriseWebsite: this.enterpriseWebsite,
-                    team: this.team,
-                    cofounderName1: this.cofounderName1,
-                    gender1: this.gender1,
-                    email1: this.email1,
-                    phone1: this.phone1,
-                    linkedin1: this.linkedin1,
-                    cofounderName2: this.cofounderName2,
-                    gender2: this.gender2,
-                    email2: this.email2,
-                    phone2: this.phone2,
-                    linkedin2: this.linkedin2,
-                    reduce: this.reduce.toString(),
-                    howEnterpriseReduce: this.howEnterpriseReduce,
-                    impactMeasure : this.impactMeasure,
-                    methodology: this.methodology,
-                    enterpriseInnovation: this.enterpriseInnovation,
-                    enterpriseInnovationMore: this.enterpriseInnovationMore,
-                    stage: this.stage,
-                    registered: this.registered,
-                    legalStatus: this.legalStatus,
-                    enterpriseMakeMoney: this.enterpriseMakeMoney,
-                    revenue: this.revenue,
-                    customers: this.customers,
-                    mediaLink: this.mediaLink,
-                    year: getCurrentyear(),
+                    name_of_business: this.enterpriseName,
+                    summery_of_experience: this.enterpriseSummary,
+                    mission: this.enterpriseMission,
+                    vision: this.enterpriseVision,
+                    enterprise_social_media: this.enterpriseSocialMedia,
+                    enterprise_website: this.enterpriseWebsite,
+                    founder_type: this.team,
+                    co_founder_name_one: this.cofounderName1,
+                    co_founder_gender_one: this.gender1,
+                    co_founder_email_one: this.email1,
+                    co_founder_mobile_one: this.phone1,
+                    co_founder_linkedin_one: this.linkedin1,
+                    co_founder_name_two: this.cofounderName2,
+                    co_founder_gender_two: this.gender2,
+                    co_founder_email_two: this.email2,
+                    co_founder_mobile_two: this.phone2,
+                    co_founder_linkedin_two: this.linkedin2,
+                    reduce_problem: this.reduce.toString(),
+                    reduce_problem_process: this.howEnterpriseReduce,
+                    is_known_impact_of_work : this.impactMeasure,
+                    methodology_of_work: this.methodology,
+                    innovation: this.enterpriseInnovation,
+                    experience_of_innovation: this.enterpriseInnovationMore,
+                    stage_of_ventures: this.stage,
+                    is_registered_under_law: this.registered,
+                    legal_status_ventures: this.legalStatus,
+                    make_money_plan: this.enterpriseMakeMoney,
+                    current_revenue_range: this.revenue,
+                    customer_range: this.customers,
+                    media_links: this.mediaLink,
+                    year: '2022',
                     },
                 },
                 ],
@@ -298,36 +294,38 @@
             }
         },
         data: () => ({
-            enterpriseName: '',
-            enterpriseSummary: '',
-            enterpriseMission: '',
-            enterpriseVision: '',
-            enterpriseSocialMedia: '',
-            enterpriseWebsite: '',
-            team: '',
-            cofounderName1: '',
-            gender1: '',
-            email1: '',
-            phone1: '',
-            linkedin1: '',
-            cofounderName2: '',
-            gender2: '',
-            email2: '',
-            phone2: '',
-            linkedin2: '',
-            reduce: [],
-            howEnterpriseReduce: '',
-            impactMeasure : '',
-            methodology: '',
-            enterpriseInnovation: '',
-            enterpriseInnovationMore: '',
-            stage: '',
-            registered: '',
-            legalStatus: '',
-            enterpriseMakeMoney: '',
-            revenue: '',
-            customers: '',
-            mediaLink: '',
+
+            name_of_business: '',
+            summery_of_experience: '',
+            mission: '',
+            vision: '',
+            enterprise_social_media: '',
+            enterprise_website: '',
+            founder_type: '',
+            co_founder_name_one: '',
+            co_founder_gender_one: '',
+            co_founder_email_one: '',
+            co_founder_mobile_one: '',
+            co_founder_linkedin_one: '',
+            co_founder_name_two: '',
+            co_founder_gender_two: '',
+            co_founder_email_two: '',
+            co_founder_mobile_two: '',
+            co_founder_linkedin_two: '',
+            reduce_problem: [],
+            reduce_problem_process: '',
+            is_known_impact_of_work : '',
+            methodology_of_work: '',
+            innovation: '',
+            experience_of_innovation: '',
+            stage_of_ventures: '',
+            is_registered_under_law: '',
+            legal_status_ventures: '',
+            make_money_plan: '',
+            current_revenue_range: '',
+            customer_range: '',
+            media_links: '',
+            year: '',
             show_message: false,
         }),
     }
@@ -337,6 +335,10 @@
 <style lang="scss" scoped>
     #application{
         padding: 10rem 15rem;
+
+        @media screen and (max-width: 600px){
+            padding: 8rem 0;
+        }
 
         .heading{
             text-align: center;
@@ -348,10 +350,33 @@
             padding: 50px 70px;
             background-color: #eee;
 
+            @media screen and (max-width: 600px){
+                padding: 50px 40px;
+            }
+
             h5{
                 font-size: 20px;
                 font-weight: 700;
                 margin-bottom: 5px;
+
+            }
+            
+            .co-founder{
+                display: flex;
+                gap: 10px;
+            }
+            .label-container{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-end;
+                // background-color: #1e87f0;
+            }
+            .input-container{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                // background-color: #c7265b;
 
             }
             .mb{
