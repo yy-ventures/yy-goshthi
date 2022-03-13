@@ -1,10 +1,10 @@
 <template>
     <div class="join">
-        <h1 class="text text-stroke">Got</h1>
-        <h1 class="text text-lg-space">A Social Business?</h1>
+        <h1 class="text text-stroke">Got An Early Stage</h1>
+        <h1 class="text text-lg-space">Social Business?</h1>
         <h1 class="join-text highlight">JOIN</h1>
-        <p class="dhaka-text">OUR INCUBATOR IN DHAKA</p>
-        <span class="yyg-application">YY Goshthi Spring 2022 cohort application will open in March 2022</span>
+        <p class="dhaka-text">OUR INCUBATION PROGRAM IN DHAKA</p>
+        <span class="yyg-application">Application opens on March 2022</span>
     </div>
 </template>
 

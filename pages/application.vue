@@ -6,7 +6,7 @@
             <input type="text" v-model="enterpriseName" required>
 
             <h5>Summary of your enterprise (100 words max)</h5>
-            <textarea v-model="enterpriseSummary" cols="50" rows="5" required></textarea>
+            <textarea v-model="enterpriseSummary" cols="50" rows="5" maxlength="500" required></textarea>
 
             <h5>Mission</h5>
             <textarea v-model="enterpriseMission" cols="50" rows="5" required></textarea>
@@ -103,7 +103,7 @@
                 <label for="none">None of the above</label>
             </div>
             <h5>If yes, how is your enterprise reducing carbon emission, creating jobs or fighting poverty? (100 words max)</h5>
-            <textarea name="reducing" v-model="howEnterpriseReduce" cols="30" rows="10"></textarea>
+            <textarea name="reducing" v-model="howEnterpriseReduce" maxlength="500" cols="30" rows="10"></textarea>
         
             <h5>Do you know how to measure the impact of your work?</h5>
             <div class="option">
@@ -115,13 +115,13 @@
                 <label for="measure_no">No</label>
             </div>
             <h5 class="mb">If yes, please tell us what methodology you use. (100 words max)</h5>
-            <textarea v-model="methodology" cols="30" rows="10"></textarea>
+            <textarea v-model="methodology" maxlength="500" cols="30" rows="10"></textarea>
 
             <h5>What innovation is your enterprise bringing to the local market? (100 words max)</h5>
-            <textarea v-model="enterpriseInnovation" cols="30" rows="10" required></textarea>
+            <textarea v-model="enterpriseInnovation" maxlength="500" cols="30" rows="10" required></textarea>
 
             <h5>We respect and welcome both product and process innovation offered by enterprises and we would love to know more about your enterprise’s innovation. (100 words max)</h5>
-            <textarea v-model="enterpriseInnovationMore" cols="30" rows="10" required></textarea>
+            <textarea v-model="enterpriseInnovationMore" maxlength="500" cols="30" rows="10" required></textarea>
 
             <h5>What is the stage of your venture?</h5>
             <div class="option">
@@ -166,7 +166,7 @@
             </div>
 
             <h5>How does your enterprise make money? (100 words max)</h5>
-            <textarea v-model="enterpriseMakeMoney" cols="30" rows="10" required></textarea>
+            <textarea v-model="enterpriseMakeMoney" maxlength="500" cols="30" rows="10" required></textarea>
 
             <h5>How much revenue do you have at the moment (in BDT)?</h5>
             <div class="option">

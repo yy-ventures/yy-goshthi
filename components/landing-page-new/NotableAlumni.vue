@@ -12,7 +12,7 @@
                 </div>
                 <div class="notable-alumni__carousel-track__content--info">
                     <div class="text-container">
-                        <h3 class="text-container__heading">Garbageman</h3>
+                        <h3 class="text-container__heading">GARBAGEMAN</h3>
                         <p class="text-container__details">GARBAGEMAN, the first ICT tech-based recycling business in Bangladesh, is dedicated to creating an efficient, affordable, and smooth waste management system by ‘upcycling’ waste into resources. With the vision of creating a Cleaner and Greener Bangladesh, GARBAGEMAN is focused on introducing a modern and scientific approach to establish an efficient waste management system and enhancing the socioeconomic stance of the system.</p>
                     </div>
                     <div class="logo-container__social">

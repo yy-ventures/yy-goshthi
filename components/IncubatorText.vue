@@ -12,12 +12,12 @@
         <div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
           <div>
             <p class="text-bold">
-              YY Goshthi is a Social Business incubator by YY Ventures that helps socially & environmentally conscious entrepreneurs to launch their minimum viable product and raise the needed seed capital.
+              YY Goshthi is a Social Business incubation program by YY Ventures that helps socially & environmentally conscious entrepreneurs to launch their minimum viable product and raise the needed seed capital.
             </p>
           </div>
           <div>
             <p class="text-light">
-              YY Goshthi was created in 2016 as the first Social Business incubator in Bangladesh that offers rapid, intense, and immersive education to early-stage Social Businesses. As the prime Social Business incubator in Bangladesh YY Goshthi’s goal is to support young social entrepreneurs while they transform their communities by building Social Businesses.
+              YY Goshthi was created in 2016 as the first Social Business incubation program in Bangladesh that offers rapid, intense, and immersive education to early-stage Social Businesses. As the prime Social Business incubation program in Bangladesh YY Goshthi’s goal is to support young social entrepreneurs while they transform their communities by building Social Businesses.
             </p>
             <p class="text-light">
               We empower social entrepreneurs with world-class training, mentoring, community, coworking space, and access to investors, enabling them to navigate their way towards launching a minimum viable product and raising the needed seed capital. We have prominently incubated enterprises, notably Avijatrik Tourism, Wizkit, GARBAGEMAN, Broque, TransEnd, Max TapWater, AmarLab that have been working to solve some of the wicked social challenges. We are a ‘Globally Connected’ locally rooted ecosystem in Bangladesh that is driven by social and environmental consciousness.

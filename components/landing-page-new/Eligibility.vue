@@ -12,7 +12,7 @@
             <div class="eligibility__box-container--box-2 box faded_out">
                 <!-- <h1>2</h1> -->
                 <h2 class="heading-2">Stage of venture</h2>
-                <p>The program is geared towards those at an early stage of development, who have an idea they are willing to invest in. Ideally, applicants have completed some measure of feasibility assessment and can see themselves moving to launch in 4-6 months. Those who have already launched but need support to refine their business plan and scale up operations are also encouraged to apply.</p>
+                <p>The program is geared towards those at an early-stage of development, who have an idea they are willing to invest in. Ideally, applicants have completed some measure of feasibility assessment and can see themselves moving to launch in 4-6 months. Those who have already launched but need support to refine their business plan and scale up operations are also encouraged to apply.</p>
             </div>
         </div>
     </div>

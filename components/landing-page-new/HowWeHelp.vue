@@ -8,7 +8,7 @@
             <div class="layer">
                 <!-- <img class="image" src="../../assets/images/programs/wct.png" alt=""> -->
                 <div class="text-container">
-                    <h3 class="heading highlight">World Class Training</h3>
+                    <h3 class="heading highlight">World-Class Training</h3>
                     <p class="description">YY Goshthi creates a space for promising entrepreneurs to accelerate their business to the next level. The participants can draw guidelines and construct their business idea in the presence of world reputed business trainers. Our boot camp prepares the participants with different aspects of launching a successful business.</p>
                 </div>
             </div>
@@ -17,7 +17,7 @@
             <div class="layer">
                 <!-- <img class="image" src="../../assets/images/programs/mentoring.png" alt=""> -->
                 <div class="text-container">
-                    <h3 class="heading"> <span>Tailor Made</span> <span class="highlight">Consultation Support</span></h3>
+                    <h3 class="heading"> <span>Tailor-Made</span> <span class="highlight">Consultation Support</span></h3>
                     <p class="description">One of the key benefits that we offer to our incubees is need based consultation support. We structure consultation hours based on the needs of the founders. In partnership with our supporters and network, we bring seasoned professionals, coaches and entrepreneurs from around the world to mentor our incubees.</p>
                 </div>
             </div>

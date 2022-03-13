@@ -2,7 +2,7 @@
     <div class="footer">
         <div class="footer__yy-goshti">
             <img class='footer__yy-logo' src="../../../assets/images/landing-new-image/yyg-logo/yyg-logo.png" alt="">
-            <p>YY Goshthi is a social business incubator that helps socially & environmentally conscious entrepreneurs to launch their minimum viable product and raise the needed seed capital.</p>
+            <p>YY Goshthi is a Social Business incubation program that helps socially & environmentally conscious entrepreneurs to launch their minimum viable product and raise the needed seed capital.</p>
         </div>
         <div class="footer__get-in-touch">
             <h4 class='footer__heading mb-1'>Get in Touch</h4>
@@ -26,15 +26,16 @@
         <div class="footer__created">
             <h4 class='footer__heading mb-1'>Created By</h4>
             <img class='footer__yy-logo' src="../../../assets/images/landing-new-image/yyg-logo/yyv-logo.png" alt="">
-            <p>YY Ventures is an incubation and investment Social Business supporting early stage entrepreneurs who are fighting carbon emission, poverty and unemployment.</p>
+            <p>YY Ventures is an incubation and investment Social Business supporting early-stage entrepreneurs who are fighting carbon emission, poverty and unemployment.</p>
         </div>
         <div class="footer__follow-ventures">
             <h4 class='footer__heading mb-1'>Follow YY Ventures</h4>
             <a href="https://www.facebook.com/yyventures" target="_blank">Facebook</a>
+            <a href="https://www.linkedin.com/company/yyventures" target="_blank">Instagram</a>
             <a href="https://www.instagram.com/yyventures/" target="_blank">Instagram</a>
             <a href="https://twitter.com/yyventures" target="_blank">Twitter</a>
         </div>
-        <p>© 2021 · YY Ventures Limited · All Rights Reserved</p>
+        <p>© 2022 · YY Ventures Limited · All Rights Reserved</p>
     </div>
 </template>
 
@@ -49,7 +50,7 @@
         color: white;
 
         display: grid;
-        grid-template-columns: repeat(auto-fill, [col-start] minmax(250px, 1fr) [col-end]);
+        grid-template-columns: repeat(auto-fill, [col-start] minmax(300px, 1fr) [col-end]);
         grid-gap: 80px 60px;
 
         @media screen and (max-width: 600px){

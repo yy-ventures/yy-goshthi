@@ -7,23 +7,23 @@
             </div>
             <div class="impact-section__info">
                 <div class="box box-one">
-                    <h3 class="number">0</h3>
-                    <span class="text">Female Founder</span>
+                    <h3 class="number">63%</h3>
+                    <span class="text">Female-led Businesses</span>
                 </div>
                 <div class="box box-two">
                     <h3 class="number">11</h3>
                     <span class="text">Programs Delivered</span>
                 </div>
                 <div class="box box-three">
-                    <h3 class="number">150K+</h3>
+                    <h3 class="number">150633</h3>
                     <span class="text">Lives Impacted</span>
                 </div>
                 <div class="box box-four">
-                    <h3 class="number">1.3K+</h3>
+                    <h3 class="number">1372</h3>
                     <span class="text">Jobs Created</span>
                 </div>
                 <div class="box box-five">
-                    <h3 class="number">64+</h3>
+                    <h3 class="number">64</h3>
                     <span class="text">Entrepreneurs Supported</span>
                 </div>
             </div>
@@ -222,7 +222,7 @@
 
                 .number{
                     color: white;
-                    font-size: calc(50px + 2vw);
+                    font-size: calc(40px + 2vw);
                     font-weight: 900;
                     margin: 0 !important;
 
@@ -232,8 +232,9 @@
                 }
                 .text{
                     color: white;
-                    font-size: 20px;
+                    font-size: 18px;
                     font-weight: 600;
+                    white-space: nowrap;
 
                     @media screen and (max-width: 600px){
                         font-size: 16px;
