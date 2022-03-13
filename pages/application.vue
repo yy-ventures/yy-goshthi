@@ -283,7 +283,7 @@
             );
             console.log(result);
             setTimeout(() => {
-                window.location.href = 'https://yy.ventures';
+                window.location.href = 'https://incubator.yy.ventures/';
             }, 3000);
             },
             getCurrentyear: function(){
