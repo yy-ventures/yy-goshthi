@@ -221,7 +221,7 @@
                     }
                     img{
                         height: 100%;
-                        // width: 140%;
+                        width: 100%;
                         object-fit: cover;
                     }
                 }
