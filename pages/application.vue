@@ -5,6 +5,8 @@
             <h5>Name of your enterprise</h5>
             <input type="text" v-model="enterpriseName" required>
 
+            <span>name: {{enterpriseName}}</span>
+
             <h5>Summary of your enterprise (100 words max)</h5>
             <textarea v-model="enterpriseSummary" cols="30" rows="10" maxlength="500" required></textarea>
 
@@ -22,11 +24,11 @@
 
             <h5>Do you have a team of minimum two co-founders?</h5>
             <div class="option">
-                <input type="radio" id="team_yes" v-model="team" name="team" value="Yes" required>
+                <input type="radio" id="team_yes" v-model="team" name="team" value="Team" required>
                 <label for="team_yes">Yes</label>
             </div>
             <div class="option">
-                <input type="radio" id="team_no" v-model="team" name="team" value="No">
+                <input type="radio" id="team_no" v-model="team" name="team" value="Self">
                 <label for="team_no">No</label>
             </div>
             <p class='important-text'>**To ensure gender equality within our program, we appreciate applications that have at least one female co-founder.</p>
@@ -83,34 +85,36 @@
 
             <h5>Does your enterprise work to reduce any of the following:</h5>
             <div class="option">
-                <input type="checkbox" name="reduce" id="carbon-emission" v-model="reduce" value="Carbon emission">
+                <input type="checkbox" name="reduce" id="carbon-emission" v-model="reduce_problem" value="Carbon emission">
                 <label for="carbon-emission">Carbon emission</label>
             </div>
             <div class="option">
-                <input type="checkbox" name="reduce" id="unemployment" v-model="reduce" value="Unemployment">
+                <input type="checkbox" name="reduce" id="unemployment" v-model="reduce_problem" value="Unemployment">
                 <label for="unemployment">Unemployment</label>
             </div>
             <div class="option">
-                <input type="checkbox" name="reduce" id="poverty" v-model="reduce" value="Poverty">
+                <input type="checkbox" name="reduce" id="poverty" v-model="reduce_problem" value="Poverty">
                 <label for="poverty">Poverty</label>
             </div>
             <div class="option">
-                <input type="checkbox" name="reduce" id="none" v-model="reduce" value="None of the above">
+                <input type="checkbox" name="reduce" id="none" v-model="reduce_problem" value="None of the above">
                 <label for="none">None of the above</label>
             </div>
+            <br/>
+            <br/>
             <h5>If yes, how is your enterprise reducing carbon emission, creating jobs or fighting poverty? (100 words max)</h5>
             <textarea name="reducing" v-model="howEnterpriseReduce" maxlength="500" cols="30" rows="10"></textarea>
         
             <h5>Do you know how to measure the impact of your work?</h5>
             <div class="option">
-                <input type="radio" id="measure_yes" v-model="impactMeasure" name="measure" value="Yes" required>
+                <input type="radio" id="measure_yes" v-model="impactMeasure" name="measure" value="1" required>
                 <label for="measure_yes">Yes</label>
             </div>
             <div class="option">
-                <input type="radio" id="measure_no" v-model="impactMeasure" name="measure" value="No">
+                <input type="radio" id="measure_no" v-model="impactMeasure" name="measure" value="0">
                 <label for="measure_no">No</label>
             </div>
-            <h5 class="mb">If yes, please tell us what methodology you use. (100 words max)</h5>
+            <h5 class="mt">If yes, please tell us what methodology you use. (100 words max)</h5>
             <textarea v-model="methodology" maxlength="500" cols="30" rows="10"></textarea>
 
             <h5>What innovation is your enterprise bringing to the local market? (100 words max)</h5>
@@ -135,15 +139,15 @@
 
             <h5>Is the enterprise registered as an entity under the law of Bangladesh?</h5>
             <div class="option">
-                <input type="radio" id="registered_yes" v-model="registered" name="registered" value="Yes" required>
+                <input type="radio" id="registered_yes" v-model="registered" name="registered" value="1" required>
                 <label for="registered_yes">Yes</label>
 
             </div>
             <div class="option">
-                <input type="radio" id="registered_no" v-model="registered" name="registered" value="No">
+                <input type="radio" id="registered_no" v-model="registered" name="registered" value="0">
                 <label for="registered_no">No</label>
             </div>
-            <h5 class="mb">If yes, what is the legal status of your venture?</h5>
+            <h5 class="mt">If yes, what is the legal status of your venture?</h5>
             <div class="option">
                 <input type="radio" id="limited-company" v-model="legalStatus" name="legalStatus" value="For profit/Limited company" required>
                 <label for="limited-company">For profit/Limited company</label>
@@ -158,7 +162,7 @@
             </div>
             <div class="option h-align">
                 <label for="other">Other: </label>
-                <input type="text" id="other" v-model="otherLegalStatus">
+                <input type="text" id="other" v-model="legalStatus">
             </div>
 
             <h5>How does your enterprise make money? (100 words max)</h5>
@@ -205,7 +209,21 @@
             </div>
 
             <h5>Please share any media link where your enterprise has been featured</h5>
-            <input type="url" v-model="mediaLink">
+
+            <!-- <div class="form-group" v-for="(input,k) in media_links" :key="k">
+                <input type="url" class="form-control" v-model="input.name">
+                <span>
+                    <button class="btn btn-remove" @click="remove(k)" v-show="k || ( !k && media_links.length > 1)">Remove</button>
+                    <button class="btn btn-add" @click="add(k)" v-show="k == media_links.length-1">Add</button>
+                </span>
+            </div> -->
+            <div class="media-link-group">
+                <input type="url" v-model="media_link_1" name="media-link" placeholder="link 1" class="mb" required>
+                <input type="url" v-model="media_link_2" name="media-link" placeholder="link 2" class="mb">
+                <input type="url" v-model="media_link_3" name="media-link" placeholder="link 3" class="mb">
+                <input type="url" v-model="media_link_4" name="media-link" placeholder="link 4" class="mb">
+            </div>
+            <span>checkbox list: {{[media_link_1,media_link_2,media_link_3,media_link_4]}}</span>
 
             <h5>Please upload your pitch deck</h5>
             <p class='important-text'>**Your pitch deck will be provided with your full application to the panel of judges. Please make sure your pitch deck has the following components:</p>
@@ -221,7 +239,7 @@
                 <li>Call to Action</li>
                 <li>Team</li>
             </ul>
-            <input type="file">
+            <input type="file" @change='handleFileChange'>
 
             <input type="submit">
 
@@ -238,10 +256,7 @@
             submit: async function () {
             this.show_message = true;
             const body = {
-                records: [
-                {
-                    fields: {
-                    name_of_business: this.enterpriseName,
+                name_of_business: this.enterpriseName,
                     summery_of_experience: this.enterpriseSummary,
                     mission: this.enterpriseMission,
                     vision: this.enterpriseVision,
@@ -258,7 +273,7 @@
                     co_founder_email_two: this.email2,
                     co_founder_mobile_two: this.phone2,
                     co_founder_linkedin_two: this.linkedin2,
-                    reduce_problem: this.reduce.toString(),
+                    reduce_problem: this.reduce_problem.toString(),
                     reduce_problem_process: this.howEnterpriseReduce,
                     is_known_impact_of_work : this.impactMeasure,
                     methodology_of_work: this.methodology,
@@ -270,28 +285,40 @@
                     make_money_plan: this.enterpriseMakeMoney,
                     current_revenue_range: this.revenue,
                     customer_range: this.customers,
-                    media_links: this.mediaLink,
+                    media_links: [this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4],
                     year: '2022',
-                    },
-                },
-                ],
+                    season: 'Spring',
             };
             console.log(body.records);
             const result = await post(
-                'http://yyv.yyventures.org/api/yyg-application-submit-form/create',
+                'https://yyv.yyventures.org/api/yyg-application-submit-form/create',
                 body
             );
             console.log(result);
-            setTimeout(() => {
-                window.location.href = 'https://incubator.yy.ventures/';
-            }, 3000);
+            // setTimeout(() => {
+            //     window.location.href = 'https://incubator.yy.ventures/';
+            // }, 3000);
             },
             getCurrentyear: function(){
                 const date = new Date();
                 const year = date.getFullYear();
 
                 return year;
-            }
+            },
+            handleFileChange: e => {
+                // let file = [];
+                // this.file.push(e.target.files[0]);
+                // let file = e.target.files[0];
+
+                // console.log(file)
+                // return file;
+            },
+            // add(index) {
+            //     this.media_links.push({ name: '' });
+            // },
+            // remove(index) {
+            //     this.media_links.splice(index, 1);
+            // }
         },
         data: () => ({
 
@@ -324,9 +351,15 @@
             make_money_plan: '',
             current_revenue_range: '',
             customer_range: '',
-            media_links: '',
+            media_links: [],
             year: '',
             show_message: false,
+            // file: [],
+            // media_links: [
+            //     {
+            //         name: ''
+            //     }
+            // ]
         }),
     }
 
@@ -370,7 +403,6 @@
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: flex-end;
-                // background-color: #1e87f0;
             }
             .input-container{
                 display: flex;
@@ -379,10 +411,33 @@
                 // background-color: #c7265b;
 
             }
-            .gender-container{
-                margin: 5px 0;
+
+            .form-group{
+                .btn{
+                    padding: 5px 10px;
+                    font-size: 13px;
+                    font-weight: 500;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    margin: 5px 0;
+
+                    &:hover{
+                        filter: brightness(90%);
+                    }
+                }
+                .btn-remove{
+                    background-color: rgba(255, 0, 0, 0.781);
+                }
+                .btn-add{
+                    background-color: rgba(0, 128, 0, 0.781);
+
+                }
             }
             .mb{
+                margin-bottom: 10px;
+            }
+            .mt{
                 margin-top: 10px;                
             }
             .h-align{
