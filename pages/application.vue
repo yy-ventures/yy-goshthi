@@ -42,7 +42,7 @@
                 </div>
                 <div class="option input-container">
                     <input type="text" id="co-founder_1" v-model="cofounderName1" required>
-                    <div class="option">
+                    <div class="gender-container">
                         <input type="radio" id="male1" v-model="gender1" name="gender1" value="Male" required>
                         <label for="male1">Male</label>
                         <input type="radio" id="female1" v-model="gender1" name="gender1" value="Female">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="option input-container">
                     <input type="text" id="co-founder_2" v-model="cofounderName2" required>
-                    <div class="option">
+                    <div class="gender-container">
                         <input type="radio" id="male2" v-model="gender2" name="gender2" value="Male" required>
                         <label for="male2">Male</label>
                         <input type="radio" id="female2" v-model="gender2" name="gender2" value="Female">
@@ -379,6 +379,9 @@
                 // background-color: #c7265b;
 
             }
+            .gender-container{
+                margin: 5px 0;
+            }
             .mb{
                 margin-top: 10px;                
             }
@@ -399,6 +402,7 @@
                 height: 30px;
                 border: none;
                 // border-bottom: 1px solid #3A3B3A;
+                padding: 7px;
                 font-size: 16px;
 
                 &:focus{
@@ -412,6 +416,11 @@
                 font-size: 16px;
                 width: 100%;
                 border: none;
+                padding: 7px;
+            }
+
+            input[type='radio']{
+                margin: 0 3px;
             }
 
             input[type='file']{
@@ -420,6 +429,7 @@
                 width: 100%;
                 border-radius: 5px;
                 margin-bottom: 25px;
+                cursor: pointer;
             }
 
             input[type='submit']{
