@@ -85,19 +85,19 @@
 
             <h5>Does your enterprise work to reduce any of the following:</h5>
             <div class="option">
-                <input type="checkbox" name="reduce" id="carbon-emission" v-model="reduce_problem" value="Carbon emission">
+                <input type="checkbox" name="reduce" id="carbon-emission" v-model="reduceProblem" value="Carbon emission">
                 <label for="carbon-emission">Carbon emission</label>
             </div>
             <div class="option">
-                <input type="checkbox" name="reduce" id="unemployment" v-model="reduce_problem" value="Unemployment">
+                <input type="checkbox" name="reduce" id="unemployment" v-model="reduceProblem" value="Unemployment">
                 <label for="unemployment">Unemployment</label>
             </div>
             <div class="option">
-                <input type="checkbox" name="reduce" id="poverty" v-model="reduce_problem" value="Poverty">
+                <input type="checkbox" name="reduce" id="poverty" v-model="reduceProblem" value="Poverty">
                 <label for="poverty">Poverty</label>
             </div>
             <div class="option">
-                <input type="checkbox" name="reduce" id="none" v-model="reduce_problem" value="None of the above">
+                <input type="checkbox" name="reduce" id="none" v-model="reduceProblem" value="None of the above">
                 <label for="none">None of the above</label>
             </div>
             <br/>
@@ -209,21 +209,12 @@
             </div>
 
             <h5>Please share any media link where your enterprise has been featured</h5>
-
-            <!-- <div class="form-group" v-for="(input,k) in media_links" :key="k">
-                <input type="url" class="form-control" v-model="input.name">
-                <span>
-                    <button class="btn btn-remove" @click="remove(k)" v-show="k || ( !k && media_links.length > 1)">Remove</button>
-                    <button class="btn btn-add" @click="add(k)" v-show="k == media_links.length-1">Add</button>
-                </span>
-            </div> -->
             <div class="media-link-group">
                 <input type="url" v-model="media_link_1" name="media-link" placeholder="link 1" class="mb" required>
                 <input type="url" v-model="media_link_2" name="media-link" placeholder="link 2" class="mb">
                 <input type="url" v-model="media_link_3" name="media-link" placeholder="link 3" class="mb">
                 <input type="url" v-model="media_link_4" name="media-link" placeholder="link 4" class="mb">
             </div>
-            <span>checkbox list: {{[media_link_1,media_link_2,media_link_3,media_link_4]}}</span>
 
             <h5>Please upload your pitch deck</h5>
             <p class='important-text'>**Your pitch deck will be provided with your full application to the panel of judges. Please make sure your pitch deck has the following components:</p>
@@ -239,7 +230,7 @@
                 <li>Call to Action</li>
                 <li>Team</li>
             </ul>
-            <input type="file" @change='handleFileChange'>
+            <input type="file" @change='handleFileUpload'>
 
             <input type="submit">
 
@@ -257,109 +248,97 @@
             this.show_message = true;
             const body = {
                 name_of_business: this.enterpriseName,
-                    summery_of_experience: this.enterpriseSummary,
-                    mission: this.enterpriseMission,
-                    vision: this.enterpriseVision,
-                    enterprise_social_media: this.enterpriseSocialMedia,
-                    enterprise_website: this.enterpriseWebsite,
-                    founder_type: this.team,
-                    co_founder_name_one: this.cofounderName1,
-                    co_founder_gender_one: this.gender1,
-                    co_founder_email_one: this.email1,
-                    co_founder_mobile_one: this.phone1,
-                    co_founder_linkedin_one: this.linkedin1,
-                    co_founder_name_two: this.cofounderName2,
-                    co_founder_gender_two: this.gender2,
-                    co_founder_email_two: this.email2,
-                    co_founder_mobile_two: this.phone2,
-                    co_founder_linkedin_two: this.linkedin2,
-                    reduce_problem: this.reduce_problem.toString(),
-                    reduce_problem_process: this.howEnterpriseReduce,
-                    is_known_impact_of_work : this.impactMeasure,
-                    methodology_of_work: this.methodology,
-                    innovation: this.enterpriseInnovation,
-                    experience_of_innovation: this.enterpriseInnovationMore,
-                    stage_of_ventures: this.stage,
-                    is_registered_under_law: this.registered,
-                    legal_status_ventures: this.legalStatus,
-                    make_money_plan: this.enterpriseMakeMoney,
-                    current_revenue_range: this.revenue,
-                    customer_range: this.customers,
-                    media_links: [this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4],
-                    year: '2022',
-                    season: 'Spring',
+                summery_of_experience: this.enterpriseSummary,
+                mission: this.enterpriseMission,
+                vision: this.enterpriseVision,
+                enterprise_social_media: this.enterpriseSocialMedia,
+                enterprise_website: this.enterpriseWebsite,
+                founder_type: this.team,
+                co_founder_name_one: this.cofounderName1,
+                co_founder_gender_one: this.gender1,
+                co_founder_email_one: this.email1,
+                co_founder_mobile_one: this.phone1,
+                co_founder_linkedin_one: this.linkedin1,
+                co_founder_name_two: this.cofounderName2,
+                co_founder_gender_two: this.gender2,
+                co_founder_email_two: this.email2,
+                co_founder_mobile_two: this.phone2,
+                co_founder_linkedin_two: this.linkedin2,
+                reduce_problem: this.reduceProblem,
+                reduce_problem_process: this.howEnterpriseReduce,
+                is_known_impact_of_work : this.impactMeasure,
+                methodology_of_work: this.methodology,
+                innovation: this.enterpriseInnovation,
+                experience_of_innovation: this.enterpriseInnovationMore,
+                stage_of_ventures: this.stage,
+                is_registered_under_law: this.registered,
+                legal_status_ventures: this.legalStatus,
+                make_money_plan: this.enterpriseMakeMoney,
+                current_revenue_range: this.revenue,
+                customer_range: this.customers,
+                media_links: [this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4].toString(),
+                year: this.year,
+                season: 'Spring',
+                pitch_deck: this.files,
             };
-            console.log(body.records);
+            console.log(body);
             const result = await post(
                 'https://yyv.yyventures.org/api/yyg-application-submit-form/create',
                 body
             );
             console.log(result);
-            // setTimeout(() => {
-            //     window.location.href = 'https://incubator.yy.ventures/';
-            // }, 3000);
+            setTimeout(() => {
+                window.location.href = 'https://incubator.yy.ventures/';
+            }, 3000);
             },
             getCurrentyear: function(){
                 const date = new Date();
                 const year = date.getFullYear();
-
-                return year;
+                this.year = year;
             },
-            handleFileChange: e => {
-                // let file = [];
-                // this.file.push(e.target.files[0]);
-                // let file = e.target.files[0];
-
-                // console.log(file)
-                // return file;
+            handleFileUpload: function(e){
+                let file = e.target.files[0];
+                this.files.push(file)
             },
-            // add(index) {
-            //     this.media_links.push({ name: '' });
-            // },
-            // remove(index) {
-            //     this.media_links.splice(index, 1);
-            // }
         },
         data: () => ({
 
-            name_of_business: '',
-            summery_of_experience: '',
-            mission: '',
-            vision: '',
-            enterprise_social_media: '',
-            enterprise_website: '',
-            founder_type: '',
-            co_founder_name_one: '',
-            co_founder_gender_one: '',
-            co_founder_email_one: '',
-            co_founder_mobile_one: '',
-            co_founder_linkedin_one: '',
-            co_founder_name_two: '',
-            co_founder_gender_two: '',
-            co_founder_email_two: '',
-            co_founder_mobile_two: '',
-            co_founder_linkedin_two: '',
-            reduce_problem: [],
-            reduce_problem_process: '',
-            is_known_impact_of_work : '',
-            methodology_of_work: '',
-            innovation: '',
-            experience_of_innovation: '',
-            stage_of_ventures: '',
-            is_registered_under_law: '',
-            legal_status_ventures: '',
-            make_money_plan: '',
-            current_revenue_range: '',
-            customer_range: '',
-            media_links: [],
+            enterpriseName: '',
+            enterpriseSummary: '',
+            enterpriseMission: '',
+            enterpriseVision: '',
+            enterpriseSocialMedia: '',
+            enterpriseWebsite: '',
+            team: '',
+            cofounderName1: '',
+            gender1: '',
+            email1: '',
+            phone1: '',
+            linkedin1: '',
+            cofounderName2: '',
+            gender2: '',
+            email2: '',
+            phone2: '',
+            linkedin2: '',
+            reduceProblem: [],
+            howEnterpriseReduce: '',
+            impactMeasure : '',
+            methodology: '',
+            enterpriseInnovation: '',
+            enterpriseInnovationMore: '',
+            stage: '',
+            registered: '',
+            legalStatus: '',
+            enterpriseMakeMoney: '',
+            revenue: '',
+            customers: '',
+            media_link_1: '',
+            media_link_2: '',
+            media_link_3: '',
+            media_link_4: '',
             year: '',
+            files: [],
             show_message: false,
-            // file: [],
-            // media_links: [
-            //     {
-            //         name: ''
-            //     }
-            // ]
         }),
     }
 
