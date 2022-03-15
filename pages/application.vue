@@ -240,143 +240,107 @@
 
 <script>
     import { post } from '@/assets/scripts/api';
+    import axios from 'axios'
 
     export default {
-    
-        methods: {        
-            submit: async function () {
-            this.show_message = true;
-            let formData=new FormData();
-            formData.append('name_of_business',this.enterpriseName);
-            formData.append('summery_of_experience',this.enterpriseSummary);
-            formData.append('mission',this.enterpriseMission);
-            formData.append('vision',this.enterpriseVision);
-            formData.append('enterprise_social_media',this.enterpriseSocialMedia);
-            formData.append('enterprise_website',this.enterpriseWebsite);
-            formData.append('founder_type',this.team);
-            formData.append('co_founder_name_one',this.cofounderName1);
-            formData.append('co_founder_gender_one',this.gender1);
-            formData.append('co_founder_email_one',this.email1);
-            formData.append('co_founder_mobile_one',this.phone1);
-            formData.append('co_founder_linkedin_one',this.linkedin1);
-            formData.append('co_founder_name_two',this.cofounderName2);
-            formData.append('co_founder_gender_two',this.gender2);
-            formData.append('co_founder_email_two',this.email2);
-            formData.append('co_founder_mobile_two',this.phone2);
-            formData.append('co_founder_linkedin_two',this.linkedin2);
-            formData.append('reduce_problem',this.reduceProblem.toString());
-            formData.append('reduce_problem_process',this.howEnterpriseReduce);
-            formData.append('is_known_impact_of_work',this.impactMeasure);
-            formData.append('methodology_of_work',this.methodology);
-            formData.append('innovation',this.enterpriseInnovation);
-            formData.append('experience_of_innovation',this.enterpriseInnovationMore);
-            formData.append('stage_of_ventures',this.stage);
-            formData.append('is_registered_under_law',this.registered);
-            formData.append('legal_status_ventures',this.legalStatus);
-            formData.append('current_revenue_range',this.revenue);
-            formData.append('customer_range',this.customers);
-            formData.append('media_links',[this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4].toString());
-            formData.append('year',this.year);
-            formData.append('season',this.season);
-            formData.append('pitch_deck',this.files);
-            // const body = {
-            //     name_of_business: this.enterpriseName,
-            //     summery_of_experience: this.enterpriseSummary,
-            //     mission: this.enterpriseMission,
-            //     vision: this.enterpriseVision,
-            //     enterprise_social_media: this.enterpriseSocialMedia,
-            //     enterprise_website: this.enterpriseWebsite,
-            //     founder_type: this.team,
-            //     co_founder_name_one: this.cofounderName1,
-            //     co_founder_gender_one: this.gender1,
-            //     co_founder_email_one: this.email1,
-            //     co_founder_mobile_one: this.phone1,
-            //     co_founder_linkedin_one: this.linkedin1,
-            //     co_founder_name_two: this.cofounderName2,
-            //     co_founder_gender_two: this.gender2,
-            //     co_founder_email_two: this.email2,
-            //     co_founder_mobile_two: this.phone2,
-            //     co_founder_linkedin_two: this.linkedin2,
-            //     reduce_problem: this.reduceProblem.toString(),
-            //     reduce_problem_process: this.howEnterpriseReduce,
-            //     is_known_impact_of_work : this.impactMeasure,
-            //     methodology_of_work: this.methodology,
-            //     innovation: this.enterpriseInnovation,
-            //     experience_of_innovation: this.enterpriseInnovationMore,
-            //     stage_of_ventures: this.stage,
-            //     is_registered_under_law: this.registered,
-            //     legal_status_ventures: this.legalStatus,
-            //     make_money_plan: this.enterpriseMakeMoney,
-            //     current_revenue_range: this.revenue,
-            //     customer_range: this.customers,
-            //     media_links: [this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4].toString(),
-            //     year: this.year,
-            //     season: 'Spring',
-            //     pitch_deck: this.files,
-            // };
-            console.log(formData);
-            const result = await post(
-                'https://yyv.yyventures.org/api/yyg-application-submit-form/create',
-                formData
-            );
-            // console.log(result);
-            // setTimeout(() => {
-            //     window.location.href = 'https://incubator.yy.ventures/';
-            // }, 3000);
-            },
+        data() {
+    return {
+    enterpriseName: '',
+    enterpriseSummary: '',
+    enterpriseMission: '',
+    enterpriseVision: '',
+    enterpriseSocialMedia: '',
+    enterpriseWebsite: '',
+    team: '',
+    cofounderName1: '',
+    gender1: '',
+    email1: '',
+    phone1: '',
+    linkedin1: '',
+    cofounderName2: '',
+    gender2: '',
+    email2: '',
+    phone2: '',
+    linkedin2: '',
+    reduceProblem: [],
+    howEnterpriseReduce: '',
+    impactMeasure : '',
+    methodology: '',
+    enterpriseInnovation: '',
+    enterpriseInnovationMore: '',
+    stage: '',
+    registered: '',
+    legalStatus: '',
+    enterpriseMakeMoney: '',
+    revenue: '',
+    customers: '',
+    media_link_1: '',
+    media_link_2: '',
+    media_link_3: '',
+    media_link_4: '',
+    year: '',
+    season: 'Spring',
+    files: '',
+    show_message: false,
+    }
+  },
+   
+    methods: {        
+        submit: async function () {
+        const data = new FormData();
+        data.set('name_of_business',this.enterpriseName);
+        data.set('summery_of_experience',this.enterpriseSummary);
+        data.set('mission',this.enterpriseMission);
+        data.set('vision',this.enterpriseVision);
+        data.set('enterprise_social_media',this.enterpriseSocialMedia);
+        data.set('enterprise_website',this.enterpriseWebsite);
+        data.set('founder_type',this.team);
+        data.set('co_founder_name_one',this.cofounderName1);
+        data.set('co_founder_gender_one',this.gender1);
+        data.set('co_founder_email_one',this.email1);
+        data.set('co_founder_mobile_one',this.phone1);
+        data.set('co_founder_linkedin_one',this.linkedin1);
+        data.set('co_founder_name_two',this.cofounderName2);
+        data.set('co_founder_gender_two',this.gender2);
+        data.set('co_founder_email_two',this.email2);
+        data.set('co_founder_mobile_two',this.phone2);
+        data.set('co_founder_linkedin_two',this.linkedin2);
+        data.set('reduce_problem',this.reduceProblem.toString());
+        data.set('reduce_problem_process',this.howEnterpriseReduce);
+        data.set('is_known_impact_of_work',this.impactMeasure);
+        data.set('methodology_of_work',this.methodology);
+        data.set('innovation',this.enterpriseInnovation);
+        data.set('experience_of_innovation',this.enterpriseInnovationMore);
+        data.set('stage_of_ventures',this.stage);
+        data.set('is_registered_under_law',this.registered);
+        data.set('legal_status_ventures',this.legalStatus);
+        data.set('current_revenue_range',this.revenue);
+        data.set('customer_range',this.customers);
+        data.set('media_links',[this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4]);
+        data.set('year',this.year);
+        data.set('season',this.season);
+        data.set('pitch_deck', this.files);
+       
+    axios.post('https://yyv.yyventures.org/api/yyg-application-submit-form/create', data)
+    .then(response => {
+        if (response.status == 200) {
+        this.show_message = true
+        }
+    })
+    .catch(error => {
+        console.log(error)
+    })},
+            
             getCurrentyear: function(){
                 const date = new Date();
                 const year = date.getFullYear();
                 this.year = year;
             },
             handleFileUpload: function(e){
-                console.log('Here');
-                let file = e.target.files[0];
-                this.files=file
-                console.log(this.files)
-                console.log('Here end');
+                this.files = e.target.files[0];
             },
-        },
-        data: () => ({
-
-            enterpriseName: '',
-            enterpriseSummary: '',
-            enterpriseMission: '',
-            enterpriseVision: '',
-            enterpriseSocialMedia: '',
-            enterpriseWebsite: '',
-            team: '',
-            cofounderName1: '',
-            gender1: '',
-            email1: '',
-            phone1: '',
-            linkedin1: '',
-            cofounderName2: '',
-            gender2: '',
-            email2: '',
-            phone2: '',
-            linkedin2: '',
-            reduceProblem: [],
-            howEnterpriseReduce: '',
-            impactMeasure : '',
-            methodology: '',
-            enterpriseInnovation: '',
-            enterpriseInnovationMore: '',
-            stage: '',
-            registered: '',
-            legalStatus: '',
-            enterpriseMakeMoney: '',
-            revenue: '',
-            customers: '',
-            media_link_1: '',
-            media_link_2: '',
-            media_link_3: '',
-            media_link_4: '',
-            year: '',
-            season: 'Spring',
-            files: '',
-            show_message: false,
-        }),
+        }
+       
     }
 
 </script>
