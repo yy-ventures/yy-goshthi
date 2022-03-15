@@ -116,8 +116,8 @@
                     facilitator.style.backgroundPosition = `${-pageY * 0.55 + 4000}px`;
                 }
                 if(mediaQuerySmallMob.matches) {
-                    expert.style.backgroundPosition = `${pageY * 0.55 - 3800}px`;
-                    facilitator.style.backgroundPosition = `${-pageY * 0.55 + 3900}px`;
+                    expert.style.backgroundPosition = `${pageY * 0.55 - 3900}px`;
+                    facilitator.style.backgroundPosition = `${-pageY * 0.55 + 4000}px`;
                 }
                 
             });
@@ -137,6 +137,9 @@
 
         @media screen and (max-width: 600px){
             margin: 40px;
+        }
+        @media screen and (max-width: 480px){
+            margin: 40px 10px;
         }
         
         &__heading-container{

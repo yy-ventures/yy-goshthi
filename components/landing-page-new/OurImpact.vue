@@ -61,8 +61,8 @@
                     impactText.style.backgroundPosition = `${-pageY * 0.7 + 1250}px`;
                 }
                 if(mediaQuerySmallMob.matches) {
-                    our.style.backgroundPosition = `${pageY * 0.7 - 900}px`;
-                    impactText.style.backgroundPosition = `${-pageY * 0.7 + 1100}px`;
+                    our.style.backgroundPosition = `${pageY * 0.7 - 1100}px`;
+                    impactText.style.backgroundPosition = `${-pageY * 0.7 + 1300}px`;
                 }
                 
             });
@@ -105,13 +105,16 @@
             margin: 40px;
             height: 600px;
         }
+        @media screen and (max-width:480px){
+            margin: 40px 10px;
+        }
 
         .layer{
             background-color: rgba(0, 0, 0, 0.6);
             padding: 4rem 6rem;
 
             @media screen and (max-width:600px){
-                padding: 2rem;
+                padding: 2rem 0;
             }
 
             position: absolute;
@@ -235,6 +238,7 @@
                     font-size: 18px;
                     font-weight: 600;
                     white-space: nowrap;
+                    // text-align: center;
 
                     @media screen and (max-width: 600px){
                         font-size: 16px;

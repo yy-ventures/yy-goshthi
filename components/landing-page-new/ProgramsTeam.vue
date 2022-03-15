@@ -8,7 +8,7 @@
             <div class="programs-team__members--member faded_out">
                 <div class="img-container">
                     <div class="mask"></div>
-                    <img src="../../assets/images/landing-new-image/members/sharika.png" alt="image">
+                    <img src="../../assets/images/landing-new-image/members/sharika.webp" alt="image">
                 </div>
                 <div class="content">
                     <div class="content__info">
@@ -21,7 +21,7 @@
             <div class="programs-team__members--member faded_out">
                 <div class="img-container">
                     <div class="mask"></div>
-                    <img src="../../assets/images/landing-new-image/members/mazbah.png" alt="image">
+                    <img src="../../assets/images/landing-new-image/members/mazbah.webp" alt="image">
                 </div>
                 <div class="content">
                     <div class="content__info">
@@ -34,7 +34,7 @@
             <div class="programs-team__members--member faded_out">
                 <div class="img-container">
                     <div class="mask"></div>
-                    <img src="../../assets/images/landing-new-image/members/maisha.png" alt="image">
+                    <img src="../../assets/images/landing-new-image/members/maisha.webp" alt="image">
                 </div>
                 <div class="content">
                     <div class="content__info">
@@ -78,8 +78,8 @@
                     team.style.backgroundPosition = `${-pageY * 0.55 + 6100}px`;
                 }
                 if(mediaQuerySmallMob.matches) {
-                    programs.style.backgroundPosition = `${pageY * 0.55 - 5600}px`;
-                    team.style.backgroundPosition = `${-pageY * 0.55 + 5800}px`;
+                    programs.style.backgroundPosition = `${pageY * 0.55 - 5750}px`;
+                    team.style.backgroundPosition = `${-pageY * 0.55 + 5900}px`;
                 }
                 
             });
@@ -91,7 +91,11 @@
     .programs-team{
         margin: 80px 40px;
         overflow: hidden;
-            background-color: #3A3B3A;
+        background-color: #3A3B3A;
+
+        @media screen and (max-width: 480px){
+            margin: 40px 10px;
+        }
         
         &__heading-container{
             padding: 40px 0;
@@ -304,7 +308,7 @@
             width: max-content;
             white-space: nowrap;
             text-decoration: none;
-            color: #C81750;
+            color: #0b9bbf;
             padding: 5px 15px;
             border: 1px solid white;
             background-color: transparent;
@@ -322,9 +326,15 @@
             &__icon{
                 height: 20px;
 
+                transition: all .2s;
+
                 @media screen and (max-width: 600px){
                     height: 16px;
                 }
+            }
+
+            &:hover .btn__icon{
+                margin-left: 7px;
             }
         }
 

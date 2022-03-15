@@ -26,6 +26,9 @@
         @media screen and (max-width:600px){
             margin: 40px;
         }
+        @media screen and (max-width:480px){
+            margin: 40px 10px;
+        }
 
         &__heading-container{
             text-align: center;
@@ -35,7 +38,6 @@
                 color: transparent !important;
                 -webkit-text-stroke-width: 2px;
                 -webkit-text-stroke-color: #323637;
-
                 @media screen and (max-width:960px){
                     font-size: calc(50px + 2vw);
                 }
@@ -75,6 +77,9 @@
 
                     @media screen and (max-width: 600px){
                         font-size: 40px;
+                    }
+                    @media screen and (max-width: 375px){
+                        font-size: 30px;
                     }
                 }
                 .heading-1{

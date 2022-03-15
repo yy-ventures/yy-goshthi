@@ -168,8 +168,8 @@
                     entrepreneurs.style.backgroundPosition = `${-pageY * 0.55 + 3200}px`;
                 }
                 if(mediaQuerySmallMob.matches) {
-                    born.style.backgroundPosition = `${pageY * 0.55 - 2750}px`;
-                    entrepreneurs.style.backgroundPosition = `${-pageY * 0.55 + 2900}px`;
+                    born.style.backgroundPosition = `${pageY * 0.55 - 2950}px`;
+                    entrepreneurs.style.backgroundPosition = `${-pageY * 0.55 + 3050}px`;
                 }
                 
             });
@@ -224,6 +224,9 @@
 
         @media screen and (max-width:600px){
             margin: 40px;
+        }
+        @media screen and (max-width:480px){
+            margin: 40px 10px;
         }
 
         &__heading-container{

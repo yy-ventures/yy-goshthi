@@ -210,9 +210,6 @@ export default {
 </script>
 
 <style lang="less">
-#home-page{
-  background-color: aqua;
-}
 #program #top_section #texts .p {
   font-size: clamp(18px, 2vw, 21px);
 }

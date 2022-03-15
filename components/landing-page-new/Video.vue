@@ -78,13 +78,13 @@
         grid-gap: 40px;
 
         @media screen and (max-width:600px){
-            margin: 40px;
-        }
-
-        @media screen and (max-width:600px){
             grid-template-columns: [col-start] 1fr [col-end];
             grid-template-rows: [row-start] min-content [row-end];
             grid-gap: 20px;
+            margin: 40px;
+        }
+        @media screen and (max-width:480px){
+            margin: 40px 10px;
         }
 
         &__main-video{

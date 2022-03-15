@@ -16,9 +16,13 @@
     .join{
         text-align: center;
         padding: 20px;
+
         @media screen and (max-width: 600px){
             padding: 0;
             margin: 40px;
+        }
+        @media screen and (max-width: 480px){
+            margin: 40 10pxpx;
         }
         
         .text{
@@ -28,9 +32,6 @@
             margin: 0;
 
             @media screen and (max-width:600px){
-                // display: flex;
-                // justify-content: center;
-                // width: 100%;
                 font-size: calc(35px + 1vw);
             }
             
@@ -41,11 +42,12 @@
             -webkit-text-stroke-color: #323637;
 
             @media screen and (max-width:600px){
-                // margin-left: 0;
+                white-space: pre-wrap;
             }
         }
         .text-lg-space{
             margin-bottom: 50px;
+            white-space: pre-wrap;
 
             @media screen and (max-width:600px){
                 margin-bottom: 50px;
@@ -72,7 +74,7 @@
         .yyg-application{
             font-size: calc(8px + 1vw);
             font-weight: 900;
-            color: #C82159;
+            color: #0b9bbf;
 
             @media screen and (max-width: 600px){
                 font-size: calc(12px + 1vw);

@@ -96,8 +96,8 @@
                     weHelp.style.backgroundPosition = `${-pageY * 0.6 + 1800}px`;
                 }
                 if(mediaQuerySmallMob.matches) {
-                    how.style.backgroundPosition = `${pageY * 0.55 - 1100}px`;
-                    weHelp.style.backgroundPosition = `${-pageY * 0.6 + 1400}px`;
+                    how.style.backgroundPosition = `${pageY * 0.55 - 1200}px`;
+                    weHelp.style.backgroundPosition = `${-pageY * 0.6 + 1500}px`;
                 }
             });
         },
@@ -123,6 +123,9 @@
             grid-template-rows: [row-heading-start] min-content [row-heading-end] repeat(6, [row-start] 300px [row-end]);
 
             margin: 40px;
+        }
+        @media screen and (max-width:480px){
+            margin: 40px 10px;
         }
 
         &__heading-container{

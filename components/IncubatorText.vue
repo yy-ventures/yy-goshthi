@@ -47,7 +47,7 @@
   .text-section-narrow {
     margin: 80px 40px;
     @media @small-down {
-      margin: 60px 30px;
+      margin: 40px 10px;
     }
   }
 
