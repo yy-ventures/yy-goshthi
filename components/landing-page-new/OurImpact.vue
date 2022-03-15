@@ -42,6 +42,7 @@
         mounted() {
             window.addEventListener('scroll', function(){
                 let pageY = window.pageYOffset;
+                const mediaQueryLargeDesktop = window.matchMedia('(max-width: 1920px)');
                 const mediaQueryTab = window.matchMedia('(max-width: 960px)');
                 const mediaQueryMob = window.matchMedia('(max-width: 600px)');
                 const mediaQuerySmallMob = window.matchMedia('(max-width: 480px)');
@@ -52,6 +53,10 @@
                 our.style.backgroundPosition = `${pageY * 0.7 - 700}px`;
                 impactText.style.backgroundPosition = `${-pageY * 0.55 + 1300}px`;
 
+                if(mediaQueryLargeDesktop.matches) {
+                    our.style.backgroundPosition = `${pageY * 0.7 - 700}px`;
+                    impactText.style.backgroundPosition = `${-pageY * 0.7 + 1900}px`;
+                }
                 if(mediaQueryTab.matches) {
                     our.style.backgroundPosition = `${pageY * 0.7 - 800}px`;
                     impactText.style.backgroundPosition = `${-pageY * 0.7 + 1250}px`;
@@ -137,6 +142,10 @@
                 background-repeat: no-repeat;
                 background-size: contain;
                 height: 100px;
+
+                @media screen and (max-width: 1920px){
+                    height: 130px;
+                }
 
                 @media screen and (max-width: 600px){
                     height: 70px;

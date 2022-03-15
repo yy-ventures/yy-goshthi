@@ -98,6 +98,10 @@
             align-items: center;
             justify-content: center;
 
+            @media screen and (max-width: 1920px){
+                
+            }
+
             @media screen and (max-width:600px){
                 grid-column: col-start / col-end;
                 grid-row: row-start 1 / row-end 1;

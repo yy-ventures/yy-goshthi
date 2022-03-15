@@ -36,6 +36,7 @@ nav
 
   position: fixed
   width: 100%
+  max-width: 1920px
   z-index: 99
 
   transition: transform 500ms ease-in-out

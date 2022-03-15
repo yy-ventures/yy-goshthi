@@ -89,6 +89,10 @@
                 .heading-2{
                     margin-bottom: 110px;
 
+                    @media screen and (max-width: 1920px){
+                        margin-bottom: 40px;
+                    }
+
                     @media screen and (max-width: 600px){
                         margin-bottom: 40px;
                     }

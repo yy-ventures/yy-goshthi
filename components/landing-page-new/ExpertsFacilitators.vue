@@ -97,6 +97,7 @@
         mounted() {
             window.addEventListener('scroll', function(){
                 let pageY = window.pageYOffset;
+                const mediaQueryLargeDesktop = window.matchMedia('(max-width: 1920px)');
                 const mediaQueryTab = window.matchMedia('(max-width: 960px)');
                 const mediaQueryMob = window.matchMedia('(max-width: 600px)');
                 const mediaQuerySmallMob = window.matchMedia('(max-width: 480px)');
@@ -107,6 +108,10 @@
                 expert.style.backgroundPosition = `${pageY * 0.55 - 3500}px`;
                 facilitator.style.backgroundPosition = `${-pageY * 0.55 + 4200}px`;
 
+                if(mediaQueryLargeDesktop.matches) {
+                    expert.style.backgroundPosition = `${pageY * 0.55 - 3500}px`;
+                    facilitator.style.backgroundPosition = `${-pageY * 0.55 + 4550}px`;
+                }
                 if(mediaQueryTab.matches) {
                     expert.style.backgroundPosition = `${pageY * 0.55 - 3900}px`;
                     facilitator.style.backgroundPosition = `${-pageY * 0.55 + 4200}px`;
@@ -151,6 +156,10 @@
                 background-repeat: no-repeat;
                 background-size: contain;
                 height: 110px;
+
+                @media screen and (max-width: 1920px){
+                    height: 135px;
+                }
 
                 @media screen and (max-width: 600px){
                     height: 90px;
@@ -204,6 +213,10 @@
                     height: 400px;
                     overflow: hidden;
                     position: relative;
+
+                    @media screen and (max-width: 1920px){
+                        height: 650px;
+                    }
 
                     @media screen and (max-width: 960px){
                         height: 300px;

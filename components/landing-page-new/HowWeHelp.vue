@@ -77,6 +77,7 @@
 
             window.addEventListener('scroll', function(){
                 let pageY = window.pageYOffset;
+                const mediaQueryLargeDesktop = window.matchMedia('(max-width: 1920px)');
                 const mediaQueryTab = window.matchMedia('(max-width: 960px)');
                 const mediaQueryMob = window.matchMedia('(max-width: 600px)');
                 const mediaQuerySmallMob = window.matchMedia('(max-width: 480px)');
@@ -87,6 +88,10 @@
                 how.style.backgroundPosition = `${pageY * 0.55 - 900}px`;
                 weHelp.style.backgroundPosition = `${-pageY * 0.55 + 1800}px`;
 
+                if(mediaQueryLargeDesktop.matches) {
+                    how.style.backgroundPosition = `${pageY * 0.55 - 900}px`;
+                    weHelp.style.backgroundPosition = `${-pageY * 0.6 + 2200}px`;
+                }
                 if(mediaQueryTab.matches) {
                     how.style.backgroundPosition = `${pageY * 0.55 - 1250}px`;
                     weHelp.style.backgroundPosition = `${-pageY * 0.6 + 2000}px`;
@@ -144,6 +149,10 @@
                 background-repeat: no-repeat;
                 background-size: contain;
                 height: 80px;
+
+                @media screen and (max-width: 1920px){
+                    height: 100px;
+                }
 
                 @media screen and (max-width: 600px){
                     height: 70px;

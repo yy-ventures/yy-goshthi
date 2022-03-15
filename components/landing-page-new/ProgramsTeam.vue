@@ -59,6 +59,7 @@
         mounted() {
             window.addEventListener('scroll', function(){
                 let pageY = window.pageYOffset;
+                const mediaQueryLargeDesktop = window.matchMedia('(max-width: 1920px)');
                 const mediaQueryTab = window.matchMedia('(max-width: 960px)');
                 const mediaQueryMob = window.matchMedia('(max-width: 600px)');
                 const mediaQuerySmallMob = window.matchMedia('(max-width: 480px)');
@@ -69,6 +70,10 @@
                 programs.style.backgroundPosition = `${pageY * 0.55 - 4300}px`;
                 team.style.backgroundPosition = `${-pageY * 0.55 + 5100}px`;
 
+                if(mediaQueryLargeDesktop.matches) {
+                    programs.style.backgroundPosition = `${pageY * 0.55 - 4500}px`;
+                    team.style.backgroundPosition = `${-pageY * 0.55 + 5800}px`;
+                }
                 if(mediaQueryTab.matches) {
                     programs.style.backgroundPosition = `${pageY * 0.55 - 4500}px`;
                     team.style.backgroundPosition = `${-pageY * 0.55 + 5000}px`;
@@ -108,6 +113,10 @@
                 background-repeat: no-repeat;
                 background-size: contain;
                 height: 110px;
+
+                @media screen and (max-width: 1920px){
+                    height: 130px;
+                }
 
                 @media screen and (max-width: 600px){
                     height: 90px;
@@ -161,6 +170,10 @@
                     height: 400px;
                     overflow: hidden;
                     position: relative;
+
+                    @media screen and (max-width: 1920px){
+                        height: 650px;
+                    }
 
                     @media screen and (max-width: 960px){
                         height: 300px;

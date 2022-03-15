@@ -149,6 +149,7 @@
         mounted() {
             window.addEventListener('scroll', function(){
                 let pageY = window.pageYOffset;
+                const mediaQueryLargeDesktop = window.matchMedia('(max-width: 1920px)');
                 const mediaQueryTab = window.matchMedia('(max-width: 960px)');
                 const mediaQueryMob = window.matchMedia('(max-width: 600px)');
                 const mediaQuerySmallMob = window.matchMedia('(max-width: 480px)');
@@ -159,6 +160,10 @@
                 born.style.backgroundPosition = `${pageY * 0.55 - 2600}px`;
                 entrepreneurs.style.backgroundPosition = `${-pageY * 0.55 + 3500}px`;
 
+                if(mediaQueryLargeDesktop.matches) {
+                    born.style.backgroundPosition = `${pageY * 0.55 - 2550}px`;
+                    entrepreneurs.style.backgroundPosition = `${-pageY * 0.55 + 4000}px`;
+                }
                 if(mediaQueryTab.matches) {
                     born.style.backgroundPosition = `${pageY * 0.55 - 3050}px`;
                     entrepreneurs.style.backgroundPosition = `${-pageY * 0.55 + 3500}px`;
@@ -237,7 +242,9 @@
                 background-repeat: no-repeat;
                 background-size: contain;
                 height: 80px;
-
+                @media screen and (max-width: 2200px){
+                    height: 100px;
+                }
                 @media screen and (max-width: 600px){
                     height: 60px;
                 }
@@ -280,7 +287,13 @@
                 &--image{
                     grid-column: col-start 1 / col-end 1;
 
+                    background-color: aqua;
+
                     height: 450px;
+
+                    @media screen and (max-width: 1920px){
+                        height: 600px;
+                    }
 
                     @media screen and (max-width:600px){
                         grid-column: col-start / col-end;
@@ -296,6 +309,10 @@
                     .img{
                         height: 100%;
                         object-fit: cover;
+
+                        @media screen and (max-width: 1920px){
+                            width: 100%;
+                        }
                     }
 
                 }
