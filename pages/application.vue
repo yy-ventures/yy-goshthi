@@ -100,8 +100,7 @@
                 <input type="checkbox" name="reduce" id="none" v-model="reduceProblem" value="None of the above">
                 <label for="none">None of the above</label>
             </div>
-            <br/>
-            <br/>
+            
             <h5>If yes, how is your enterprise reducing carbon emission, creating jobs or fighting poverty? (100 words max)</h5>
             <textarea name="reducing" v-model="howEnterpriseReduce" maxlength="500" cols="30" rows="10"></textarea>
         
@@ -230,7 +229,7 @@
                 <li>Call to Action</li>
                 <li>Team</li>
             </ul>
-            <input type="file" @change='handleFileUpload'>
+            <input type="file" @change='handleFileUpload' name="pitch_deck">
 
             <input type="submit">
 
@@ -243,53 +242,87 @@
     import { post } from '@/assets/scripts/api';
 
     export default {
-        methods: {
+    
+        methods: {        
             submit: async function () {
             this.show_message = true;
-            const body = {
-                name_of_business: this.enterpriseName,
-                summery_of_experience: this.enterpriseSummary,
-                mission: this.enterpriseMission,
-                vision: this.enterpriseVision,
-                enterprise_social_media: this.enterpriseSocialMedia,
-                enterprise_website: this.enterpriseWebsite,
-                founder_type: this.team,
-                co_founder_name_one: this.cofounderName1,
-                co_founder_gender_one: this.gender1,
-                co_founder_email_one: this.email1,
-                co_founder_mobile_one: this.phone1,
-                co_founder_linkedin_one: this.linkedin1,
-                co_founder_name_two: this.cofounderName2,
-                co_founder_gender_two: this.gender2,
-                co_founder_email_two: this.email2,
-                co_founder_mobile_two: this.phone2,
-                co_founder_linkedin_two: this.linkedin2,
-                reduce_problem: this.reduceProblem,
-                reduce_problem_process: this.howEnterpriseReduce,
-                is_known_impact_of_work : this.impactMeasure,
-                methodology_of_work: this.methodology,
-                innovation: this.enterpriseInnovation,
-                experience_of_innovation: this.enterpriseInnovationMore,
-                stage_of_ventures: this.stage,
-                is_registered_under_law: this.registered,
-                legal_status_ventures: this.legalStatus,
-                make_money_plan: this.enterpriseMakeMoney,
-                current_revenue_range: this.revenue,
-                customer_range: this.customers,
-                media_links: [this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4].toString(),
-                year: this.year,
-                season: 'Spring',
-                pitch_deck: this.files,
-            };
-            console.log(body);
+            let formData=new FormData();
+            formData.append('name_of_business',this.enterpriseName);
+            formData.append('summery_of_experience',this.enterpriseSummary);
+            formData.append('mission',this.enterpriseMission);
+            formData.append('vision',this.enterpriseVision);
+            formData.append('enterprise_social_media',this.enterpriseSocialMedia);
+            formData.append('enterprise_website',this.enterpriseWebsite);
+            formData.append('founder_type',this.team);
+            formData.append('co_founder_name_one',this.cofounderName1);
+            formData.append('co_founder_gender_one',this.gender1);
+            formData.append('co_founder_email_one',this.email1);
+            formData.append('co_founder_mobile_one',this.phone1);
+            formData.append('co_founder_linkedin_one',this.linkedin1);
+            formData.append('co_founder_name_two',this.cofounderName2);
+            formData.append('co_founder_gender_two',this.gender2);
+            formData.append('co_founder_email_two',this.email2);
+            formData.append('co_founder_mobile_two',this.phone2);
+            formData.append('co_founder_linkedin_two',this.linkedin2);
+            formData.append('reduce_problem',this.reduceProblem.toString());
+            formData.append('reduce_problem_process',this.howEnterpriseReduce);
+            formData.append('is_known_impact_of_work',this.impactMeasure);
+            formData.append('methodology_of_work',this.methodology);
+            formData.append('innovation',this.enterpriseInnovation);
+            formData.append('experience_of_innovation',this.enterpriseInnovationMore);
+            formData.append('stage_of_ventures',this.stage);
+            formData.append('is_registered_under_law',this.registered);
+            formData.append('legal_status_ventures',this.legalStatus);
+            formData.append('current_revenue_range',this.revenue);
+            formData.append('customer_range',this.customers);
+            formData.append('media_links',[this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4].toString());
+            formData.append('year',this.year);
+            formData.append('season',this.season);
+            formData.append('pitch_deck',this.files);
+            // const body = {
+            //     name_of_business: this.enterpriseName,
+            //     summery_of_experience: this.enterpriseSummary,
+            //     mission: this.enterpriseMission,
+            //     vision: this.enterpriseVision,
+            //     enterprise_social_media: this.enterpriseSocialMedia,
+            //     enterprise_website: this.enterpriseWebsite,
+            //     founder_type: this.team,
+            //     co_founder_name_one: this.cofounderName1,
+            //     co_founder_gender_one: this.gender1,
+            //     co_founder_email_one: this.email1,
+            //     co_founder_mobile_one: this.phone1,
+            //     co_founder_linkedin_one: this.linkedin1,
+            //     co_founder_name_two: this.cofounderName2,
+            //     co_founder_gender_two: this.gender2,
+            //     co_founder_email_two: this.email2,
+            //     co_founder_mobile_two: this.phone2,
+            //     co_founder_linkedin_two: this.linkedin2,
+            //     reduce_problem: this.reduceProblem.toString(),
+            //     reduce_problem_process: this.howEnterpriseReduce,
+            //     is_known_impact_of_work : this.impactMeasure,
+            //     methodology_of_work: this.methodology,
+            //     innovation: this.enterpriseInnovation,
+            //     experience_of_innovation: this.enterpriseInnovationMore,
+            //     stage_of_ventures: this.stage,
+            //     is_registered_under_law: this.registered,
+            //     legal_status_ventures: this.legalStatus,
+            //     make_money_plan: this.enterpriseMakeMoney,
+            //     current_revenue_range: this.revenue,
+            //     customer_range: this.customers,
+            //     media_links: [this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4].toString(),
+            //     year: this.year,
+            //     season: 'Spring',
+            //     pitch_deck: this.files,
+            // };
+            console.log(formData);
             const result = await post(
                 'https://yyv.yyventures.org/api/yyg-application-submit-form/create',
-                body
+                formData
             );
-            console.log(result);
-            setTimeout(() => {
-                window.location.href = 'https://incubator.yy.ventures/';
-            }, 3000);
+            // console.log(result);
+            // setTimeout(() => {
+            //     window.location.href = 'https://incubator.yy.ventures/';
+            // }, 3000);
             },
             getCurrentyear: function(){
                 const date = new Date();
@@ -297,8 +330,11 @@
                 this.year = year;
             },
             handleFileUpload: function(e){
+                console.log('Here');
                 let file = e.target.files[0];
-                this.files.push(file)
+                this.files=file
+                console.log(this.files)
+                console.log('Here end');
             },
         },
         data: () => ({
@@ -337,7 +373,8 @@
             media_link_3: '',
             media_link_4: '',
             year: '',
-            files: [],
+            season: 'Spring',
+            files: '',
             show_message: false,
         }),
     }
