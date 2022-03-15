@@ -77,7 +77,7 @@
 
             window.addEventListener('scroll', function(){
                 let pageY = window.pageYOffset;
-                const mediaQueryLargeDesktop = window.matchMedia('(max-width: 1920px)');
+                const mediaQueryLargeDesktop = window.matchMedia('(min-width: 1920px)');
                 const mediaQueryTab = window.matchMedia('(max-width: 960px)');
                 const mediaQueryMob = window.matchMedia('(max-width: 600px)');
                 const mediaQuerySmallMob = window.matchMedia('(max-width: 480px)');
@@ -150,15 +150,15 @@
                 background-size: contain;
                 height: 80px;
 
-                @media screen and (max-width: 1920px){
-                    height: 100px;
-                }
 
                 @media screen and (max-width: 600px){
                     height: 70px;
                 }
                 @media screen and (max-width: 480px){
                     height: 50px;
+                }
+                @media screen and (min-width: 1920px){
+                    height: 100px;
                 }
             }
             #how{
