@@ -157,41 +157,6 @@ export default {
       ['.highlight']: 'scale',
     });
 
-    // TEST
-
-    // window.addEventListener('scroll', function(){
-    //             let pageY = window.pageYOffset;
-    //             const mediaQueryTab = window.matchMedia('(max-width: 960px)');
-    //             const mediaQueryMob = window.matchMedia('(max-width: 600px)');
-    //             const mediaQuerySmallMob = window.matchMedia('(max-width: 480px)');
-
-    //             let born = document.querySelector('#born');
-    //             let entrepreneurs = document.querySelector('#entrepreneurs');
-
-    //             born.style.backgroundPosition = `${pageY * 0.55 - 3000}px`;
-    //             entrepreneurs.style.backgroundPosition = `${-pageY * 0.55 + 3800}px`;
-
-    //             if(mediaQueryTab.matches) {
-    //                 born.style.backgroundPosition = `${pageY * 0.55 - 3050}px`;
-    //                 entrepreneurs.style.backgroundPosition = `${-pageY * 0.55 + 3500}px`;
-    //             }
-    //             if(mediaQueryMob.matches) {
-    //                 born.style.backgroundPosition = `${pageY * 0.55 - 3300}px`;
-    //                 entrepreneurs.style.backgroundPosition = `${-pageY * 0.55 + 3500}px`;
-    //             }
-    //             if(mediaQuerySmallMob.matches) {
-    //                 born.style.backgroundPosition = `${pageY * 0.55 - 3150}px`;
-    //                 entrepreneurs.style.backgroundPosition = `${-pageY * 0.55 + 3350}px`;
-    //             }
-                
-    //         });
-
-    // run_function_on_focus({
-    //   ['.highlight']: (dom) => {
-    //     console.log(dom)
-    //   },
-    // });
-
     typewriter(
       ['Incubating Change', 'Building Social Businesses', 'Improving Lives'],
       100,
