@@ -47,13 +47,15 @@
                     <h5 class="no-margin">Enterprise Social Media Handle</h5>
                 </div>
                 <div class="enterprise-social-media-field">
-                    <input type="url" v-model="enterpriseSocialMedia">
+                    <input type="text" v-model="enterpriseSocialMedia" id="enterpriseSocialMedia">
+                    <small>error message</small>
                 </div>
                 <div class="enterprise-website">
                     <h5 class="no-margin">Enterprise Website</h5>
                 </div>
                 <div class="enterprise-website-field">
-                    <input type="url" v-model="enterpriseWebsite">
+                    <input type="text" v-model="enterpriseWebsite" id="enterpriseWebsite">
+                    <small>error message</small>
                 </div>
             </div>
 
@@ -159,7 +161,7 @@
                             <label for="email2">Email:</label>
                         </div>
                         <div class="co-founder__email-field">
-                            <input type="email" v-model="email2" name="email2" id="email2">
+                            <input type="text" v-model="email2" name="email2" id="email2">
                             <small>error message</small>
                         </div>
                         <div class="co-founder__phone">
@@ -183,59 +185,74 @@
 
 
             <h5 class="required">Does your enterprise work to reduce any of the following:</h5>
-            <div class="checkbox-option">
-                <input type="checkbox" name="reduce" id="carbon-emission" class="reduce" v-model="reduceProblem" value="Carbon emission">
-                <label for="carbon-emission">Carbon emission</label>
-                <small>error message</small>
-            </div>
-            <div class="checkbox-option">
-                <input type="checkbox" name="reduce" id="unemployment" class="reduce" v-model="reduceProblem" value="Unemployment">
-                <label for="unemployment">Unemployment</label>
-            </div>
-            <div class="checkbox-option">
-                <input type="checkbox" name="reduce" id="poverty" class="reduce" v-model="reduceProblem" value="Poverty">
-                <label for="poverty">Poverty</label>
-            </div>
-            <div class="checkbox-option">
-                <input type="checkbox" name="reduce" id="none" class="reduce" v-model="reduceProblem" value="None of the above">
-                <label for="none">None of the above</label>
+            <div id="reduceProblems">
+                <div class="checkbox-option">
+                    <input type="checkbox" name="reduce" id="carbon-emission" class="reduce" v-model="reduceProblem" value="Carbon emission">
+                    <label for="carbon-emission">Carbon emission</label>
+                    <small>error message</small>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" name="reduce" id="unemployment" class="reduce" v-model="reduceProblem" value="Unemployment">
+                    <label for="unemployment">Unemployment</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" name="reduce" id="poverty" class="reduce" v-model="reduceProblem" value="Poverty">
+                    <label for="poverty">Poverty</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" name="reduce" id="none" class="reduce" v-model="reduceProblem" value="None of the above">
+                    <label for="none">None of the above</label>
+                </div>
             </div>
             
             <h5>If yes, how is your enterprise reducing carbon emission, creating jobs or fighting poverty? <span class="limit">(100 words max)</span></h5>
-            <textarea name="reducing" v-model="howEnterpriseReduce" maxlength="500" cols="30" rows="8"></textarea>
+            <div class="box">
+                <textarea name="reducing" id="howEnterpriseReduce" v-model="howEnterpriseReduce" maxlength="500" cols="30" rows="8"></textarea>
+                <small>error message</small>
+
+            </div>
         
             <h5 class="required">Do you know how to measure the impact of your work?</h5>
             <div class="box">
                 <div class="option">
-                    <input type="radio" id="measure_yes" v-model="impactMeasure" name="measure" value="1">
+                    <input type="radio" id="measure_yes" class="measure" v-model="impactMeasure" name="measure" value="1">
                     <label for="measure_yes">Yes</label>
+                    <small>error message</small>
                 </div>
                 <div class="option">
-                    <input type="radio" id="measure_no" v-model="impactMeasure" name="measure" value="0">
+                    <input type="radio" id="measure_no" class="measure" v-model="impactMeasure" name="measure" value="0">
                     <label for="measure_no">No</label>
                 </div>
             </div>
+
             <h5>If yes, please tell us what methodology you use. <span class="limit">(100 words max)</span></h5>
             <textarea v-model="methodology" maxlength="500" cols="30" rows="8"></textarea>
 
             <h5 class="required">What innovation is your enterprise bringing to the local market? <span class="limit">(100 words max)</span></h5>
-            <textarea v-model="enterpriseInnovation" maxlength="500" cols="30" rows="8"></textarea>
+            <div class="innovation-field">
+                <textarea id="enterpriseInnovation" v-model="enterpriseInnovation" maxlength="500" cols="30" rows="8"></textarea>
+                <small>error message</small>
+            </div>
 
             <h5 class="required">We respect and welcome both product and process innovation offered by enterprises and we would love to know more about your enterprise’s innovation. <span class="limit">(100 words max)</span></h5>
-            <textarea v-model="enterpriseInnovationMore" maxlength="500" cols="30" rows="8"></textarea>
+            <div class="innovation-field">
+                <textarea id="enterpriseInnovationMore" v-model="enterpriseInnovationMore" maxlength="500" cols="30" rows="8"></textarea>
+                <small>error message</small>
+            </div>
 
             <h5 class="required">What is the stage of your venture?</h5>
-            <div class="box">
+            <div class="venture">
                 <div class="option">
-                    <input type="radio" id="idea_stage" v-model="stage" name="stage" value="Idea Stage">
+                    <input type="radio" class="stage-venture" id="idea_stage" v-model="stage" name="stage" value="Idea Stage">
                     <label for="idea_stage">Idea Stage</label>
+                    <small>error message</small>
                 </div>
                 <div class="option">
-                    <input type="radio" id="pilot_stage" v-model="stage" name="stage" value="Feasibility/Prototype/Pilot Stage">
+                    <input type="radio" class="stage-venture" id="pilot_stage" v-model="stage" name="stage" value="Feasibility/Prototype/Pilot Stage">
                     <label for="pilot_stage">Feasibility/Prototype/Pilot Stage</label>
                 </div>
                 <div class="option">
-                    <input type="radio" id="growth_stage" v-model="stage" name="stage" value="Growth Stage">
+                    <input type="radio" class="stage-venture" id="growth_stage" v-model="stage" name="stage" value="Growth Stage">
                     <label for="growth_stage">Growth Stage</label>
                 </div>
             </div>
@@ -483,6 +500,8 @@
                 const enterpriseSummary = document.querySelector('#enterpriseSummary');
                 const enterpriseMission = document.querySelector('#enterpriseMission');
                 const enterpriseVision = document.querySelector('#enterpriseVision');
+                const enterpriseSocialMedia = document.querySelector('#enterpriseSocialMedia');
+                const enterpriseWebsite = document.querySelector('#enterpriseWebsite');
                 const team = document.querySelector('#team');
                 const cofounderName1 = document.querySelector('#co-founder_1');
                 const gender1 = document.querySelector('.gender1');
@@ -495,122 +514,176 @@
                 const phone2 = document.querySelector('#tel2');
                 const linkedin2 = document.querySelector('#linkedin2');
                 const reduceProblem = document.querySelector('.reduce');
+                const impactMeasure = document.querySelector('.measure');
+                const enterpriseInnovation = document.querySelector('#enterpriseInnovation');
+                const enterpriseInnovationMore = document.querySelector('#enterpriseInnovationMore');
+                const stageVenture = document.querySelector('.stage-venture');
 
 
                 let error = false;
                 if(this.enterpriseName === ''){
-                    this.setErrorFor(enterpriseName, 'Enterprise name cannot be blank')
+                    this.setErrorFor(enterpriseName, 'Enterprise name cannot be empty')
                     error = true;
                     
                 }else{
                     this.setSuccessFor(enterpriseName)
                 }
                 if(this.enterpriseSummary === ''){
-                    this.setErrorFor(enterpriseSummary, 'Enterprise summary cannot be blank')
+                    this.setErrorFor(enterpriseSummary, 'Enterprise summary cannot be empty')
                     error = true
                     
                 }else{
                     this.setSuccessFor(enterpriseSummary)
                 }
                 if(this.enterpriseMission === ''){
-                    this.setErrorFor(enterpriseMission, 'Enterprise mission cannot be blank')
+                    this.setErrorFor(enterpriseMission, 'Enterprise mission cannot be empty')
                     error = true
                     
                 }else{
                     this.setSuccessFor(enterpriseMission)
                 }
                 if(this.enterpriseVision === ''){
-                    this.setErrorFor(enterpriseVision, 'Enterprise vision cannot be blank')
+                    this.setErrorFor(enterpriseVision, 'Enterprise vision cannot be empty')
                     error = true
                     
                 }else{
                     this.setSuccessFor(enterpriseVision)
                 }
-                if(this.team === ''){
-                    this.setErrorFor(team, 'Choose option')
+                console.log(this.enterpriseSocialMedia)
+                if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseSocialMedia)){
+                    this.setErrorFor(enterpriseSocialMedia, 'Should be an URL')
                     error = true
-                    
+                    console.log(this.enterpriseSocialMedia)              
+                }else{
+                    this.setSuccessFor(enterpriseSocialMedia)
+                }
+                if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseWebsite)){
+                    this.setErrorFor(enterpriseWebsite, 'Should be an URL')
+                    error = true                    
+                }else{
+                    this.setSuccessFor(enterpriseWebsite)
+                }
+
+                if(this.team === ''){
+                    this.setErrorFor(team, 'Choose any option')
+                    error = true                    
                 }else{
                     this.setSuccessFor(team)
                 }
-                if(this.team === ''){
-                    this.setErrorFor(cofounderName1, 'Co-founder name cannot be blank')
+
+                if(this.cofounderName1 === ''){
+                    this.setErrorFor(cofounderName1, 'Co-founder name cannot be empty')
                     error = true
                     
                 }else{
                     this.setSuccessFor(cofounderName1)
                 }
-                if(this.team === ''){
+                if(this.gender1 === ''){
                     this.setErrorFor(gender1, 'Choose option')
                     error = true
                     
                 }else{
                     this.setSuccessFor(gender1)
                 }
-                if(this.team === ''){
-                    this.setErrorFor(email1, 'email cannot be blank')
+                if(this.email1 === ''){
+                    this.setErrorFor(email1, 'email cannot be empty')
                     error = true
                 } else if (!isEmail(email1)) {
 		            setErrorFor(email1, 'Not a valid email');
                 }else{
                     this.setSuccessFor(email1)
                 }
-                if(this.team === ''){
-                    this.setErrorFor(phone1, 'Phone number cannot be blank')
+                if(this.phone1 === ''){
+                    this.setErrorFor(phone1, 'Phone number cannot be empty')
                     error = true
                     
                 }else{
                     this.setSuccessFor(phone1)
                 }
-                if(this.team === ''){
-                    this.setErrorFor(linkedin1, 'link cannot be blank')
+                if(this.linkedin1 === ''){
+                    this.setErrorFor(linkedin1, 'link cannot be empty')
                     error = true
                     
                 }else{
                     this.setSuccessFor(linkedin1)
                 }
-                if(this.team === ''){
-                    this.setErrorFor(cofounderName2, 'Co-founder name cannot be blank')
+                if(this.cofounderName2 === ''){
+                    this.setErrorFor(cofounderName2, 'Co-founder name cannot be empty')
                     error = true
                     
                 }else{
                     this.setSuccessFor(cofounderName2)
                 }
-                if(this.team === ''){
+                
+                if(this.gender2 === ''){
                     this.setErrorFor(gender2, 'Choose option')
                     error = true
                     
                 }else{
                     this.setSuccessFor(gender2)
                 }
-                if(this.team === ''){
-                    this.setErrorFor(email2, 'email cannot be blank')
+                if(this.email2 === ''){
+                    this.setErrorFor(email2, 'email cannot be empty')
                     error = true
-                } else if (!isEmail(email2)) {
-		            setErrorFor(email2, 'Not a valid email');
+                } else if (!/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(this.email2)) {
+                    this.setErrorFor(email2, 'Not a valid email');
+                    error = true
                 }else{
                     this.setSuccessFor(email2)
+
                 }
-                if(this.team === ''){
-                    this.setErrorFor(phone2, 'Phone number cannot be blank')
+                if(this.phone2 === ''){
+                    this.setErrorFor(phone2, 'Phone number cannot be empty')
                     error = true
                     
-                }else{
+                }else if(!/[0-9]+/.test(this.phone2)){
+                    this.setErrorFor(phone2, 'invalid number')
+                    error = true
+                }
+                else{
                     this.setSuccessFor(phone2)
                 }
-                if(this.team === ''){
-                    this.setErrorFor(linkedin2, 'link cannot be blank')
-                    error = true
-                    
+
+                if(this.linkedin2 === ''){
+                    this.setErrorFor(linkedin2, 'link cannot be empty')
+                    error = true                    
                 }else{
                     this.setSuccessFor(linkedin2)
                 }
-                if(this.team === ''){
-                    this.setErrorFor(reduceProblem, 'Choose option')
-                    error = true
-                    
+
+                if(this.reduceProblem.length <= 0){
+                    this.setErrorReduceProblem('Choose option')
+                    error = true                    
                 }else{
                     this.setSuccessFor(reduceProblem)
+                }
+
+                if(this.impactMeasure === ''){
+                    this.setErrorFor(impactMeasure, 'Choose any option')
+                    error = true                    
+                }else{
+                    this.setSuccessFor(impactMeasure)
+                }
+
+                if(this.enterpriseInnovation === ''){
+                    this.setErrorFor(enterpriseInnovation, 'field cannot be empty')
+                    error = true                    
+                }else{
+                    this.setSuccessFor(enterpriseInnovation)
+                }
+
+                if(this.enterpriseInnovationMore === ''){
+                    this.setErrorFor(enterpriseInnovationMore, 'field cannot be empty')
+                    error = true                    
+                }else{
+                    this.setSuccessFor(enterpriseInnovationMore)
+                }
+
+                if(this.stageVenture === ''){
+                    this.setErrorFor(stageVenture, 'Choose any option')
+                    error = true                    
+                }else{
+                    this.setSuccessFor(stageVenture)
                 }
                 return !error
             },
@@ -621,11 +694,25 @@
                 formControl.className = 'form-control error';
                 small.innerText = message;
             },
-            setSuccessFor: function (input, message) {
+            setSuccessFor: function (input) {
                 const formControl = input.parentElement;
                 const small =  formControl.querySelector('small');
 
                 formControl.className = 'form-control success';
+                small.innerText = '';
+            },
+            setErrorReduceProblem: function(message){
+                const formControl = document.querySelector('#reduceProblems');
+                const small =  formControl.querySelector('small');
+
+                formControl.className = 'form-control error';
+                small.innerText = message;
+            },
+            setErrorStage: function(message){
+                const formControl = document.querySelector('.stageVenture');
+                const small =  formControl.querySelector('small');
+
+                formControl.className = 'form-control error';
                 small.innerText = message;
             }
         },
@@ -724,7 +811,9 @@
             .option small,
             .co-founder__email-field small,
             .co-founder__phone-field small,
-            .co-founder__linkedin-field small {
+            .co-founder__linkedin-field small,
+            .checkbox-option small,
+            .innovation-field small{
                 color: #e74c3c;
                 visibility: hidden;
             }
