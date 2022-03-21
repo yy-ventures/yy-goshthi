@@ -4,7 +4,9 @@
         <h1 class="text text-lg-space">Social Business?</h1>
         <h1 class="join-text highlight">JOIN</h1>
         <p class="dhaka-text">OUR INCUBATION PROGRAM IN DHAKA</p>
-        <span class="yyg-application">Application opens on March 20, 2022</span>
+        <span class="yyg-application">Application for Spring 2022 cohort is open now</span>
+        <a href="https://incubator.yy.ventures/application/" target="_blank" class="btn">Apply</a>
+        <span class="yyg-application-1">Application closes on 30th April, 2022</span>
     </div>
 </template>
 
@@ -78,6 +80,52 @@
 
             @media screen and (max-width: 600px){
                 font-size: calc(12px + 1vw);
+            }
+        }
+        .yyg-application-1{
+            font-size: calc(8px + 1vw);
+            font-weight: 300;
+            color: #000;
+            font-family: sans-serif;
+
+            @media screen and (max-width: 600px){
+                font-size: calc(12px + 1vw);
+            }
+        }
+
+        .btn{
+            font-size: 20px;
+            width: max-content;
+            white-space: nowrap;
+            text-decoration: none;
+            color: #0b9bbf;
+            padding: 0px 40px;
+            border: 2px solid #323637;
+            background-color: transparent;
+            margin: 20px auto;
+            cursor: pointer;
+            font-family: sans-serif;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            @media screen and (max-width: 600px){
+                font-size: 16px;
+            }
+
+            &__icon{
+                height: 20px;
+
+                transition: all .2s;
+
+                @media screen and (max-width: 600px){
+                    height: 16px;
+                }
+            }
+
+            &:hover .btn__icon{
+                margin-left: 7px;
             }
         }
     }

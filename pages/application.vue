@@ -60,17 +60,16 @@
             </div>
 
             <h5 class="required">Do you have a team of minimum two co-founders?</h5>
-            <div class="box">
+            <div class="box" id="team">
                 <div class="option">
-                    <input type="radio" id="team" v-model="team" name="team" value="Team">
+                    <input type="radio" id="team_yes" v-model="team" name="team" value="Team">
                     <label for="team_yes">Yes</label>
-                    <small>error message</small>
                 </div>
                 <div class="option">
-                    <input type="radio" id="team" v-model="team" name="team" value="Self">
+                    <input type="radio" id="team_no" v-model="team" name="team" value="Self">
                     <label for="team_no">No</label>
-                    <small>error message</small>
                 </div>
+                <small>error message</small>
             </div>
             <p class='important-text'>**To ensure gender equality within our program, we appreciate applications that have at least one female co-founder.</p>
             <div class="cofounder-container">
@@ -88,27 +87,29 @@
                             <label>Gender:</label>
                         </div>
                         <div class="co-founder__gender-field">
-                            <div class="gender-container">
-                                <div class="option">
-                                    <input type="radio" id="male1" class="gender1" v-model="gender1" name="gender1" value="Male">
-                                    <label for="male1">Male</label>
-                                    <small>error message</small>
+                            <div class="gender-container" id="gender1">
+                                <div class="box">
+                                    <div class="option">
+                                        <input type="radio" id="male1" class="gender1" v-model="gender1" name="gender1" value="Male">
+                                        <label for="male1">Male</label>
+                                    </div>
+                                    <div class="option">
+                                        <input type="radio" id="female1" class="gender1" v-model="gender1" name="gender1" value="Female">
+                                        <label for="female1">Female</label>
+                                    </div>
+                                    <div class="option">
+                                        <input type="radio" id="not-prefer1" class="gender1" v-model="gender1" name="gender1" value="Prefer not to say">
+                                        <label for="not-prefer1">Prefer not to say</label>
+                                    </div>
                                 </div>
-                                <div class="option">
-                                    <input type="radio" id="female1" class="gender1" v-model="gender1" name="gender1" value="Female">
-                                    <label for="female1">Female</label>
-                                </div>
-                                <div class="option">
-                                    <input type="radio" id="not-prefer1" class="gender1" v-model="gender1" name="gender1" value="Prefer not to say">
-                                    <label for="not-prefer1">Prefer not to say</label>
-                                </div>
+                                <small>error message</small>
                             </div>
                         </div>
                         <div class="co-founder__email">
                             <label for="email1">Email:</label>
                         </div>
                         <div class="co-founder__email-field">
-                            <input type="email" v-model="email1" name="email1" id="email1">
+                            <input type="text" v-model="email1" name="email1" id="email1">
                             <small>error message</small>
                         </div>
                         <div class="co-founder__phone">
@@ -122,7 +123,7 @@
                             <label for="linkedin1">LinkedIn:</label>
                         </div>
                         <div class="co-founder__linkedin-field">
-                            <input type="url" v-model="linkedin1" name="linkedin1" id="linkedin1">
+                            <input type="text" v-model="linkedin1" name="linkedin1" id="linkedin1">
                             <small>error message</small>
                         </div>
                     </div>
@@ -141,20 +142,22 @@
                             <label>Gender:</label>
                         </div>
                         <div class="co-founder__gender-field">
-                            <div class="gender-container">
-                                <div class="option">
-                                    <input type="radio" id="male2" class="gender2" v-model="gender2" name="gender2" value="Male">
-                                    <label for="male2">Male</label>
-                                    <small>error message</small>
+                            <div class="gender-container" id="gender2">
+                                <div class="box">
+                                    <div class="option">
+                                        <input type="radio" id="male2" class="gender2" v-model="gender2" name="gender2" value="Male">
+                                        <label for="male2">Male</label>
+                                    </div>
+                                    <div class="option">
+                                        <input type="radio" id="female2" class="gender2" v-model="gender2" name="gender2" value="Female">
+                                        <label for="female2">Female</label>
+                                    </div>
+                                    <div class="option">
+                                        <input type="radio" id="not-prefer2" class="gender2" v-model="gender2" name="gender2" value="Prefer not to say">
+                                        <label for="not-prefer2">Prefer not to say</label>
+                                    </div>
                                 </div>
-                                <div class="option">
-                                    <input type="radio" id="female2" class="gender2" v-model="gender2" name="gender2" value="Female">
-                                    <label for="female2">Female</label>
-                                </div>
-                                <div class="option">
-                                    <input type="radio" id="not-prefer2" class="gender2" v-model="gender2" name="gender2" value="Prefer not to say">
-                                    <label for="not-prefer2">Prefer not to say</label>
-                                </div>
+                                <small>error message</small>
                             </div>
                         </div>
                         <div class="co-founder__email">
@@ -185,11 +188,10 @@
 
 
             <h5 class="required">Does your enterprise work to reduce any of the following:</h5>
-            <div id="reduceProblems">
+            <div class="box-1" id="reduceProblems">
                 <div class="checkbox-option">
                     <input type="checkbox" name="reduce" id="carbon-emission" class="reduce" v-model="reduceProblem" value="Carbon emission">
                     <label for="carbon-emission">Carbon emission</label>
-                    <small>error message</small>
                 </div>
                 <div class="checkbox-option">
                     <input type="checkbox" name="reduce" id="unemployment" class="reduce" v-model="reduceProblem" value="Unemployment">
@@ -203,6 +205,7 @@
                     <input type="checkbox" name="reduce" id="none" class="reduce" v-model="reduceProblem" value="None of the above">
                     <label for="none">None of the above</label>
                 </div>
+                <small>error message</small>
             </div>
             
             <h5>If yes, how is your enterprise reducing carbon emission, creating jobs or fighting poverty? <span class="limit">(100 words max)</span></h5>
@@ -213,16 +216,16 @@
             </div>
         
             <h5 class="required">Do you know how to measure the impact of your work?</h5>
-            <div class="box">
+            <div class="box" id="measure">
                 <div class="option">
                     <input type="radio" id="measure_yes" class="measure" v-model="impactMeasure" name="measure" value="1">
                     <label for="measure_yes">Yes</label>
-                    <small>error message</small>
                 </div>
                 <div class="option">
                     <input type="radio" id="measure_no" class="measure" v-model="impactMeasure" name="measure" value="0">
                     <label for="measure_no">No</label>
                 </div>
+                <small>error message</small>
             </div>
 
             <h5>If yes, please tell us what methodology you use. <span class="limit">(100 words max)</span></h5>
@@ -241,103 +244,120 @@
             </div>
 
             <h5 class="required">What is the stage of your venture?</h5>
-            <div class="venture">
-                <div class="option">
-                    <input type="radio" class="stage-venture" id="idea_stage" v-model="stage" name="stage" value="Idea Stage">
-                    <label for="idea_stage">Idea Stage</label>
-                    <small>error message</small>
+            <div class="box-1" id="ventureStage">
+                <div class="box">
+                    <div class="option">
+                        <input type="radio" class="stage-venture" id="idea_stage" v-model="stage" name="stage" value="Idea Stage">
+                        <label for="idea_stage">Idea Stage</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="stage-venture" id="pilot_stage" v-model="stage" name="stage" value="Feasibility/Prototype/Pilot Stage">
+                        <label for="pilot_stage">Feasibility/Prototype/Pilot Stage</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="stage-venture" id="growth_stage" v-model="stage" name="stage" value="Growth Stage">
+                        <label for="growth_stage">Growth Stage</label>
+                    </div>
                 </div>
-                <div class="option">
-                    <input type="radio" class="stage-venture" id="pilot_stage" v-model="stage" name="stage" value="Feasibility/Prototype/Pilot Stage">
-                    <label for="pilot_stage">Feasibility/Prototype/Pilot Stage</label>
-                </div>
-                <div class="option">
-                    <input type="radio" class="stage-venture" id="growth_stage" v-model="stage" name="stage" value="Growth Stage">
-                    <label for="growth_stage">Growth Stage</label>
-                </div>
+                <small>error message</small>
             </div>
 
             <h5 class="required">Is the enterprise registered as an entity under the law of Bangladesh?</h5>
-            <div class="box">
-                <div class="option">
-                    <input type="radio" id="registered_yes" v-model="registered" name="registered" value="1">
-                    <label for="registered_yes">Yes</label>
-
+            <div class="box-1" id="registered">
+                <div class="box">
+                    <div class="option">
+                        <input type="radio" class="registered" id="registered_yes" v-model="registered" name="registered" value="1">
+                        <label for="registered_yes">Yes</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="registered" id="registered_no" v-model="registered" name="registered" value="0">
+                        <label for="registered_no">No</label>
+                    </div>
                 </div>
-                <div class="option">
-                    <input type="radio" id="registered_no" v-model="registered" name="registered" value="0">
-                    <label for="registered_no">No</label>
-                </div>
+                <small>error message</small>
             </div>
             <h5 class="mt">If yes, what is the legal status of your venture?</h5>
-            <div class="box">
-                <div class="option">
-                    <input type="radio" id="limited-company" v-model="legalStatus" name="legalStatus" value="For profit/Limited company">
-                    <label for="limited-company">For profit/Limited company</label>
+            <div class="box-1">
+                <div class="box">
+                    <div class="option">
+                        <input type="radio" id="limited-company" v-model="legalStatus" name="legalStatus" value="For profit/Limited company">
+                        <label for="limited-company">For profit/Limited company</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="ngo-company" v-model="legalStatus" name="legalStatus" value="Non profit/NGO/Foundation">
+                        <label for="ngo-company">Non profit/NGO/Foundation</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="sole-proprietorship" v-model="legalStatus" name="legalStatus" value="Sole proprietorship">
+                        <label for="sole-proprietorship">Sole proprietorship</label>
+                    </div>
                 </div>
-                <div class="option">
-                    <input type="radio" id="ngo-company" v-model="legalStatus" name="legalStatus" value="Non profit/NGO/Foundation">
-                    <label for="ngo-company">Non profit/NGO/Foundation</label>
+                <div class="option h-align">
+                    <label for="other">Other: </label>
+                    <input type="text" id="other" v-model="legalStatusOther">
                 </div>
-                <div class="option">
-                    <input type="radio" id="sole-proprietorship" v-model="legalStatus" name="legalStatus" value="Sole proprietorship">
-                    <label for="sole-proprietorship">Sole proprietorship</label>
-                </div>
-            </div>
-            <div class="option h-align">
-                <label for="other">Other: </label>
-                <input type="text" id="other" v-model="legalStatus">
+                <small>error message</small>
             </div>
 
             <h5 class="required">How does your enterprise make money? <span class="limit">(100 words max)</span></h5>
-            <textarea v-model="enterpriseMakeMoney" maxlength="500" cols="30" rows="8"></textarea>
+            <div class="box-1">
+                <textarea id="enterpriseMakeMoney" v-model="enterpriseMakeMoney" maxlength="500" cols="30" rows="8"></textarea>
+                <small>error message</small>
+            </div>
 
             <h5 class="required">How much revenue do you have at the moment (in BDT)?</h5>
-            <div class="option">
-                <input type="radio" id="revenue-a" v-model="revenue" name="revenue" value="0 - 100000">
-                <label for="revenue-a">0 - 100000</label>
-            </div>
-            <div class="option">
-                <input type="radio" id="revenue-b" v-model="revenue" name="revenue" value="100000 - 500000">
-                <label for="revenue-b">100000 - 500000</label>
-            </div>
-            <div class="option">
-                <input type="radio" id="revenue-c" v-model="revenue" name="revenue" value="500000 - 2000000">
-                <label for="revenue-c">500000 - 2000000</label>
-            </div>
-            <div class="option">
-                <input type="radio" id="revenue-d" v-model="revenue" name="revenue" value="2000000 - 5000000">
-                <label for="revenue-d">2000000 - 5000000</label>
-            </div>
-            <div class="option">
-                <input type="radio" id="revenue-e" v-model="revenue" name="revenue" value="> 5000000">
-                <label for="revenue-e">> 5000000</label>
+            <div class="box-1" id="revenueGenerate">
+                <div class="option">
+                    <input type="radio" class="revenueAmount" id="revenue-a" v-model="revenue" name="revenue" value="0 - 100000">
+                    <label for="revenue-a">0 - 100000</label>
+                </div>
+                <div class="option">
+                    <input type="radio" class="revenueAmount" id="revenue-b" v-model="revenue" name="revenue" value="100000 - 500000">
+                    <label for="revenue-b">100000 - 500000</label>
+                </div>
+                <div class="option">
+                    <input type="radio" class="revenueAmount" id="revenue-c" v-model="revenue" name="revenue" value="500000 - 2000000">
+                    <label for="revenue-c">500000 - 2000000</label>
+                </div>
+                <div class="option">
+                    <input type="radio" class="revenueAmount" id="revenue-d" v-model="revenue" name="revenue" value="2000000 - 5000000">
+                    <label for="revenue-d">2000000 - 5000000</label>
+                </div>
+                <div class="option">
+                    <input type="radio" class="revenueAmount" id="revenue-e" v-model="revenue" name="revenue" value="> 5000000">
+                    <label for="revenue-e">> 5000000</label>
+                </div>
+                <small>error message</small>
             </div>
 
             <h5 class="required">How many customers are you serving right now?</h5>
-            <div class="option">
-                <input type="radio" id="customers-a" v-model="customers" name="customers" value="0 - 100">
-                <label for="customers-a">0 - 100</label>
-            </div>
-            <div class="option">
-                <input type="radio" id="customers-b" v-model="customers" name="customers" value="100 - 1000">
-                <label for="customers-b">100 - 1000</label>
-            </div>
-            <div class="option">
-                <input type="radio" id="customers-c" v-model="customers" name="customers" value="1000 - 10000">
-                <label for="customers-c">1000 - 10000</label>
-            </div>
-            <div class="option">
-                <input type="radio" id="customers-d" v-model="customers" name="customers" value="> 10000">
-                <label for="customers-d">> 10000</label>
+            <div class="box-1" id="customerAmount">
+                <div class="option">
+                    <input type="radio" id="customers-a" v-model="customers" name="customers" value="0 - 100">
+                    <label for="customers-a">0 - 100</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="customers-b" v-model="customers" name="customers" value="100 - 1000">
+                    <label for="customers-b">100 - 1000</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="customers-c" v-model="customers" name="customers" value="1000 - 10000">
+                    <label for="customers-c">1000 - 10000</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="customers-d" v-model="customers" name="customers" value="> 10000">
+                    <label for="customers-d">> 10000</label>
+                </div>
+                <small>error message</small>
             </div>
 
             <h5 class="required">Please share any media link where your enterprise has been featured</h5>
             <div class="media-link-group">
-                <input type="url" v-model="media_link_1" name="media-link" placeholder="link 1" class="mb">
-                <input type="url" v-model="media_link_2" name="media-link" placeholder="link 2" class="mb">
-                <input type="url" v-model="media_link_3" name="media-link" placeholder="link 3" class="mb">
-                <input type="url" v-model="media_link_4" name="media-link" placeholder="link 4" class="mb">
+                <input type="url" v-model="media_link_1" id="media_link_1" name="media-link" placeholder="link 1" class="mb">
+                <input type="url" v-model="media_link_2" id="media_link_2" name="media-link" placeholder="link 2" class="mb">
+                <input type="url" v-model="media_link_3" id="media_link_3" name="media-link" placeholder="link 3" class="mb">
+                <input type="url" v-model="media_link_4" id="media_link_4" name="media-link" placeholder="link 4" class="mb">
+                <small>error message</small>
             </div>
 
             <div class="sm-box">
@@ -359,7 +379,7 @@
                         <li>Team</li>
                     </ul>
                 </div>
-                <input type="file" @change='handleFileUpload' name="pitch_deck">
+                <input type="file" @change='handleFileUpload' name="pitch_deck" accept="application/msword, application/vnd.ms-excel, .doc, .docx, application/pdf,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.slideshow,application/vnd.openxmlformats-officedocument.presentationml.presentation">
 
                 <input type="submit">
             </div>
@@ -402,6 +422,7 @@
                 stage: '',
                 registered: '',
                 legalStatus: '',
+                legalStatusOther: '',
                 enterpriseMakeMoney: '',
                 revenue: '',
                 customers: '',
@@ -409,9 +430,10 @@
                 media_link_2: '',
                 media_link_3: '',
                 media_link_4: '',
-                year: '',
+                year: '2022',
                 season: 'Spring',
-                files: '',
+                file: '',
+                checkFile: '',
                 show_message: false,
                 errors:[],
             }
@@ -464,18 +486,20 @@
                 data.set('experience_of_innovation',this.enterpriseInnovationMore);
                 data.set('stage_of_ventures',this.stage);
                 data.set('is_registered_under_law',this.registered);
-                data.set('legal_status_ventures',this.legalStatus);
+                data.set('legal_status_ventures',this.legalStatusOption());
                 data.set('current_revenue_range',this.revenue);
                 data.set('customer_range',this.customers);
                 data.set('media_links',[this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4]);
                 data.set('year',this.year);
                 data.set('season',this.season);
                 data.set('pitch_deck', this.files);
-
+                
                 if(success){
+                    console.log(data)
                     axios.post('https://yyv.yyventures.org/api/yyg-application-submit-form/create', data)
                     .then(response => {
                         if (response.status == 200) {
+                           
                         this.show_message = true
                         }
                     })
@@ -492,7 +516,18 @@
                 this.year = year;
             },
             handleFileUpload: function(e){
-                this.files = e.target.files[0];
+                this.checkFile = e.target.files[0];
+                if(this.checkFile.size > 5242880){
+                    console.log('test')
+                    alert(`Please upload your file between 5MB, your file is ${Math.round(this.checkFile.size / 1048576)}MB`)
+                    e.target.value = '';
+                }else{
+                    this.file = this.checkFile;
+
+                    console.log(this.file)
+                }
+                // if(this.checkFile.size > )
+
             },
             checkInput: function(e){
                 e.preventDefault()
@@ -504,20 +539,28 @@
                 const enterpriseWebsite = document.querySelector('#enterpriseWebsite');
                 const team = document.querySelector('#team');
                 const cofounderName1 = document.querySelector('#co-founder_1');
-                const gender1 = document.querySelector('.gender1');
+                const gender1 = document.querySelector('#gender1');
                 const email1 = document.querySelector('#email1');
                 const phone1 = document.querySelector('#tel1');
                 const linkedin1 = document.querySelector('#linkedin1');
                 const cofounderName2 = document.querySelector('#co-founder_2');
-                const gender2 = document.querySelector('.gender2');
+                const gender2 = document.querySelector('#gender2');
                 const email2 = document.querySelector('#email2');
                 const phone2 = document.querySelector('#tel2');
                 const linkedin2 = document.querySelector('#linkedin2');
-                const reduceProblem = document.querySelector('.reduce');
-                const impactMeasure = document.querySelector('.measure');
+                const reduceProblem = document.querySelector('#reduceProblems');
+                const impactMeasure = document.querySelector('#measure');
                 const enterpriseInnovation = document.querySelector('#enterpriseInnovation');
                 const enterpriseInnovationMore = document.querySelector('#enterpriseInnovationMore');
-                const stageVenture = document.querySelector('.stage-venture');
+                const stageVenture = document.querySelector('#ventureStage');
+                const registered = document.querySelector('#registered');
+                const enterpriseMakeMoney = document.querySelector('#enterpriseMakeMoney');
+                const revenueAmount = document.querySelector('#revenueGenerate');
+                const customerAmount = document.querySelector('#customerAmount');
+                const mediaLink1 = document.querySelector('#media_link_1');
+                const mediaLink2 = document.querySelector('#media_link_2');
+                const mediaLink3 = document.querySelector('#media_link_3');
+                const mediaLink4 = document.querySelector('#media_link_4');
 
 
                 let error = false;
@@ -565,7 +608,7 @@
                 }
 
                 if(this.team === ''){
-                    this.setErrorFor(team, 'Choose any option')
+                    this.setErrorForTeam('Choose any option')
                     error = true                    
                 }else{
                     this.setSuccessFor(team)
@@ -579,7 +622,7 @@
                     this.setSuccessFor(cofounderName1)
                 }
                 if(this.gender1 === ''){
-                    this.setErrorFor(gender1, 'Choose option')
+                    this.setErrorForGender1('Choose an option')
                     error = true
                     
                 }else{
@@ -588,25 +631,31 @@
                 if(this.email1 === ''){
                     this.setErrorFor(email1, 'email cannot be empty')
                     error = true
-                } else if (!isEmail(email1)) {
-		            setErrorFor(email1, 'Not a valid email');
+                } else if (!/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(this.email1)) {
+		            this.setErrorFor(email1, 'Not a valid email');
                 }else{
                     this.setSuccessFor(email1)
                 }
                 if(this.phone1 === ''){
                     this.setErrorFor(phone1, 'Phone number cannot be empty')
                     error = true
-                    
+                }else if(!/[0-9]+/.test(this.phone1)){
+                    this.setErrorFor(phone1, 'invalid number')
+                    error = true
                 }else{
                     this.setSuccessFor(phone1)
                 }
+
                 if(this.linkedin1 === ''){
                     this.setErrorFor(linkedin1, 'link cannot be empty')
+                    error = true                    
+                }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin1)){
+                    this.setErrorFor(linkedin1, 'Not a valid URL')
                     error = true
-                    
-                }else{
+                }else{                        
                     this.setSuccessFor(linkedin1)
                 }
+
                 if(this.cofounderName2 === ''){
                     this.setErrorFor(cofounderName2, 'Co-founder name cannot be empty')
                     error = true
@@ -616,7 +665,7 @@
                 }
                 
                 if(this.gender2 === ''){
-                    this.setErrorFor(gender2, 'Choose option')
+                    this.setErrorForGender2('Choose an option')
                     error = true
                     
                 }else{
@@ -646,20 +695,23 @@
 
                 if(this.linkedin2 === ''){
                     this.setErrorFor(linkedin2, 'link cannot be empty')
-                    error = true                    
+                    error = true
+                }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin2)){
+                    this.setErrorFor(linkedin1, 'Not a valid URL')
+                    error = true
                 }else{
                     this.setSuccessFor(linkedin2)
                 }
 
                 if(this.reduceProblem.length <= 0){
-                    this.setErrorReduceProblem('Choose option')
+                    this.setErrorReduceProblem('Choose any option')
                     error = true                    
                 }else{
                     this.setSuccessFor(reduceProblem)
                 }
 
                 if(this.impactMeasure === ''){
-                    this.setErrorFor(impactMeasure, 'Choose any option')
+                    this.setErrorForMeasure('Choose any option')
                     error = true                    
                 }else{
                     this.setSuccessFor(impactMeasure)
@@ -679,13 +731,131 @@
                     this.setSuccessFor(enterpriseInnovationMore)
                 }
 
-                if(this.stageVenture === ''){
-                    this.setErrorFor(stageVenture, 'Choose any option')
-                    error = true                    
+                if(this.stage === ''){
+                    this.setErrorForVentureStage('Choose any option')
+                    error = true
                 }else{
                     this.setSuccessFor(stageVenture)
                 }
+
+                if(this.registered === ''){
+                    this.setErrorForRegistered('Choose any option')
+                    error = true
+                }else{
+                    this.setSuccessFor(registered)
+                }
+
+                if(this.enterpriseMakeMoney === ''){
+                    this.setErrorFor(enterpriseMakeMoney, 'field cannot be empty')
+                    error = true
+                }else{
+                    this.setSuccessFor(enterpriseMakeMoney)
+                }
+
+                if(this.revenue === ''){
+                    this.setErrorForRevenue('Choose any option')
+                    error = true
+                }else{
+                    this.setSuccessFor(revenueAmount)
+                }
+
+                if(this.customers === ''){
+                    this.setErrorForCustomers('Choose any option')
+                    error = true
+                }else{
+                    this.setSuccessFor(customerAmount)
+                }
+
+                if(this.media_link_1 === ''){
+                    this.setErrorFor(mediaLink1,'Please provide at least link 1 field')
+                    error = true
+                }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin2)){
+                    this.setErrorFor(mediaLink1, 'Not a valid URL')
+                    error = true
+                }else{
+                    this.setSuccessFor(mediaLink1)
+                }
+                if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin2)){
+                    this.setErrorFor(mediaLink2, 'Not a valid URL')
+                    error = true
+                }else{
+                    this.setSuccessFor(mediaLink2)
+                }
+                if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin2)){
+                    this.setErrorFor(mediaLink3, 'Not a valid URL')
+                    error = true
+                }else{
+                    this.setSuccessFor(mediaLink3)
+                }
+                if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin2)){
+                    this.setErrorFor(mediaLink4, 'Not a valid URL')
+                    error = true
+                }else{
+                    this.setSuccessFor(mediaLink4)
+                }
                 return !error
+            },
+            legalStatusOption: function(){
+                if (this.legalStatus === ''){
+                    return this.legalStatusOther
+                }
+                return this.legalStatus
+            },
+            setErrorForGender1: function(message){
+                const formControl = document.querySelector('#gender1');
+                const small =  formControl.querySelector('small');
+
+                formControl.className = 'form-control error';
+                small.innerText = message;
+            },
+            setErrorForGender2: function(message){
+                const formControl = document.querySelector('#gender2');
+                const small =  formControl.querySelector('small');
+
+                formControl.className = 'form-control error';
+                small.innerText = message;
+            },
+            setErrorForRegistered: function(message){
+                const formControl = document.querySelector('#registered');
+                const small =  formControl.querySelector('small');
+
+                formControl.className = 'form-control error';
+                small.innerText = message;
+            },
+            setErrorForTeam: function(message){
+                const formControl = document.querySelector('#team');
+                const small =  formControl.querySelector('small');
+
+                formControl.className = 'form-control error';
+                small.innerText = message;
+            },
+            setErrorForMeasure: function(message){
+                const formControl = document.querySelector('#measure');
+                const small =  formControl.querySelector('small');
+
+                formControl.className = 'form-control error';
+                small.innerText = message;
+            },
+            setErrorForVentureStage: function(message){
+                const formControl = document.querySelector('#ventureStage');
+                const small =  formControl.querySelector('small');
+
+                formControl.className = 'form-control error';
+                small.innerText = message;
+            },
+            setErrorForCustomers: function(message){
+                const formControl = document.querySelector('#customerAmount');
+                const small =  formControl.querySelector('small');
+
+                formControl.className = 'form-control error';
+                small.innerText = message;
+            },
+            setErrorForRevenue: function(message){
+                const formControl = document.querySelector('#revenueGenerate');
+                const small =  formControl.querySelector('small');
+
+                formControl.className = 'form-control error';
+                small.innerText = message;
             },
             setErrorFor: function(input, message){
                 const formControl = input.parentElement;
@@ -734,8 +904,16 @@
             justify-content: center;
             gap: 30px;
             margin-bottom: 80px;
+
+            @media screen and (max-width: 600px){
+                padding: 0 20px;
+            }
             .img-container{
                 height: 100px;
+
+                @media screen and (max-width: 600px){
+                    height: 60px;
+                }
                 img{
                     height: 100%;
                     object-fit: contain;
@@ -747,10 +925,19 @@
                     font-size: 30px;
                     height: 35px;
 
+                    @media screen and (max-width: 600px){
+                        font-size: 20px;
+                        height: 50px;
+                    }
                 }
                 .season{
                     color: #1e87f0;
                     font-weight: 700;
+
+                    @media screen and (max-width: 600px){
+                        font-size: 25px;
+                        line-height: 1.2;
+                    }
                 }
                 .date{
                     color: #3A3A3A;
@@ -768,6 +955,7 @@
 
             @media screen and (max-width: 600px){
                 padding: 50px 40px;
+                border-radius: 0;
             }
 
             .form-heading-container{
@@ -813,7 +1001,10 @@
             .co-founder__phone-field small,
             .co-founder__linkedin-field small,
             .checkbox-option small,
-            .innovation-field small{
+            .innovation-field small,
+            .box-1 small,
+            .media-link-group small,
+            .gender-container small{
                 color: #e74c3c;
                 visibility: hidden;
             }
@@ -828,6 +1019,10 @@
                 grid-template-rows: repeat(6, [row-start] min-content [row-end]);
                 grid-gap: 10px 20px;
 
+                @media screen and (max-width: 600px){
+                    grid-template-columns: 1fr;
+                }
+
                 span{
                     display: block;
                     font-weight: 300;
@@ -840,22 +1035,34 @@
                 grid-template-columns: repeat(2, 1fr);
                 grid-gap: 40px;
 
-                .box-1{
-                }
-                .box-2{
+                @media screen and (max-width: 600px){
+                    grid-template-columns: 1fr;
                 }
             }
 
             .box{
                 display: flex;
                 gap: 20px;
+
+                @media screen and (max-width: 600px){
+                    flex-direction: column;
+                    gap: 0;
+                }
             }
             .sm-box{
                 width: 70%;
+
+                @media screen and (max-width: 600px){
+                    width: 100%;
+                }
             }
             .component{
                 display: flex;
                 gap: 50px;
+
+                @media screen and (max-width: 600px){
+                    gap: 10px;
+                }
             }
             .limit{
                 font-weight: 300;
@@ -877,19 +1084,16 @@
                 position: absolute;
                 left: -10px;
             }
-
             
             .co-founder{
                 display: grid;
                 grid-template-columns: 20% 80%;
                 grid-template-rows: repeat(5, min-content);
                 grid-gap: 5px 0;
-                // align-items: center;
-            }
 
-            .gender-container{
-                display: flex;
-                gap: 10px;
+                @media screen and (max-width: 600px){
+                    grid-template-columns: 1fr;
+                }
             }
 
             .form-group{
@@ -987,7 +1191,7 @@
                 font-size: 20px;
                 font-weight: 700;
                 color: white;
-                background: #1e87f0;
+                background: #049abf;
                 border: none;
                 padding: 10px 20px;
                 &:hover{

@@ -49,6 +49,9 @@
           <h1 class="write">&nbsp;</h1>
           <!-- <h2>YY Goshthi Fall 2021 Cohort Application is closed.</h2> -->
           <!-- <a href="https://airtable.com/shraT8HKyxXMuaG6X" class="link_button">Apply Now</a> -->
+
+          <span class="yyg-application">Application for Spring 2022 cohort is open now</span>
+          <a href="https://incubator.yy.ventures/application/" target="_blank" class="btn">Apply</a>
         </div>
       </div>
     </div>
@@ -186,6 +189,35 @@ export default {
         /* font-size: 100px !important; */
       }
     }
+  }
+
+  .btn{
+    font-size: 20px;
+    width: max-content;
+    white-space: nowrap;
+    text-decoration: none;
+    color: white;
+    background-color: #0b9bbf;
+    padding: 0px 40px;
+    border: 2px solid #0b9bbf;
+    // background-color: transparent;
+    // margin: 20px auto;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: sans-serif;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    @media screen and (max-width: 600px){
+        font-size: 16px;
+    }
+  }
+  .yyg-application{
+    font-size: 30px;
+    font-weight: 700;
+    color: #0b9bbf;
   }
 }
 </style>
