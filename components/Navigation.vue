@@ -8,13 +8,13 @@
     nuxt-link.logo(to="#home")
       img#logo(src="/images/logos/yy_goshthi.png")
     .menu
-      a.link.underline(href="#about") about
-      a.link.underline(href="#impact") impact
-      a.link.underline(href="#benefits") benefits
-      a.link.underline(href="#eligibility") eligibility
-      a.link.underline(href="#alumni") alumni
-      a.link.underline(href="#experts") experts
-      a.link.underline(href="#apply") apply
+      a.link.underline(href="/#about") about
+      a.link.underline(href="/#impact") impact
+      a.link.underline(href="/#benefits") benefits
+      a.link.underline(href="/#eligibility") eligibility
+      a.link.underline(href="/#alumni") alumni
+      a.link.underline(href="/#experts") experts
+      a.link.underline(href="/#apply") apply
 
 </template>
 
