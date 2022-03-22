@@ -286,9 +286,6 @@
 
                 &--image{
                     grid-column: col-start 1 / col-end 1;
-
-                    background-color: aqua;
-
                     height: 450px;
 
 
