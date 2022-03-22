@@ -379,12 +379,15 @@
                         <li>Team</li>
                     </ul>
                 </div>
-                <input type="file" @change='handleFileUpload' name="pitch_deck" accept="application/msword, application/vnd.ms-excel, .doc, .docx, application/pdf,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.slideshow,application/vnd.openxmlformats-officedocument.presentationml.presentation">
+                <div class="option mb-2 pb">
+                    <input type="file" id="pitchDeck" class="mb" @change='handleFileUpload' name="pitch_deck" >
+                    <small>error message</small>
+                </div>
 
                 <input type="submit">
             </div>
 
-            <p v-if="this.show_message">Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.</p>
+            <!-- <p v-if="this.show_message">Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.</p> -->
         </form>
     </div>
 </template>
@@ -448,17 +451,6 @@
 
                 const success= this.checkInput(e);
 
-                // form.addEventListener('submit', e => {
-                //     console.log(e)
-                //     e.preventDefault();
-                //     checkInput();
-
-
-                // })
-
-                // this.setErrorFor();
-
-
                 // Form Data
                 const data = new FormData();
                 data.set('name_of_business',this.enterpriseName);
@@ -487,21 +479,25 @@
                 data.set('stage_of_ventures',this.stage);
                 data.set('is_registered_under_law',this.registered);
                 data.set('legal_status_ventures',this.legalStatusOption());
+                data.set('make_money_plan', this.enterpriseMakeMoney)
                 data.set('current_revenue_range',this.revenue);
                 data.set('customer_range',this.customers);
                 data.set('media_links',[this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4]);
                 data.set('year',this.year);
                 data.set('season',this.season);
-                data.set('pitch_deck', this.files);
+                data.set('pitch_deck', this.file);
                 
                 if(success){
                     console.log(data)
                     axios.post('https://yyv.yyventures.org/api/yyg-application-submit-form/create', data)
                     .then(response => {
                         if (response.status == 200) {
-                           
-                        this.show_message = true
-                        }
+                         alert('Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.')  
+                        // this.show_message = true
+                        };
+                        setTimeout(() => {
+                            window.location.href = 'https://incubator.yy.ventures/';
+                        }, 3000);
                     })
                     .catch(error => {
                         console.log(error)
@@ -516,17 +512,20 @@
                 this.year = year;
             },
             handleFileUpload: function(e){
+     
                 this.checkFile = e.target.files[0];
                 if(this.checkFile.size > 5242880){
-                    console.log('test')
+                               console.log(this.checkFile)
+                    console.log('in')
                     alert(`Please upload your file between 5MB, your file is ${Math.round(this.checkFile.size / 1048576)}MB`)
                     e.target.value = '';
                 }else{
+                      console.log(this.checkFile)
+                    console.log('out')
                     this.file = this.checkFile;
 
                     console.log(this.file)
                 }
-                // if(this.checkFile.size > )
 
             },
             checkInput: function(e){
@@ -561,6 +560,7 @@
                 const mediaLink2 = document.querySelector('#media_link_2');
                 const mediaLink3 = document.querySelector('#media_link_3');
                 const mediaLink4 = document.querySelector('#media_link_4');
+                const pitchDeck = document.querySelector('#pitchDeck');
 
 
                 let error = false;
@@ -792,6 +792,12 @@
                     error = true
                 }else{
                     this.setSuccessFor(mediaLink4)
+                }
+                if(this.file === ''){
+                    this.setErrorFor(pitchDeck, 'Please upload your pitch deck')
+                    error = true
+                }else{
+                    this.setSuccessFor(pitchDeck)
                 }
                 return !error
             },
@@ -1118,8 +1124,14 @@
 
                 }
             }
+            .pb{
+                padding-bottom: 10px !important;
+            }
             .mb{
                 margin-bottom: 10px;
+            }
+            .mb-2{
+                margin-bottom: 20px !important;
             }
             .mt{
                 margin-top: 10px;                
@@ -1181,7 +1193,6 @@
                 padding: 10px 20px;
                 background-color: white;
                 width: 100%;
-                margin-bottom: 25px;
                 cursor: pointer;
             }
 
