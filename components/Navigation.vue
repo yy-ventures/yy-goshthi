@@ -5,7 +5,7 @@
       #menu_button
         #bar
 
-    nuxt-link.logo(to="#home")
+    nuxt-link.logo(to="/#home")
       img#logo(src="/images/logos/yy_goshthi.png")
     .menu
       a.link.underline(href="/#about") about
