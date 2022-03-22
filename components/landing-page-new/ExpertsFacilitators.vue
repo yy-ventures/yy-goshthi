@@ -52,7 +52,7 @@
                 <div class="content">
                     <div class="content__info">
                         <h4 class="content__info--name">Prof Jacqueline Strayer</h4>
-                        <span class="content__info--designation">Global Brand & Communications C-suite leader </span>
+                        <span class="content__info--designation">Brand Builder, Educator, Advisor</span>
                     </div>
                     <a class="content__icon" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jfstrayer/" uk-icon="icon: linkedin; ratio: 1"></a>
                 </div>

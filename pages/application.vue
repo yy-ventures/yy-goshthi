@@ -492,8 +492,7 @@
                     axios.post('https://yyv.yyventures.org/api/yyg-application-submit-form/create', data)
                     .then(response => {
                         if (response.status == 200) {
-                         alert('Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.')  
-                        // this.show_message = true
+                         alert('Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.')
                         };
                         setTimeout(() => {
                             window.location.href = 'https://incubator.yy.ventures/';
