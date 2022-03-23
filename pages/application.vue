@@ -72,6 +72,7 @@
                 <small>error message</small>
             </div>
             <p class='important-text'>**To ensure gender equality within our program, we appreciate applications that have at least one female co-founder.</p>
+            <p class="important-text">**If you do not have a co-founder now, please add someone from your core team who will be committing to the incubation program.</p>
             <div class="cofounder-container">
                 <div class="box-1">
                     <h5 class="required">Co-founder 1</h5>
@@ -386,17 +387,22 @@
 
                 <input type="submit">
             </div>
-
-            <!-- <p v-if="this.show_message">Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.</p> -->
         </form>
+        <div v-if="this.show_message">
+            <SuccessPopup/>
+        </div>
     </div>
 </template>
 
 <script>
     // import { post } from '@/assets/scripts/api';
     import axios from 'axios'
+    import SuccessPopup from '../components/landing-page-new/components/SuccessPopup.vue'
 
     export default {
+        components: {
+            SuccessPopup
+        },
         data() {
             return {
                 enterpriseName: '',
@@ -444,11 +450,6 @@
    
         methods: {        
             submit: async function (e) {
-                
-
-                console.log(e)
-                const form = document.querySelector('#form');
-
                 const success= this.checkInput(e);
 
                 // Form Data
@@ -492,11 +493,8 @@
                     axios.post('https://yyv.yyventures.org/api/yyg-application-submit-form/create', data)
                     .then(response => {
                         if (response.status == 200) {
-                         alert('Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.')
+                        this.show_message = true;
                         };
-                        setTimeout(() => {
-                            window.location.href = 'https://incubator.yy.ventures/';
-                        }, 3000);
                     })
                     .catch(error => {
                         console.log(error)
@@ -898,6 +896,7 @@
 
 <style lang="scss" scoped>
     #application{
+        position: relative;
         padding: 10rem 5rem;
 
         @media screen and (max-width: 600px){
@@ -1114,13 +1113,6 @@
                     &:hover{
                         filter: brightness(90%);
                     }
-                }
-                .btn-remove{
-                    background-color: rgba(255, 0, 0, 0.781);
-                }
-                .btn-add{
-                    background-color: rgba(0, 128, 0, 0.781);
-
                 }
             }
             .pb{
