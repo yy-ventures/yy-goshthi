@@ -385,7 +385,7 @@
                     <small>error message</small>
                 </div>
 
-                <input type="submit">
+                <input type="submit" id="submitButton">
             </div>
         </form>
         <div v-if="this.show_message">
@@ -489,7 +489,7 @@
                 data.set('pitch_deck', this.file);
                 
                 if(success){
-                    console.log(data)
+                    this.disableSubmitButton();
                     axios.post('https://yyv.yyventures.org/api/yyg-application-submit-form/create', data)
                     .then(response => {
                         if (response.status == 200) {
@@ -502,26 +502,27 @@
                 }
                
             },
+
+            disableSubmitButton: function(){
+                console.log('in function')
+                const submitBtn = document.querySelector('#submitButton');
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.4';
+                submitBtn.style.cursor = 'wait';
+            },
                     
             getCurrentyear: function(){
                 const date = new Date();
                 const year = date.getFullYear();
                 this.year = year;
             },
-            handleFileUpload: function(e){
-     
+            handleFileUpload: function(e){     
                 this.checkFile = e.target.files[0];
                 if(this.checkFile.size > 5242880){
-                               console.log(this.checkFile)
-                    console.log('in')
                     alert(`Please upload your file between 5MB, your file is ${Math.round(this.checkFile.size / 1048576)}MB`)
                     e.target.value = '';
                 }else{
-                      console.log(this.checkFile)
-                    console.log('out')
                     this.file = this.checkFile;
-
-                    console.log(this.file)
                 }
 
             },
