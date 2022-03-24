@@ -129,8 +129,8 @@
 
         </div>
         <div class="slider-btn-container">
-            <div class="notable-alumni__carousel-track__navigator-prev" @click="navigate_prev" uk-icon="icon: chevron-left; ratio:1.2"></div>
-            <div class="notable-alumni__carousel-track__navigator-next" @click="navigate_next" uk-icon="icon: chevron-right; ratio:1.2"></div>
+            <div class="notable-alumni__carousel-track__navigator-prev" @click="navigate_prev"><img src="../../assets/images/landing-new-image/icon/left-arrow.png" alt="left arrow icon"></div>
+            <div class="notable-alumni__carousel-track__navigator-next" @click="navigate_next"><img src="../../assets/images/landing-new-image/icon/right-arrow.png" alt="right arrow icon"></div>
         </div>
 
         <!-- </div> -->
@@ -217,6 +217,7 @@
 </script>
 
 <style lang="scss" scoped>
+
     .notable-alumni{
         margin: 80px 40px;
         overflow: hidden;
@@ -263,7 +264,7 @@
         &__carousel-track{
             transition: transform 1s;
             // height: min-content;
-
+            // s 
             display: flex;
             &__content{
                 background-color: #EAECEB;         
@@ -362,12 +363,18 @@
                 height: 30px;
                 width: 30px;
                 border-radius: 50%;
-                color: white !important;
+                // color: white !important;
                 cursor: pointer;
 
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                svg{
+                    polyline{
+                        stroke: #f2f2f2;
+                    }
+                }
                 
             }
         }
