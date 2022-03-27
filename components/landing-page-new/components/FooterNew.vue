@@ -1,13 +1,11 @@
 <template>
     <div class="footer">
         <div class="footer__yy-goshti">
-            <img class='footer__yy-logo' src="../../../assets/images/landing-new-image/yyg-logo/yyg-logo.png" alt="">
+            <img class='footer__yy-logo yy-goshthi-logo' src="../../../assets/images/landing-new-image/yyg-logo/yyg-logo.png" alt="">
             <p>YY Goshthi is a Social Business incubation program that helps socially & environmentally conscious entrepreneurs to launch their minimum viable product and raise the needed seed capital.</p>
         </div>
         <div class="footer__get-in-touch">
             <h4 class='footer__heading mb-1'>Get in Touch</h4>
-            <!-- <a href="/contact">Contact</a>
-            <a href="/media-kit">Media Kit</a> -->
             <p>info@yy.ventures</p>
             <p>9th floor, Grameen Telecom Bhaban, <br/>
                 Mirpur 1, Dhaka 1216, Bangladesh.</p>
@@ -16,7 +14,6 @@
             <h4 class='footer__heading mb-1'>Follow YY Goshthi</h4>
             <a href="https://www.facebook.com/yygoshti" target="_blank">Facebook</a>
             <a href="https://www.instagram.com/yygoshthi/" target="_blank">Instagram</a>
-            <!-- <a href="https://twitter.com/yygoshti" target="_blank">Twitter</a> -->
         </div>
         <div class="footer__powered">
             <h4 class='footer__heading'>Powered By</h4>
@@ -77,7 +74,7 @@
             margin-bottom: 53px;
         }
         &__nea-logo{
-            margin-left: -25px;
+            margin-left: -20px;
             height: 120px;
         }
 
@@ -108,7 +105,9 @@
 
 
         &__yy-goshti{
-
+            .yy-goshthi-logo{
+                margin-bottom: 15px;
+            }
         }
         &__get-in-touch{
 
