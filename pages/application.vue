@@ -5,8 +5,7 @@
                 <img src="../assets/images/landing-new-image/yyg-logo/yyg-logo-color.png" alt="YY Goshthi logo">
             </div>
             <div class="heading">
-                <span class="season">Spring Cohort</span>
-                <span class="date">2022</span>
+                <span>Spring Cohort 2022</span>
             </div>
         </div>
         <!-- <h1 class="heading"> YY Goshthi Spring {{getCurrentyear()}}</h1> -->
@@ -906,9 +905,13 @@
 
         .heading-container{
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            gap: 30px;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 80px;
+            width: min-content;
+            margin-inline: auto;
 
             @media screen and (max-width: 600px){
                 padding: 0 20px;
@@ -917,7 +920,7 @@
                 height: 100px;
 
                 @media screen and (max-width: 600px){
-                    height: 60px;
+                    height: 70px;
                 }
                 img{
                     height: 100%;
@@ -927,25 +930,19 @@
             .heading{
                 span{
                     display: block;
-                    font-size: 30px;
-                    height: 35px;
+                    color: #3A3A3A;
+                    font-size: 36.5px;
+                    line-height: 1.2;
+                    white-space: nowrap;
+                    text-transform: uppercase;
+                    font-weight: 300;
 
-                    @media screen and (max-width: 600px){
-                        font-size: 20px;
-                        height: 50px;
-                    }
-                }
-                .season{
-                    color: #1e87f0;
-                    font-weight: 700;
+                    border-block: 2px solid #3A3A3A;
 
                     @media screen and (max-width: 600px){
                         font-size: 25px;
-                        line-height: 1.2;
+                        font-weight: 400;
                     }
-                }
-                .date{
-                    color: #3A3A3A;
                 }
             }
         }

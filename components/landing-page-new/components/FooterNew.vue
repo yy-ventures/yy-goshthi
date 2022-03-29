@@ -109,21 +109,6 @@
                 margin-bottom: 15px;
             }
         }
-        &__get-in-touch{
-
-        }
-        &__follow-goshti{
-
-        }
-        &__powered{
-
-        }
-        &__created{
-
-        }
-        &__follow-ventures{
-
-        }
         .mb-1{
             margin-bottom: 45px;
 
