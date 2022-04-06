@@ -14,9 +14,24 @@
       a.link.underline(href="/#eligibility") eligibility
       a.link.underline(href="/#alumni") alumni
       a.link.underline(href="/#experts") experts
-      a.link.underline(href="/#apply") apply
+      a.link(v-on:click='handleVisible = !handleVisible') apply
+
+      .dropdown(v-if='handleVisible')
+        a.login login
+        a.new-form new form
 
 </template>
+
+<script>
+  export default{
+    data(){
+      return{
+        handleVisible: false,
+        handleLoginPopup: false
+      }
+    }
+  }
+</script>
 
 <style lang="sass">
 nav
@@ -121,6 +136,37 @@ nav
     // justify-content: center
     // align-items: center
     padding-top: 100px
+
+    .dropdown
+      background: rgba(white, 0.8)
+      border: 1px solid $yy-grey
+
+      position: absolute
+      right: 0
+      top: 60px
+      padding: 10px
+
+      a
+        text-decoration: none
+        font-size: 20px
+        font-weight: 500
+        width: 100%
+        text-align: end
+        color: $yy-grey
+        &:hover
+          color: $yy-blue
+      a:not(:last-child)
+        margin-bottom: 5px
+
+    .login-btn
+        background-color: transparent
+        border: none
+        font-size: 20px
+        font-weight: bold
+        color: $yy_blue
+        text-transform: capitalize
+        cursor: pointer
+
 
 
     @media (min-width: 601px)
