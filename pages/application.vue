@@ -387,6 +387,13 @@
                 <input type="submit">
             </div>
 
+            <div v-if="this.show_message">
+                <SuccessPopup/>
+            </div>
+
+            <!-- {{
+                this.show_message ? <SuccessPopup/> : '';
+            }} -->
             <!-- <p v-if="this.show_message">Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.</p> -->
         </form>
     </div>
@@ -395,8 +402,12 @@
 <script>
     // import { post } from '@/assets/scripts/api';
     import axios from 'axios'
+    import SuccessPopup from '../components/landing-page-new/components/SuccessPopup.vue'
 
     export default {
+        components: {
+            SuccessPopup
+        },
         data() {
             return {
                 enterpriseName: '',
@@ -447,7 +458,7 @@
                 
 
                 console.log(e)
-                const form = document.querySelector('#form');
+                // const form = document.querySelector('#form');
 
                 const success= this.checkInput(e);
 
@@ -486,17 +497,22 @@
                 data.set('year',this.year);
                 data.set('season',this.season);
                 data.set('pitch_deck', this.file);
-                
+                console.log('success', success)
                 if(success){
                     console.log(data)
                     axios.post('https://yyv.yyventures.org/api/yyg-application-submit-form/create', data)
                     .then(response => {
                         if (response.status == 200) {
-                         alert('Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.')
+                            this.show_message = true;
+
+                            console.log('success')
+
+                            console.log(this.show_message)
+                        //  alert('Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.')
                         };
-                        setTimeout(() => {
-                            window.location.href = 'https://incubator.yy.ventures/';
-                        }, 3000);
+                        // setTimeout(() => {
+                        //     window.location.href = 'https://incubator.yy.ventures/';
+                        // }, 3000);
                     })
                     .catch(error => {
                         console.log(error)
