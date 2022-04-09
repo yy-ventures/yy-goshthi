@@ -5,8 +5,7 @@
                 <img src="../assets/images/landing-new-image/yyg-logo/yyg-logo-color.png" alt="YY Goshthi logo">
             </div>
             <div class="heading">
-                <span class="season">Spring Cohort</span>
-                <span class="date">2022</span>
+                <span>Spring Cohort 2022</span>
             </div>
         </div>
         <!-- <h1 class="heading"> YY Goshthi Spring {{getCurrentyear()}}</h1> -->
@@ -72,6 +71,7 @@
                 <small>error message</small>
             </div>
             <p class='important-text'>**To ensure gender equality within our program, we appreciate applications that have at least one female co-founder.</p>
+            <p class="important-text">**If you do not have a co-founder now, please add someone from your core team who will be committing to the incubation program.</p>
             <div class="cofounder-container">
                 <div class="box-1">
                     <h5 class="required">Co-founder 1</h5>
@@ -384,18 +384,12 @@
                     <small>error message</small>
                 </div>
 
-                <input type="submit">
+                <input type="submit" id="submitButton">
             </div>
-
-            <div v-if="this.show_message">
-                <SuccessPopup/>
-            </div>
-
-            <!-- {{
-                this.show_message ? <SuccessPopup/> : '';
-            }} -->
-            <!-- <p v-if="this.show_message">Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.</p> -->
         </form>
+        <div v-if="this.show_message">
+            <SuccessPopup/>
+        </div>
     </div>
 </template>
 
@@ -455,11 +449,6 @@
    
         methods: {        
             submit: async function (e) {
-                
-
-                console.log(e)
-                // const form = document.querySelector('#form');
-
                 const success= this.checkInput(e);
 
                 // Form Data
@@ -499,20 +488,12 @@
                 data.set('pitch_deck', this.file);
                 console.log('success', success)
                 if(success){
-                    console.log(data)
+                    this.disableSubmitButton();
                     axios.post('https://yyv.yyventures.org/api/yyg-application-submit-form/create', data)
                     .then(response => {
                         if (response.status == 200) {
-                            this.show_message = true;
-
-                            console.log('success')
-
-                            console.log(this.show_message)
-                        //  alert('Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.')
+                        this.show_message = true;
                         };
-                        // setTimeout(() => {
-                        //     window.location.href = 'https://incubator.yy.ventures/';
-                        // }, 3000);
                     })
                     .catch(error => {
                         console.log(error)
@@ -520,26 +501,27 @@
                 }
                
             },
+
+            disableSubmitButton: function(){
+                console.log('in function')
+                const submitBtn = document.querySelector('#submitButton');
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.4';
+                submitBtn.style.cursor = 'wait';
+            },
                     
             getCurrentyear: function(){
                 const date = new Date();
                 const year = date.getFullYear();
                 this.year = year;
             },
-            handleFileUpload: function(e){
-     
+            handleFileUpload: function(e){     
                 this.checkFile = e.target.files[0];
                 if(this.checkFile.size > 5242880){
-                               console.log(this.checkFile)
-                    console.log('in')
                     alert(`Please upload your file between 5MB, your file is ${Math.round(this.checkFile.size / 1048576)}MB`)
                     e.target.value = '';
                 }else{
-                      console.log(this.checkFile)
-                    console.log('out')
                     this.file = this.checkFile;
-
-                    console.log(this.file)
                 }
 
             },
@@ -914,6 +896,7 @@
 
 <style lang="scss" scoped>
     #application{
+        position: relative;
         padding: 10rem 5rem;
 
         @media screen and (max-width: 600px){
@@ -922,9 +905,13 @@
 
         .heading-container{
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            gap: 30px;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 80px;
+            width: min-content;
+            margin-inline: auto;
 
             @media screen and (max-width: 600px){
                 padding: 0 20px;
@@ -933,7 +920,7 @@
                 height: 100px;
 
                 @media screen and (max-width: 600px){
-                    height: 60px;
+                    height: 70px;
                 }
                 img{
                     height: 100%;
@@ -943,25 +930,19 @@
             .heading{
                 span{
                     display: block;
-                    font-size: 30px;
-                    height: 35px;
+                    color: #3A3A3A;
+                    font-size: 36.5px;
+                    line-height: 1.2;
+                    white-space: nowrap;
+                    text-transform: uppercase;
+                    font-weight: 300;
 
-                    @media screen and (max-width: 600px){
-                        font-size: 20px;
-                        height: 50px;
-                    }
-                }
-                .season{
-                    color: #1e87f0;
-                    font-weight: 700;
+                    border-block: 2px solid #3A3A3A;
 
                     @media screen and (max-width: 600px){
                         font-size: 25px;
-                        line-height: 1.2;
+                        font-weight: 400;
                     }
-                }
-                .date{
-                    color: #3A3A3A;
                 }
             }
         }
@@ -1130,13 +1111,6 @@
                     &:hover{
                         filter: brightness(90%);
                     }
-                }
-                .btn-remove{
-                    background-color: rgba(255, 0, 0, 0.781);
-                }
-                .btn-add{
-                    background-color: rgba(0, 128, 0, 0.781);
-
                 }
             }
             .pb{
