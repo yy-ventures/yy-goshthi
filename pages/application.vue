@@ -383,8 +383,10 @@
                     <input type="file" id="pitchDeck" class="mb" @change='handleFileUpload' name="pitch_deck" >
                     <small>error message</small>
                 </div>
-
-                <input type="submit" id="submitButton">
+                <div class="btn-container">
+                    <input type="submit" id="submitButton">
+                    <input type="button" @click="saveAsDraft" id="draftButton" value="save as draft">
+                </div>
             </div>
         </form>
         <div v-if="this.show_message">
@@ -447,11 +449,8 @@
             }
         },
    
-        methods: {        
-            submit: async function (e) {
-                const success= this.checkInput(e);
-
-                // Form Data
+        methods: {
+             setFormData: function() {
                 const data = new FormData();
                 data.set('name_of_business',this.enterpriseName);
                 data.set('summery_of_experience',this.enterpriseSummary);
@@ -486,9 +485,20 @@
                 data.set('year',this.year);
                 data.set('season',this.season);
                 data.set('pitch_deck', this.file);
+
+                return data;
+            },
+
+            submit: async function (e) {
+                const success= this.checkInput(e);
+
+                // Form Data
+                const data = this.setFormData();
+                
                 console.log('success', success)
                 if(success){
                     this.disableSubmitButton();
+                    this.disableDraftButton();
                     axios.post('https://yyv.yyventures.org/api/yyg-application-submit-form/create', data)
                     .then(response => {
                         if (response.status == 200) {
@@ -498,8 +508,22 @@
                     .catch(error => {
                         console.log(error)
                     })
+                }               
+            },
+           
+            saveAsDraft: async function(){
+                this.disableSubmitButton();
+                this.disableDraftButton();
+                const data = this.setFormData();
+                const response = await axios.post('draft endpoint url', data);
+
+                try {
+                    if(response.status == 200){
+                        this.show_message = true;
+                    } 
+                } catch (err) {
+                    console.log(err);
                 }
-               
             },
 
             disableSubmitButton: function(){
@@ -508,6 +532,12 @@
                 submitBtn.disabled = true;
                 submitBtn.style.opacity = '0.4';
                 submitBtn.style.cursor = 'wait';
+            },
+            disableDraftButton: function(){
+                const draftBtn = document.querySelector('#draftButton');
+                draftBtn.disabled = true;
+                draftBtn.style.opacity = '0.4';
+                draftBtn.style.cursor = 'wait';
             },
                     
             getCurrentyear: function(){
@@ -1185,20 +1215,28 @@
                 cursor: pointer;
             }
 
-            input[type='submit']{
-                display: block;
-                width: 100%;
-                font-size: 20px;
-                font-weight: 700;
-                color: white;
-                background: #049abf;
-                border: none;
-                padding: 10px 20px;
-                &:hover{
-                    filter: brightness(90%);
-                    cursor: pointer;
+            .btn-container{
+
+                display: flex;
+                gap: 2rem;
+
+                input[type='submit'],
+                input[type='button']{
+                    display: block;
+                    width: 100%;
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: white;
+                    background: #049abf;
+                    border: none;
+                    padding: 10px 20px;
+                    &:hover{
+                        filter: brightness(90%);
+                        cursor: pointer;
+                    }
                 }
             }
+
 
             .important-text{
                 font-style: italic;

@@ -3,8 +3,15 @@
         <div class="login-container">
             <h3>Login to continue registration</h3>
             <form @submit="submit" class="form">
-                <input type="text" v-model="userId" id="user_name" placeholder="User ID">
-                <input type="password" v-model="password" id="password" placeholder="Password">
+                <div class="userId-container box">
+                    <input type="text" v-model="userId" id="user_name" placeholder="User ID">
+                    <small>error message</small>
+                    <span>{{this.userId}}</span>
+                </div>
+                <div class="password-container box">
+                    <input type="password" v-model="password" id="password" placeholder="Password">
+                    <small>error message</small>
+                </div>
                 <button class="submit-btn" type="submit">Login</button>
             </form>
         </div>
@@ -12,12 +19,80 @@
 </template>
 
 <script>
+    import axios from 'axios'
+
     export default{
         data(){
             return{
                 userId: '',
                 password: ''
             }
+        },
+        methods: {  
+            submit: async function (e) {
+                e.preventDefault();
+                // front validation checked
+                console.log('in submit');
+                const success = this.checkInput();
+                // Form Data
+                const data = new FormData();
+                data.set('username', this.userId)
+                data.set('password', this.password)
+                console.log('success', success)
+                if(success){
+                    const response = await axios.post('http://localhost:8000/api/login', data)
+
+                    console.log(response);
+                    try {
+                        if (response.status == 200){
+                            console.log('response success')
+                        }
+                    } catch (err) {
+                        console.log(err)
+                    }
+                }
+
+                // const response = { jwt: 'dgfagsdfgdsfgassdfasd' }
+
+                // console.log(response);
+
+                // localStorage.setItem('jwt', response.jwt);
+            },
+            checkInput: function(e){
+                // e.preventDefault();
+                const userId = document.querySelector('#user_name');
+                const userPassword = document.querySelector('#password');
+
+                let error = false;
+                if(this.userId === ''){
+                    this.setErrorFor(userId, 'user ID cannot be empty')
+                    error = true;
+                } else{
+                    this.setSuccessFor(userId)
+                }
+                if(this.password === ''){
+                    this.setErrorFor(userPassword, 'user password cannot be empty')
+                    error = true;
+                } else{
+                    this.setSuccessFor(userPassword)
+                }
+                return !error;
+
+            },
+            setErrorFor: function(input, message){
+                const formControl = input.parentElement;
+                const small =  formControl.querySelector('small');
+
+                formControl.className = 'form-control error';
+                small.innerText = message;
+            },
+            setSuccessFor: function (input) {
+                const formControl = input.parentElement;
+                const small =  formControl.querySelector('small');
+
+                formControl.className = 'form-control success';
+                small.innerText = '';
+            },
         }
     }
 </script>
@@ -44,7 +119,7 @@
                 display: flex;
                 flex-direction: column;
 
-                input, .submit-btn{
+                .submit-btn{
                     border-radius: 3px;
                     border: none;
                 }
@@ -53,9 +128,8 @@
                     padding: 10px 8px;
                     font-size: 16px;
                     font-weight: 600;
-                }
-                input:not(:last-child){
-                    margin-bottom: 20px;
+                    width: 100%;
+                    border: 2px solid white;
                 }
                 .submit-btn{
                     margin-top: 50px;
@@ -67,6 +141,30 @@
                     background-color: #0b9bbf;
 
                 }
+                .box small{
+                    visibility: hidden;
+                }
+                .box{
+                    // &:not(:last-child){
+                    //     margin-bottom: 1rem;
+                    // }
+                }
+                small{
+                    display: block;
+                    white-space: nowrap;
+                    margin-bottom: 16px;
+                }
+                .form-control.success input {
+                    border-color: #2ecc71;
+                }
+                .form-control.error input {
+                    border-color: #e74c3c;
+                }
+                .form-control.error small {
+                    color: #e74c3c;
+                    visibility: visible;
+                }
+
             }
         }
     }

@@ -17,8 +17,8 @@
       a.link(v-on:click='handleVisible = !handleVisible') apply
 
       .dropdown(v-if='handleVisible')
-        a.login login
-        a.new-form new form
+        a.login(href='/login') login
+        a.new-form(href='/application') new form
 
 </template>
 
