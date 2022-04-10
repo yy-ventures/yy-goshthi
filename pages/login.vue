@@ -6,7 +6,6 @@
                 <div class="userId-container box">
                     <input type="text" v-model="userId" id="user_name" placeholder="User ID">
                     <small>error message</small>
-                    <span>{{this.userId}}</span>
                 </div>
                 <div class="password-container box">
                     <input type="password" v-model="password" id="password" placeholder="Password">
@@ -40,7 +39,7 @@
                 data.set('password', this.password)
                 console.log('success', success)
                 if(success){
-                    const response = await axios.post('http://localhost:8000/api/login', data)
+                    const response = await axios.post('https://yyv.yyventures.org/api/login', data)
 
                     console.log(response);
                     try {
