@@ -455,6 +455,11 @@
                 // submission_type: ''
             }
         },
+        mounted: {
+            getDraftData: function(){
+                // get data from localStorage
+            }
+        },
    
         methods: {
              setFormData: function() {
@@ -531,6 +536,8 @@
                     this.disableSubmitButton();
                     this.disableDraftButton();
                     const response = await axios.post('https://yyv.yyventures.org/api/yyg-application-submit-form/create', data);
+
+                    console.log(response);
 
                     try {
                         if(response.status == 200){

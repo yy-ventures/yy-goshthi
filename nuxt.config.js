@@ -21,6 +21,20 @@ export default {
   //   base: '/incubator/',
   // },
 
+  // router: {
+  //   extendRoutes(routes, resolve) {
+  //     routes.push(
+  //       {
+  //         name: 'application',
+  //         path: '/application',
+  //         component: resolve(__dirname, 'pages/application.vue'),
+  //         props: true,
+  //         alias: 'fancy-path-name' // dynamic here?
+  //       }
+  //     )
+  //   }
+  // },
+
   generate: {
     routes: dynamicRoutes,
   },

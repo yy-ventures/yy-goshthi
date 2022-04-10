@@ -44,7 +44,12 @@
                     console.log(response);
                     try {
                         if (response.status == 200){
-                            console.log('response success')
+                            const draftData = await axios.get(`http://stage-sbdc-sfdc.3zeros.club/api/get-app-draft-data?app_id=${this.uderId}`)
+                            if(draftData){
+                                localStorage.setItem('draftData', draftData)
+                                this.$router.push('/application')
+                            }
+                            console.log(draftMessage);
                         }
                     } catch (err) {
                         console.log(err)
