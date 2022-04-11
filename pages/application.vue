@@ -452,51 +452,86 @@
                 show_message: false,
                 show_draft_success_message: false,
                 errors:[],
-                // submission_type: ''
+                submission: false,
+                draft: false
+
             }
         },
-        mounted: {
-            getDraftData: function(){
-                // get data from localStorage
-            }
+        mounted: function() {
+            const draftData = localStorage.getItem('draftData');
+            // this.enterpriseName = draftData.name_of_business;
+            // this.enterpriseSummary = draftData.summery_of_experience;
+            // this.enterpriseMission = draftData.mission;
+            // this.enterpriseVision = draftData.vision;
+            // this.enterpriseSocialMedia = draftData.enterprise_social_media;
+            // this.enterpriseWebsite = draftData.enterprise_website;
+            // this.team = draftData.founder_type;
+
+            // this.cofounderName1 = draftData.co_founder_name_one;
+            // this.gender1 = draftData.co_founder_gender_one;
+            // this.email1 = draftData.co_founder_email_one;
+            // this.phone1 = draftData.co_founder_mobile_one;
+            // this.linkedin1 = draftData.co_founder_linkedin_one;
+
+            // this.cofounderName2 = draftData.co_founder_name_two;
+            // this.gender2 = draftData.co_founder_gender_two;
+            // this.email2 = draftData.co_founder_email_two;
+            // this.phone2 = draftData.co_founder_mobile_two;
+            // this.linkedin2 = draftData.co_founder_linkedin_two;
+
+            // this.reduceProblem = draftData.reduce_problem;
+            // this.howEnterpriseReduce = draftData.reduce_problem_process;
+            // this.impactMeasure = draftData.is_known_impact_of_work;
+            // this.methodology = draftData.methodology_of_work;
+            // this.enterpriseInnovation = draftData.innovation;
+            // this.enterpriseInnovationMore = draftData.experience_of_innovation;
+            // this.revenue = draftData.current_revenue_range;
+            // this.customers = draftData.enterprise_website;
+            // this.enterpriseWebsite = draftData.customer_range;
+            // this.media_link_1 = draftData.media_links[0];
+            // this.media_link_2 = draftData.media_links[1];
+            // this.media_link_3 = draftData.media_links[2];
+            // this.media_link_4 = draftData.media_links[3];
+            // this.file = draftData.pitch_deck;
         },
    
         methods: {
              setFormData: function() {
                 const data = new FormData();
-                data.set('name_of_business',this.enterpriseName);
-                data.set('summery_of_experience',this.enterpriseSummary);
-                data.set('mission',this.enterpriseMission);
-                data.set('vision',this.enterpriseVision);
+                data.set('name_of_business',this.enterpriseName);//
+                data.set('summery_of_experience',this.enterpriseSummary);//
+                data.set('mission',this.enterpriseMission);//
+                data.set('vision',this.enterpriseVision);//
                 data.set('enterprise_social_media',this.enterpriseSocialMedia);
                 data.set('enterprise_website',this.enterpriseWebsite);
-                data.set('founder_type',this.team);
-                data.set('co_founder_name_one',this.cofounderName1);
-                data.set('co_founder_gender_one',this.gender1);
-                data.set('co_founder_email_one',this.email1);
-                data.set('co_founder_mobile_one',this.phone1);
+                data.set('founder_type',this.team);//
+                data.set('co_founder_name_one',this.cofounderName1);//
+                data.set('co_founder_gender_one',this.gender1);//
+                data.set('co_founder_email_one',this.email1);//
+                data.set('co_founder_mobile_one',this.phone1);//
                 data.set('co_founder_linkedin_one',this.linkedin1);
-                data.set('co_founder_name_two',this.cofounderName2);
-                data.set('co_founder_gender_two',this.gender2);
-                data.set('co_founder_email_two',this.email2);
-                data.set('co_founder_mobile_two',this.phone2);
+                data.set('co_founder_name_two',this.cofounderName2);//
+                data.set('co_founder_gender_two',this.gender2);//
+                data.set('co_founder_email_two',this.email2);//
+                data.set('co_founder_mobile_two',this.phone2);//
                 data.set('co_founder_linkedin_two',this.linkedin2);
                 data.set('reduce_problem',this.reduceProblem.toString());
                 data.set('reduce_problem_process',this.howEnterpriseReduce);
                 data.set('is_known_impact_of_work',this.impactMeasure);
                 data.set('methodology_of_work',this.methodology);
-                data.set('innovation',this.enterpriseInnovation);
+                data.set('innovation',this.enterpriseInnovation);//
                 data.set('experience_of_innovation',this.enterpriseInnovationMore);
-                data.set('stage_of_ventures',this.stage);
-                data.set('is_registered_under_law',this.registered);
+                data.set('stage_of_ventures',this.stage);//
+                data.set('is_registered_under_law',this.registered);//
                 data.set('legal_status_ventures',this.legalStatusOption());
-                data.set('make_money_plan', this.enterpriseMakeMoney)
+                data.set('make_money_plan', this.enterpriseMakeMoney)//
                 data.set('current_revenue_range',this.revenue);
                 data.set('customer_range',this.customers);
                 data.set('media_links',[this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4]);
                 data.set('year',this.year);
                 data.set('season',this.season);
-                data.set('pitch_deck', this.file);
+                data.set('pitch_deck', this.file);//
+                data.set('submission_type', this.submissionType());
 
                 return data;
             },
@@ -1013,6 +1048,9 @@
                     return this.legalStatusOther
                 }
                 return this.legalStatus
+            },
+            submissionType: function(){
+
             },
             setErrorForGender1: function(message){
                 const formControl = document.querySelector('#gender1');

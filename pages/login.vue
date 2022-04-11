@@ -39,7 +39,7 @@
                 data.set('password', this.password)
                 console.log('success', success)
                 if(success){
-                    const response = await axios.post('https://yyv.yyventures.org/api/login', data)
+                    const response = await axios.post('http://yyv.yyventures.org/api/login', data)
 
                     console.log(response);
                     try {
@@ -49,7 +49,7 @@
                                 localStorage.setItem('draftData', draftData)
                                 this.$router.push('/application')
                             }
-                            console.log(draftMessage);
+                            console.log(draftData);
                         }
                     } catch (err) {
                         console.log(err)
