@@ -41,15 +41,24 @@
                 if(success){
                     const response = await axios.post('http://yyv.yyventures.org/api/login', data)
 
-                    console.log(response);
+                    console.log(response.data.data.token);
                     try {
                         if (response.status == 200){
-                            const draftData = await axios.get(`http://stage-sbdc-sfdc.3zeros.club/api/get-app-draft-data?app_id=${this.uderId}`)
+                            const headers = {
+                            'Content-Type': 'application/json',
+                            'Authorization': response.data.data.token
+                            }
+                            console.log('login success')
+                            const draftData = await axios.get(`https://yyv.yyventures.org/api/get-app-draft-data?app_id=${this.userId}`, {
+                                headers: headers
+                            })
+                            console.log(draftData);
                             if(draftData){
-                                localStorage.setItem('draftData', draftData)
+                                localStorage.setItem('draftData', JSON.stringify(draftData.data.data))
+                                localStorage.setItem('app_id', draftData.data.data.app_id)
                                 this.$router.push('/application')
                             }
-                            console.log(draftData);
+                            console.log(draftData.data.data);
                         }
                     } catch (err) {
                         console.log(err)

@@ -8,7 +8,7 @@
                 </div>
             </div>
             <p>Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.</p>
-            <a href="https://incubator.yy.ventures/" class="btn">Done</a>
+            <a href="/" class="btn">Done</a>
         </div>
     </div>
 </template>

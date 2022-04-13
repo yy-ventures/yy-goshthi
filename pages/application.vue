@@ -384,7 +384,7 @@
                     <small>error message</small>
                 </div>
                 <div class="btn-container">
-                    <input type="submit" id="submitButton">
+                    <input type="submit" @click="submissionTypeSubmit" id="submitButton">
                     <input type="button" @click="saveAsDraft" id="draftButton" value="save as draft">
                 </div>
             </div>
@@ -445,6 +445,7 @@
                 media_link_2: '',
                 media_link_3: '',
                 media_link_4: '',
+                media_links:[],
                 year: '2022',
                 season: 'Spring',
                 file: '',
@@ -452,95 +453,76 @@
                 show_message: false,
                 show_draft_success_message: false,
                 errors:[],
-                submission: false,
-                draft: false
-
             }
-        },
-        mounted: function() {
-            const draftData = localStorage.getItem('draftData');
-            // this.enterpriseName = draftData.name_of_business;
-            // this.enterpriseSummary = draftData.summery_of_experience;
-            // this.enterpriseMission = draftData.mission;
-            // this.enterpriseVision = draftData.vision;
-            // this.enterpriseSocialMedia = draftData.enterprise_social_media;
-            // this.enterpriseWebsite = draftData.enterprise_website;
-            // this.team = draftData.founder_type;
-
-            // this.cofounderName1 = draftData.co_founder_name_one;
-            // this.gender1 = draftData.co_founder_gender_one;
-            // this.email1 = draftData.co_founder_email_one;
-            // this.phone1 = draftData.co_founder_mobile_one;
-            // this.linkedin1 = draftData.co_founder_linkedin_one;
-
-            // this.cofounderName2 = draftData.co_founder_name_two;
-            // this.gender2 = draftData.co_founder_gender_two;
-            // this.email2 = draftData.co_founder_email_two;
-            // this.phone2 = draftData.co_founder_mobile_two;
-            // this.linkedin2 = draftData.co_founder_linkedin_two;
-
-            // this.reduceProblem = draftData.reduce_problem;
-            // this.howEnterpriseReduce = draftData.reduce_problem_process;
-            // this.impactMeasure = draftData.is_known_impact_of_work;
-            // this.methodology = draftData.methodology_of_work;
-            // this.enterpriseInnovation = draftData.innovation;
-            // this.enterpriseInnovationMore = draftData.experience_of_innovation;
-            // this.revenue = draftData.current_revenue_range;
-            // this.customers = draftData.enterprise_website;
-            // this.enterpriseWebsite = draftData.customer_range;
-            // this.media_link_1 = draftData.media_links[0];
-            // this.media_link_2 = draftData.media_links[1];
-            // this.media_link_3 = draftData.media_links[2];
-            // this.media_link_4 = draftData.media_links[3];
-            // this.file = draftData.pitch_deck;
-        },
-   
+        },          
         methods: {
              setFormData: function() {
-                const data = new FormData();
-                data.set('name_of_business',this.enterpriseName);//
-                data.set('summery_of_experience',this.enterpriseSummary);//
-                data.set('mission',this.enterpriseMission);//
-                data.set('vision',this.enterpriseVision);//
+             this.media_links=[];
+             if(this.media_link_1){                
+                 this.media_links.push(this.media_link_1);
+             }    
+             if(this.media_link_2){
+                 this.media_links.push(this.media_link_2);
+             } 
+
+            if(this.media_link_3){
+                 this.media_links.push(this.media_link_3);
+             } 
+             
+            if(this.media_link_4){
+                 this.media_links.push(this.media_link_4);
+             } 
+
+            const data = new FormData();
+                data.set('name_of_business',this.enterpriseName);
+                data.set('summery_of_experience',this.enterpriseSummary);
+                data.set('mission',this.enterpriseMission);
+                data.set('vision',this.enterpriseVision);
                 data.set('enterprise_social_media',this.enterpriseSocialMedia);
                 data.set('enterprise_website',this.enterpriseWebsite);
-                data.set('founder_type',this.team);//
-                data.set('co_founder_name_one',this.cofounderName1);//
-                data.set('co_founder_gender_one',this.gender1);//
-                data.set('co_founder_email_one',this.email1);//
-                data.set('co_founder_mobile_one',this.phone1);//
+                data.set('founder_type',this.team);
+                data.set('co_founder_name_one',this.cofounderName1);
+                data.set('co_founder_gender_one',this.gender1);
+                data.set('co_founder_email_one',this.email1);
+                data.set('co_founder_mobile_one',this.phone1);
                 data.set('co_founder_linkedin_one',this.linkedin1);
-                data.set('co_founder_name_two',this.cofounderName2);//
-                data.set('co_founder_gender_two',this.gender2);//
-                data.set('co_founder_email_two',this.email2);//
-                data.set('co_founder_mobile_two',this.phone2);//
+                data.set('co_founder_name_two',this.cofounderName2);
+                data.set('co_founder_gender_two',this.gender2);
+                data.set('co_founder_email_two',this.email2);
+                data.set('co_founder_mobile_two',this.phone2);
                 data.set('co_founder_linkedin_two',this.linkedin2);
+
                 data.set('reduce_problem',this.reduceProblem.toString());
                 data.set('reduce_problem_process',this.howEnterpriseReduce);
                 data.set('is_known_impact_of_work',this.impactMeasure);
                 data.set('methodology_of_work',this.methodology);
-                data.set('innovation',this.enterpriseInnovation);//
+                data.set('innovation',this.enterpriseInnovation);
                 data.set('experience_of_innovation',this.enterpriseInnovationMore);
-                data.set('stage_of_ventures',this.stage);//
-                data.set('is_registered_under_law',this.registered);//
+                data.set('stage_of_ventures',this.stage);
+                data.set('is_registered_under_law',this.registered);
                 data.set('legal_status_ventures',this.legalStatusOption());
-                data.set('make_money_plan', this.enterpriseMakeMoney)//
+                data.set('make_money_plan', this.enterpriseMakeMoney)
                 data.set('current_revenue_range',this.revenue);
                 data.set('customer_range',this.customers);
-                data.set('media_links',[this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4]);
+                data.set('media_links','['+ this.media_links+']');
                 data.set('year',this.year);
                 data.set('season',this.season);
-                data.set('pitch_deck', this.file);//
-                data.set('submission_type', this.submissionType());
+                data.set('pitch_deck', this.file);
 
                 return data;
             },
 
             submit: async function (e) {
                 const success= this.checkInput(e);
-
+                
                 // Form Data
                 const data = this.setFormData();
+                data.set('is_submission', true)
+                // const submissoinType = data.set('submission_type', !submission)
+                // console.log(submissoinType)
+                localStorage.clear();
+
+                console.log(data)
                 
                 console.log('success', success)
                 if(success){
@@ -559,15 +541,24 @@
             },
            
             saveAsDraft: async function(e){
-                const success = this.checkDraftMinInput(e);
-
+                const isValid = this.checkDraftMinInput(e); 
+                const app_id = localStorage.getItem('app_id');
                 console.log('in draft function')
 
                 // Form Data
                 const data = this.setFormData();
-                console.log('success', success)
+                if(app_id != null || app_id != undefined || app_id != ''){
+                    data.set('app_id', app_id)                    
+                }
+                data.set('is_submission', false)
 
-                if(success){
+                console.log(data)
+                // console.log(submissoinType)
+                console.log('Here Start');
+                console.log(data);
+                console.log('Here End');
+
+                if(isValid){
                     this.disableSubmitButton();
                     this.disableDraftButton();
                     const response = await axios.post('https://yyv.yyventures.org/api/yyg-application-submit-form/create', data);
@@ -584,7 +575,9 @@
                 }
 
             },
-
+            submissionTypeSubmit: function(){
+                this.submission = true;
+            },
             disableSubmitButton: function(){
                 console.log('in function')
                 const submitBtn = document.querySelector('#submitButton');
@@ -935,7 +928,6 @@
                 if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseSocialMedia)){
                     this.setErrorFor(enterpriseSocialMedia, 'Should be an URL')
                     error = true
-                    console.log(this.enterpriseSocialMedia)              
                 }else{
                     this.setSuccessFor(enterpriseSocialMedia)
                 }
@@ -1049,9 +1041,6 @@
                 }
                 return this.legalStatus
             },
-            submissionType: function(){
-
-            },
             setErrorForGender1: function(message){
                 const formControl = document.querySelector('#gender1');
                 const small =  formControl.querySelector('small');
@@ -1136,6 +1125,69 @@
                 formControl.className = 'form-control error';
                 small.innerText = message;
             }
+        },
+        mounted: async function() {
+            // const data = localStorage.getItem('draftData');
+            let appId = localStorage.getItem('app_id');
+            let draftData;
+            // const draftData = JSON.parse(data);
+            if( appId != null){
+                const headers = {
+                    'Content-Type': 'application/json',
+                    // 'Authorization': response.data.data.token
+                }
+                console.log('login success')
+    
+                const data = await axios.get(`https://yyv.yyventures.org/api/get-app-draft-data?app_id=${appId}`, {
+                    headers: headers
+                })
+                console.log(data.data.data)
+                draftData = data.data.data;
+                console.log(draftData);
+
+            }
+            
+            if(draftData != null || draftData != undefined){
+                this.enterpriseName = draftData.name_of_business;
+                this.enterpriseSummary = draftData.summery_of_experience;
+                this.enterpriseMission = draftData.mission;
+                this.enterpriseVision = draftData.vision;
+                this.enterpriseSocialMedia = draftData.enterprise_social_media;
+                this.enterpriseWebsite = draftData.enterprise_website;
+                this.team = draftData.founder_type;
+    
+                this.cofounderName1 = draftData.co_founder_name_one;
+                this.gender1 = draftData.co_founder_gender_one;
+                this.email1 = draftData.co_founder_email_one;
+                this.phone1 = draftData.co_founder_mobile_one;
+                this.linkedin1 = draftData.co_founder_linkedin_one;
+    
+                this.cofounderName2 = draftData.co_founder_name_two;
+                this.gender2 = draftData.co_founder_gender_two;
+                this.email2 = draftData.co_founder_email_two;
+                this.phone2 = draftData.co_founder_mobile_two;
+                this.linkedin2 = draftData.co_founder_linkedin_two;
+    
+                this.reduceProblem = draftData.reduce_problem; // need to set data
+                this.howEnterpriseReduce = draftData.reduce_problem_process;
+                this.impactMeasure = draftData.is_known_impact_of_work;
+                this.methodology = draftData.methodology_of_work;
+                this.enterpriseInnovation = draftData.innovation;
+                this.enterpriseInnovationMore = draftData.experience_of_innovation;
+                this.stage = draftData.stage_of_ventures;
+                this.registered = draftData.is_registered_under_law;
+                this.enterpriseMakeMoney = draftData.make_money_plan;
+                this.revenue = draftData.current_revenue_range;
+                this.customers = draftData.customer_range;
+                this.media_link_1 = draftData.media_links[0];
+                this.media_link_2 = draftData.media_links[1];
+                this.media_link_3 = draftData.media_links[2];
+                this.media_link_4 = draftData.media_links[3];
+                this.file = draftData.pitch_deck;
+
+                // data.set('media_links',[this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4]);
+            }
+            console.log(this.enterpriseWebsite)
         },
         
         }
