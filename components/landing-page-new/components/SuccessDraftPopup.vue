@@ -8,7 +8,7 @@
                 </div>
             </div>
             <p>Please check your email for User ID and Password To continue your registration you have to login</p>
-            <a href="https://incubator.yy.ventures/" class="btn">Done</a>
+            <a href="/" class="btn">Done</a>
         </div>
     </div>
 </template>

@@ -17,10 +17,10 @@
       a.link(v-on:click='handleVisible = !handleVisible') apply
 
       .dropdown(v-if='handleVisible')
-        //- if this.isAppId == false
-        a.login(href='/login') login
-        //- else
-        a.login(@click='logout') Logout
+        if this.isAppId == false
+          a.login(href='/login') login
+        else
+          a.login(@click='logout') Logout
         a.new-form(href='/application') Application form
 
 </template>
@@ -38,13 +38,14 @@
       logout: function(){
         console.log('clicked')
         localStorage.removeItem('app_id');
-        localStorage.removeItem('draftData')
+        localStorage.removeItem('draftData')  
         this.isAppId = false
       }
     },
     mounted: function() {
-      if(localStorage.getItem('app_id')){
-          this.isAppId = true
+      if(localStorage.getItem('app_id') !== null){ 
+        console.log('app id true')
+        this.isAppId = true
       }
       console.log(localStorage.getItem('app_id'))
       console.log(this.isAppId)

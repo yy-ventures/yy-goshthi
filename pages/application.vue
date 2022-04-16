@@ -480,6 +480,7 @@
                 data.set('vision',this.enterpriseVision);
                 data.set('enterprise_social_media',this.enterpriseSocialMedia);
                 data.set('enterprise_website',this.enterpriseWebsite);
+
                 data.set('founder_type',this.team);
                 data.set('co_founder_name_one',this.cofounderName1);
                 data.set('co_founder_gender_one',this.gender1);
@@ -541,14 +542,14 @@
             },
            
             saveAsDraft: async function(e){
-                const isValid = this.checkDraftMinInput(e); 
+                const isValid = this.checkDraftMinInput(e);
                 const app_id = localStorage.getItem('app_id');
                 console.log('in draft function')
 
                 // Form Data
                 const data = this.setFormData();
                 if(app_id != null || app_id != undefined || app_id != ''){
-                    data.set('app_id', app_id)                    
+                    data.set('app_id', app_id)
                 }
                 data.set('is_submission', false)
 
