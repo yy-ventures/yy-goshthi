@@ -393,7 +393,7 @@
             <SuccessPopup/>
         </div>
         <div v-if="this.show_draft_success_message">
-            <SuccessDraftPopup/>
+            <SuccessDraftPopup :appId='this.appId' :password='this.password'/>
         </div>
     </div>
 </template>
@@ -453,6 +453,8 @@
                 show_message: false,
                 show_draft_success_message: false,
                 errors:[],
+                appId: 'test ID 2',
+                password: 'test Password 2'
             }
         },          
         methods: {
@@ -505,7 +507,7 @@
                 data.set('make_money_plan', this.enterpriseMakeMoney)
                 data.set('current_revenue_range',this.revenue);
                 data.set('customer_range',this.customers);
-                data.set('media_links','['+ this.media_links+']');
+                data.set('media_links',this.media_links);
                 data.set('year',this.year);
                 data.set('season',this.season);
                 data.set('pitch_deck', this.file);
@@ -564,10 +566,12 @@
                     this.disableDraftButton();
                     const response = await axios.post('https://yyv.yyventures.org/api/yyg-application-submit-form/create', data);
 
-                    console.log(response);
+                    this.appId = response.data.responses.app_id;
+                    this.password = response.data.responses.generated_password;
 
                     try {
                         if(response.status == 200){
+
                             this.show_draft_success_message = true;
                         }
                     } catch (err) {
@@ -672,19 +676,21 @@
                 }else{
                     this.setSuccessFor(enterpriseVision)
                 }
-                console.log(this.enterpriseSocialMedia)
-                if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseSocialMedia)){
-                    this.setErrorFor(enterpriseSocialMedia, 'Should be an URL')
-                    error = true
-                    console.log(this.enterpriseSocialMedia)              
-                }else{
-                    this.setSuccessFor(enterpriseSocialMedia)
+                if(this.enterpriseSocialMedia !== ''){
+                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseSocialMedia)){
+                        this.setErrorFor(enterpriseSocialMedia, 'Should be an URL')
+                        error = true
+                    }else{
+                        this.setSuccessFor(enterpriseSocialMedia)
+                    }
                 }
-                if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseWebsite)){
-                    this.setErrorFor(enterpriseWebsite, 'Should be an URL')
-                    error = true                    
-                }else{
-                    this.setSuccessFor(enterpriseWebsite)
+                if(this.enterpriseWebsite !== ''){
+                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseWebsite)){
+                        this.setErrorFor(enterpriseWebsite, 'Should be an URL')
+                        error = true                    
+                    }else{
+                        this.setSuccessFor(enterpriseWebsite)
+                    }
                 }
 
                 if(this.team === ''){
@@ -845,29 +851,37 @@
                 }else{
                     this.setSuccessFor(customerAmount)
                 }
-                if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_1)){
-                    this.setErrorFor(mediaLink1, 'Not a valid URL')
-                    error = true
-                }else{
-                    this.setSuccessFor(mediaLink1)
+                if (this.media_link_1 !== ''){
+                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_1)){
+                        this.setErrorFor(mediaLink1, 'Not a valid URL')
+                        error = true
+                    }else{
+                        this.setSuccessFor(mediaLink1)
+                    }
                 }
-                if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_2)){
-                    this.setErrorFor(mediaLink2, 'Not a valid URL')
-                    error = true
-                }else{
-                    this.setSuccessFor(mediaLink2)
+                if (this.media_link_2 !== ''){
+                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_2)){
+                        this.setErrorFor(mediaLink2, 'Not a valid URL')
+                        error = true
+                    }else{
+                        this.setSuccessFor(mediaLink2)
+                    }
                 }
-                if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_3)){
-                    this.setErrorFor(mediaLink3, 'Not a valid URL')
-                    error = true
-                }else{
-                    this.setSuccessFor(mediaLink3)
+                if (this.media_link_3 !== ''){
+                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_3)){
+                        this.setErrorFor(mediaLink3, 'Not a valid URL')
+                        error = true
+                    }else{
+                        this.setSuccessFor(mediaLink3)
+                    }
                 }
-                if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_4)){
-                    this.setErrorFor(mediaLink4, 'Not a valid URL')
-                    error = true
-                }else{
-                    this.setSuccessFor(mediaLink4)
+                if (this.media_link_4 !== ''){
+                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_4)){
+                        this.setErrorFor(mediaLink4, 'Not a valid URL')
+                        error = true
+                    }else{
+                        this.setSuccessFor(mediaLink4)
+                    }
                 }
                 if(this.file === ''){
                     this.setErrorFor(pitchDeck, 'Please upload your pitch deck')
@@ -925,20 +939,22 @@
                 }else{
                     this.setSuccessFor(enterpriseVision)
                 }
-                console.log(this.enterpriseSocialMedia)
-                if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseSocialMedia)){
-                    this.setErrorFor(enterpriseSocialMedia, 'Should be an URL')
-                    error = true
-                }else{
-                    this.setSuccessFor(enterpriseSocialMedia)
+                if(this.enterpriseSocialMedia !== ''){
+                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseSocialMedia)){
+                        this.setErrorFor(enterpriseSocialMedia, 'Should be an URL')
+                        error = true
+                    }else{
+                        this.setSuccessFor(enterpriseSocialMedia)
+                    }
                 }
-                if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseWebsite)){
-                    this.setErrorFor(enterpriseWebsite, 'Should be an URL')
-                    error = true                    
-                }else{
-                    this.setSuccessFor(enterpriseWebsite)
+                if(this.enterpriseWebsite !== ''){
+                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseWebsite)){
+                        this.setErrorFor(enterpriseWebsite, 'Should be an URL')
+                        error = true                    
+                    }else{
+                        this.setSuccessFor(enterpriseWebsite)
+                    }
                 }
-
                 if(this.team === ''){
                     this.setErrorForTeam('Choose any option')
                     error = true                    
@@ -1041,6 +1057,13 @@
                     return this.legalStatusOther
                 }
                 return this.legalStatus
+            },
+            bindLegalStatusData: function( data ){
+                if (data === 'For profit/Limited company' || data === 'Non profit/NGO/Foundation' || data === 'Sole proprietorship'){
+                    this.legalStatus = data;
+                    return
+                }
+                this.legalStatusOther = data;
             },
             setErrorForGender1: function(message){
                 const formControl = document.querySelector('#gender1');
@@ -1177,13 +1200,18 @@
                 this.enterpriseInnovationMore = draftData.experience_of_innovation;
                 this.stage = draftData.stage_of_ventures;
                 this.registered = draftData.is_registered_under_law;
+
+                this.bindLegalStatusData(draftData.legal_status_ventures)
+
                 this.enterpriseMakeMoney = draftData.make_money_plan;
                 this.revenue = draftData.current_revenue_range;
                 this.customers = draftData.customer_range;
+                if(draftData.media_links!=null){
                 this.media_link_1 = draftData.media_links[0];
                 this.media_link_2 = draftData.media_links[1];
                 this.media_link_3 = draftData.media_links[2];
                 this.media_link_4 = draftData.media_links[3];
+                }
                 this.file = draftData.pitch_deck;
 
                 // data.set('media_links',[this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4]);

@@ -7,14 +7,19 @@
                     <img src="../../../assets/images/landing-new-image/icon/successful-icon.jpg" alt="success icon">
                 </div>
             </div>
-            <p>Please check your email for User ID and Password To continue your registration you have to login</p>
+            <p>Please check your email for User ID and Password To continue your registration you have to login <span class="login-data">User ID: {{appId}}</span> <span class="login-data">Password: {{password}}</span></p>
             <a href="/" class="btn">Done</a>
         </div>
     </div>
 </template>
 
 <script>
-
+    export default{
+        props:{
+            appId: String,
+            password: String
+        }
+    }
 </script>
 
 <style lang="scss">
@@ -65,6 +70,10 @@
             p{
                 @media screen and (max-width: 600px){
                     font-size: 13px;
+                }
+                .login-data{
+                    display: block;
+                    color: #1e87f0;
                 }
             }
             .btn{
