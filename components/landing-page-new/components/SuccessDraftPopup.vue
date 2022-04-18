@@ -7,7 +7,7 @@
                     <img src="../../../assets/images/landing-new-image/icon/successful-icon.jpg" alt="success icon">
                 </div>
             </div>
-            <p>Please check your email for User ID and Password To continue your registration you have to login <span class="login-data">User ID: {{appId}}</span> <span class="login-data">Password: {{password}}</span></p>
+            <p>Please look for your User ID and Password in your email.<br/>You must login to continue your registration. <span class="login-data">User ID: {{appId}}</span> <span class="login-data">Password: {{password}}</span></p>
             <a href="/" class="btn">Done</a>
         </div>
     </div>
