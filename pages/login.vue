@@ -11,7 +11,7 @@
                     <input type="password" v-model="password" id="password" placeholder="Password">
                     <small>error message</small>
                 </div>
-                <button class="submit-btn" type="submit">Login</button>
+                <button id="loginBtn" class="submit-btn" type="submit">Login</button>
             </form>
         </div>
     </div>
@@ -41,6 +41,7 @@
 
                     try {
                         if (response.status == 200){
+                            this.disableSubmitButton();
                             const headers = {
                             'Content-Type': 'application/json',
                             'Authorization': response.data.data.token
@@ -85,6 +86,12 @@
                 }
                 return !error;
 
+            },
+            disableSubmitButton: function(){
+                const loginBtn = document.querySelector('#loginBtn');
+                loginBtn.disabled = true;
+                loginBtn.style.opacity = '0.4';
+                loginBtn.style.cursor = 'wait';
             },
             setErrorFor: function(input, message){
                 const formControl = input.parentElement;
