@@ -31,34 +31,28 @@
             submit: async function (e) {
                 e.preventDefault();
                 // front validation checked
-                console.log('in submit');
                 const success = this.checkInput();
                 // Form Data
                 const data = new FormData();
                 data.set('username', this.userId)
                 data.set('password', this.password)
-                console.log('success', success)
                 if(success){
                     const response = await axios.post('http://yyv.yyventures.org/api/login', data)
 
-                    console.log(response.data.data.token);
                     try {
                         if (response.status == 200){
                             const headers = {
                             'Content-Type': 'application/json',
                             'Authorization': response.data.data.token
                             }
-                            console.log('login success')
                             const draftData = await axios.get(`https://yyv.yyventures.org/api/get-app-draft-data?app_id=${this.userId}`, {
                                 headers: headers
                             })
-                            console.log(draftData);
                             if(draftData){
                                 // localStorage.setItem('draftData', JSON.stringify(draftData.data.data))
                                 localStorage.setItem('app_id', draftData.data.data.app_id)
                                 this.$router.push('/application')
                             }
-                            console.log(draftData.data.data);
                         }
                     } catch (err) {
                         console.log(err)

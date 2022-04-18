@@ -517,17 +517,9 @@
 
             submit: async function (e) {
                 const success= this.checkInput(e);
-                
-                // Form Data
                 const data = this.setFormData();
                 data.set('is_submission', true)
-                // const submissoinType = data.set('submission_type', !submission)
-                // console.log(submissoinType)
                 localStorage.clear();
-
-                console.log(data)
-                
-                console.log('success', success)
                 if(success){
                     this.disableSubmitButton();
                     this.disableDraftButton();
@@ -546,7 +538,6 @@
             saveAsDraft: async function(e){
                 const isValid = this.checkDraftMinInput(e);
                 const app_id = localStorage.getItem('app_id');
-                console.log('in draft function')
 
                 // Form Data
                 const data = this.setFormData();
@@ -554,12 +545,6 @@
                     data.set('app_id', app_id)
                 }
                 data.set('is_submission', false)
-
-                console.log(data)
-                // console.log(submissoinType)
-                console.log('Here Start');
-                console.log(data);
-                console.log('Here End');
 
                 if(isValid){
                     this.disableSubmitButton();
@@ -584,7 +569,6 @@
                 this.submission = true;
             },
             disableSubmitButton: function(){
-                console.log('in function')
                 const submitBtn = document.querySelector('#submitButton');
                 submitBtn.disabled = true;
                 submitBtn.style.opacity = '0.4';
@@ -676,22 +660,23 @@
                 }else{
                     this.setSuccessFor(enterpriseVision)
                 }
-                if(this.enterpriseSocialMedia !== ''){
-                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseSocialMedia)){
-                        this.setErrorFor(enterpriseSocialMedia, 'Should be an URL')
-                        error = true
-                    }else{
-                        this.setSuccessFor(enterpriseSocialMedia)
-                    }
-                }
-                if(this.enterpriseWebsite !== ''){
-                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseWebsite)){
-                        this.setErrorFor(enterpriseWebsite, 'Should be an URL')
-                        error = true                    
-                    }else{
-                        this.setSuccessFor(enterpriseWebsite)
-                    }
-                }
+                // --------- client side validation --------------->
+                // if(this.enterpriseSocialMedia !== ''){
+                //     if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseSocialMedia)){
+                //         this.setErrorFor(enterpriseSocialMedia, 'Should be an URL')
+                //         error = true
+                //     }else{
+                //         this.setSuccessFor(enterpriseSocialMedia)
+                //     }
+                // }
+                // if(this.enterpriseWebsite !== ''){
+                //     if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseWebsite)){
+                //         this.setErrorFor(enterpriseWebsite, 'Should be an URL')
+                //         error = true                    
+                //     }else{
+                //         this.setSuccessFor(enterpriseWebsite)
+                //     }
+                // }
 
                 if(this.team === ''){
                     this.setErrorForTeam('Choose any option')
@@ -851,38 +836,39 @@
                 }else{
                     this.setSuccessFor(customerAmount)
                 }
-                if (this.media_link_1 !== ''){
-                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_1)){
-                        this.setErrorFor(mediaLink1, 'Not a valid URL')
-                        error = true
-                    }else{
-                        this.setSuccessFor(mediaLink1)
-                    }
-                }
-                if (this.media_link_2 !== ''){
-                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_2)){
-                        this.setErrorFor(mediaLink2, 'Not a valid URL')
-                        error = true
-                    }else{
-                        this.setSuccessFor(mediaLink2)
-                    }
-                }
-                if (this.media_link_3 !== ''){
-                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_3)){
-                        this.setErrorFor(mediaLink3, 'Not a valid URL')
-                        error = true
-                    }else{
-                        this.setSuccessFor(mediaLink3)
-                    }
-                }
-                if (this.media_link_4 !== ''){
-                    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_4)){
-                        this.setErrorFor(mediaLink4, 'Not a valid URL')
-                        error = true
-                    }else{
-                        this.setSuccessFor(mediaLink4)
-                    }
-                }
+                // --------- client side validation --------------->
+                // if(this.media_link_1 !== ''){
+                //     if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_1)){
+                //         this.setErrorFor(mediaLink1, 'Not a valid URL')
+                //         error = true
+                //     }else{
+                //         this.setSuccessFor(mediaLink1)
+                //     }
+                // }
+                // if(this.media_link_2 !== ''){
+                //     if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_2)){
+                //         this.setErrorFor(mediaLink2, 'Not a valid URL')
+                //         error = true
+                //     }else{
+                //         this.setSuccessFor(mediaLink2)
+                //     }
+                // }
+                // if(this.media_link_3 !== ''){
+                //     if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_3)){
+                //         this.setErrorFor(mediaLink3, 'Not a valid URL')
+                //         error = true
+                //     }else{
+                //         this.setSuccessFor(mediaLink3)
+                //     }
+                // }
+                // if(this.media_link_4 !== ''){
+                //     if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_4)){
+                //         this.setErrorFor(mediaLink4, 'Not a valid URL')
+                //         error = true
+                //     }else{
+                //         this.setSuccessFor(mediaLink4)
+                //     }
+                // }
                 if(this.file === ''){
                     this.setErrorFor(pitchDeck, 'Please upload your pitch deck')
                     error = true
@@ -1160,14 +1146,11 @@
                     'Content-Type': 'application/json',
                     // 'Authorization': response.data.data.token
                 }
-                console.log('login success')
     
                 const data = await axios.get(`https://yyv.yyventures.org/api/get-app-draft-data?app_id=${appId}`, {
                     headers: headers
                 })
-                console.log(data.data.data)
                 draftData = data.data.data;
-                console.log(draftData);
 
             }
             
@@ -1216,7 +1199,6 @@
 
                 // data.set('media_links',[this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4]);
             }
-            console.log(this.enterpriseWebsite)
         },
         
         }

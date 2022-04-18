@@ -46,7 +46,6 @@
             let videoList = document.querySelectorAll('.video-list-container .list');
         
             videoList.forEach(vid =>{
-                console.log(vid);
                 vid.onclick = () =>{
                     videoList.forEach(remove =>{remove.classList.remove('active')});
                     vid.classList.add('active');
@@ -55,8 +54,6 @@
                     document.querySelector('.main-video-container .main-video').src = src;
                     document.querySelector('.main-video-container .main-video').play();
                     // document.querySelector('.main-video-container .main-vid-title').innerHTML = title;
-        
-                    console.log('I am clicked')
                 };
             });
 
