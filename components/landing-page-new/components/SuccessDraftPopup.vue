@@ -7,8 +7,17 @@
                     <img src="../../../assets/images/landing-new-image/icon/successful-icon.jpg" alt="success icon">
                 </div>
             </div>
-            <p>Please look for your User ID and Password in your email.<br/>You must login to continue your registration. <span class="login-data">User ID: {{appId}}</span> <span class="login-data">Password: {{password}}</span></p>
-            <a href="/" class="btn">Done</a>
+            <!-- <p>Please look for your User ID and Password in your email.<br/>You must login to continue your registration. <span class="login-data">User ID: {{appId}} {{email1}}</span> <span class="login-data">Password: {{password}} {{email2}}</span></p> -->
+            <p>To come back to your application, please login with the following User ID and Password:</p>
+            <span class="login-data">User ID: {{appId}}</span>
+            <span class="login-data">Password: {{password}}</span>
+            <p>We have also sent the login credentials to your email address at:</p>
+            <span class="login-data">{{email1}}</span>
+            <span class="login-data">{{email2}}</span>
+            <div class="btn-container">
+                <a href="/" class="btn">Done</a>
+                <a href="/login" class="btn">Login</a>
+            </div>
         </div>
     </div>
 </template>
@@ -17,7 +26,9 @@
     export default{
         props:{
             appId: String,
-            password: String
+            password: String,
+            email1: '',
+            email2: ''
         }
     }
 </script>
@@ -49,6 +60,7 @@
                 justify-content: center;
                 gap: 20px;
                 margin-bottom: 20px;
+
                 span{
                     display: block;
                     font-size: 24px;
@@ -58,6 +70,7 @@
                         font-size: 16px;
                     }
                 }
+
                 .icon-container{
                     height: 30px;
 
@@ -71,11 +84,21 @@
                 @media screen and (max-width: 600px){
                     font-size: 13px;
                 }
-                .login-data{
-                    display: block;
-                    color: #1e87f0;
-                }
+                // .login-data{
+                //     display: block;
+                //     color: #1e87f0;
+                // }
             }
+            .login-data{
+                    display: block;
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: #1e87f0;
+
+                    @media screen and (max-width: 600px){
+                        font-size: 16px;
+                    }
+                }
             .btn{
                 display: block;
                 width: max-content;
@@ -96,6 +119,11 @@
                 &:hover{
                     background-color: #1e87f0e7;
                 }
+            }
+            .btn-container{
+                display: flex;
+                justify-content: space-between;
+                padding-inline: 20px;
             }
         }
     }

@@ -393,7 +393,7 @@
             <SuccessPopup/>
         </div>
         <div v-if="this.show_draft_success_message">
-            <SuccessDraftPopup :appId='this.appId' :password='this.password'/>
+            <SuccessDraftPopup :appId='this.appId' :password='this.password' :email1='this.email1' :email2='this.email2'/>
         </div>
     </div>
 </template>
@@ -453,8 +453,10 @@
                 show_message: false,
                 show_draft_success_message: false,
                 errors:[],
-                appId: 'test ID 2',
-                password: 'test Password 2'
+                appId: '',
+                password: '',
+                // co_founder_email_1: this.setEmail1(),
+                // co_founder_email_2: this.setEmail2()
             }
         },          
         methods: {
@@ -554,9 +556,10 @@
                     this.appId = response.data.responses.app_id;
                     this.password = response.data.responses.generated_password;
 
+                    console.log(response);
+
                     try {
                         if(response.status == 200){
-
                             this.show_draft_success_message = true;
                         }
                     } catch (err) {

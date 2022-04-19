@@ -20,14 +20,17 @@
         //- - var appId = isAppId;
         //- if (!this.isAppId)
         div(v-if='isAppId')
+          a.new-form(href='/application')  Application form
           a.login(@click='logout') Logout
           
         div(v-if='!isAppId')
+          a.new-form(href='/application') New Application form
           a.login(href='/login') login
+          
+
         //- else
 
-        a.new-form(href='/application') Application form
-
+        
 </template>
 
 <script>

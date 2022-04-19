@@ -51,7 +51,8 @@
                             })
                             if(draftData){
                                 // localStorage.setItem('draftData', JSON.stringify(draftData.data.data))
-                                localStorage.setItem('app_id', draftData.data.data.app_id)
+                                localStorage.setItem('app_id', draftData.data.data.app_id)                                
+                                this.isAppId= true,
                                 this.$router.push('/application')
                             }
                         }
@@ -108,6 +109,7 @@
                 small.innerText = '';
             },
         }
+        
     }
 </script>
 
