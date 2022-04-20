@@ -24,8 +24,8 @@
           a.login(@click='logout') Logout
           
         div(v-if='!isAppId')
-          a.new-form(href='/application') New Application form
-          a.login(href='/login') login
+          a.new-form(href='/application') Start New Application
+          a.login(href='/login') Login to your accout
           
 
         //- else

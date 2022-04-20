@@ -385,7 +385,7 @@
                 </div>
                 <div class="btn-container">
                     <input type="submit" @click="submissionTypeSubmit" id="submitButton">
-                    <input type="button" @click="saveAsDraft" id="draftButton" value="save as draft">
+                    <input type="button" @click="saveAsDraft" id="draftButton" value="Save as draft">
                 </div>
             </div>
         </form>
@@ -527,6 +527,7 @@
                     this.disableDraftButton();
                     axios.post('https://yyv.yyventures.org/api/yyg-application-submit-form/create', data)
                     .then(response => {
+                        console.log(response);
                         if (response.status == 200) {
                         this.show_message = true;
                         };
@@ -547,6 +548,9 @@
                     data.set('app_id', app_id)
                 }
                 data.set('is_submission', false)
+                // this.handleFileUpload(e);
+
+                console.log(data);
 
                 if(isValid){
                     this.disableSubmitButton();
@@ -591,6 +595,7 @@
             },
             handleFileUpload: function(e){     
                 this.checkFile = e.target.files[0];
+                console.log(this.checkFile)
                 if(this.checkFile.size > 5242880){
                     alert(`Please upload your file between 5MB, your file is ${Math.round(this.checkFile.size / 1048576)}MB`)
                     e.target.value = '';
@@ -720,15 +725,17 @@
                     this.setSuccessFor(phone1)
                 }
 
-                if(this.linkedin1 === ''){
-                    this.setErrorFor(linkedin1, 'link cannot be empty')
-                    error = true                    
-                }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin1)){
-                    this.setErrorFor(linkedin1, 'Not a valid URL')
-                    error = true
-                }else{                        
-                    this.setSuccessFor(linkedin1)
-                }
+                // not required
+
+                // if(this.linkedin1 === ''){
+                //     this.setErrorFor(linkedin1, 'link cannot be empty')
+                //     error = true                    
+                // }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin1)){
+                //     this.setErrorFor(linkedin1, 'Not a valid URL')
+                //     error = true
+                // }else{                        
+                //     this.setSuccessFor(linkedin1)
+                // }
 
                 if(this.cofounderName2 === ''){
                     this.setErrorFor(cofounderName2, 'Co-founder name cannot be empty')
@@ -767,15 +774,17 @@
                     this.setSuccessFor(phone2)
                 }
 
-                if(this.linkedin2 === ''){
-                    this.setErrorFor(linkedin2, 'link cannot be empty')
-                    error = true
-                }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin2)){
-                    this.setErrorFor(linkedin1, 'Not a valid URL')
-                    error = true
-                }else{
-                    this.setSuccessFor(linkedin2)
-                }
+                // not required
+
+                // if(this.linkedin2 === ''){
+                //     this.setErrorFor(linkedin2, 'link cannot be empty')
+                //     error = true
+                // }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin2)){
+                //     this.setErrorFor(linkedin1, 'Not a valid URL')
+                //     error = true
+                // }else{
+                //     this.setSuccessFor(linkedin2)
+                // }
 
                 if(this.reduceProblem.length <= 0){
                     this.setErrorReduceProblem('Choose any option')
@@ -899,6 +908,7 @@
                 const email2 = document.querySelector('#email2');
                 const phone2 = document.querySelector('#tel2');
                 const linkedin2 = document.querySelector('#linkedin2');
+                const draftBtn = document.querySelector('#draftButton');
 
                 let error = false;
                 if(this.enterpriseName === ''){
@@ -983,15 +993,17 @@
                     this.setSuccessFor(phone1)
                 }
 
-                if(this.linkedin1 === ''){
-                    this.setErrorFor(linkedin1, 'link cannot be empty for draft')
-                    error = true                    
-                }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin1)){
-                    this.setErrorFor(linkedin1, 'Not a valid URL')
-                    error = true
-                }else{                        
-                    this.setSuccessFor(linkedin1)
-                }
+                // not required
+
+                // if(this.linkedin1 === ''){
+                //     this.setErrorFor(linkedin1, 'link cannot be empty for draft')
+                //     error = true                    
+                // }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin1)){
+                //     this.setErrorFor(linkedin1, 'Not a valid URL')
+                //     error = true
+                // }else{                        
+                //     this.setSuccessFor(linkedin1)
+                // }
 
                 if(this.cofounderName2 === ''){
                     this.setErrorFor(cofounderName2, 'Co-founder name cannot be empty for draft')
@@ -1030,16 +1042,23 @@
                     this.setSuccessFor(phone2)
                 }
 
-                if(this.linkedin2 === ''){
-                    this.setErrorFor(linkedin2, 'link cannot be empty for draft')
-                    error = true
-                }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin2)){
-                    this.setErrorFor(linkedin1, 'Not a valid URL')
-                    error = true
-                }else{
-                    this.setSuccessFor(linkedin2)
-                }
+                // not required
+
+                // if(this.linkedin2 === ''){
+                //     this.setErrorFor(linkedin2, 'link cannot be empty for draft')
+                //     error = true
+                // }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin2)){
+                //     this.setErrorFor(linkedin1, 'Not a valid URL')
+                //     error = true
+                // }else{
+                //     this.setSuccessFor(linkedin2)
+                // }
+
+                // if (error = false){
+                //     draftBtn.disabled = false;
+                // }
                 return !error;
+
             },
             legalStatusOption: function(){
                 if (this.legalStatus === ''){
@@ -1202,9 +1221,9 @@
 
                 // data.set('media_links',[this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4]);
             }
-        },
-        
         }
+        
+    }
 
 </script>
 
