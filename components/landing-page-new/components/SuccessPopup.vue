@@ -7,7 +7,9 @@
                     <img src="../../../assets/images/landing-new-image/icon/successful-icon.jpg" alt="success icon">
                 </div>
             </div>
-            <p>Thank you for applying to YY Goshthi Spring 2022 Cohort. We will get back to you once the application closes.</p>
+            <p>Thank you for submitting your application for the YY Goshthi Incubation Program Spring 2022 Cohort.</p>
+            <br/>
+            <p>We have sent you a confirmation email. If you haven't received any confirmation email, please email <a href="mailto:mazbah@yy.ventures" target="_blank">mazbah@yy.ventures</a> or contact +8801797332722</p>
             <a href="/" class="btn">Done</a>
         </div>
     </div>
