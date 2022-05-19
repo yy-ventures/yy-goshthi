@@ -6,7 +6,7 @@
         <p class="dhaka-text">OUR INCUBATION PROGRAM IN DHAKA</p>
         <span class="yyg-application">Application for Spring 2022 cohort is open now</span>
         <a href="https://incubator.yy.ventures/application/" target="_blank" class="btn">Apply</a>
-        <span class="yyg-application-1">Application closes on 30th April, 2022</span>
+        <span class="yyg-application-1">Application closes on 4th June, 2022</span>
     </div>
 </template>
 
