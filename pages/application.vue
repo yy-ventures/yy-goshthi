@@ -891,7 +891,6 @@ export default {
             data
           )
           .then((response) => {
-            console.log(response);
             if (response.data.success == true) {
               this.show_message = true;
             }
@@ -912,9 +911,6 @@ export default {
         data.set("app_id", app_id);
       }
       data.set("is_submission", false);
-      // this.handleFileUpload(e);
-
-      console.log(data);
 
       if (isValid) {
         this.disableSubmitButton();
@@ -926,8 +922,6 @@ export default {
 
         this.appId = response.data.responses.app_id;
         this.password = response.data.responses.generated_password;
-
-        console.log(response);
 
         try {
           if (response.data.success == true) {
@@ -961,7 +955,6 @@ export default {
     },
     handleFileUpload: function (e) {
       this.checkFile = e.target.files[0];
-      console.log(this.checkFile);
       if (this.checkFile.size > 5242880) {
         alert(
           `Please upload your file between 5MB, your file is ${Math.round(
