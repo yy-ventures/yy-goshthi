@@ -50,8 +50,8 @@
           <!-- <h2>YY Goshthi Fall 2021 Cohort Application is closed.</h2> -->
           <!-- <a href="https://airtable.com/shraT8HKyxXMuaG6X" class="link_button">Apply Now</a> -->
 
-          <span class="yyg-application">Application for Spring 2022 cohort is open now</span>
-          <a href="https://incubator.yy.ventures/application/" target="_blank" class="btn">Apply</a>
+          <!-- <span class="yyg-application">Application for Spring 2022 cohort is open now</span>
+          <a href="https://incubator.yy.ventures/application/" target="_blank" class="btn">Apply</a> -->
         </div>
       </div>
     </div>
@@ -62,25 +62,25 @@
 export default {
   data() {
     return {
-      currentSlide: 'images/home/01.svg',
+      currentSlide: "images/home/01.svg",
       count: 0,
       slides: [
-        'images/home/01.svg',
-        'images/home/02.svg',
-        'images/home/03.svg',
-        'images/home/04.svg',
-        'images/home/05.svg',
-        'images/home/06.svg',
+        "images/home/01.svg",
+        "images/home/02.svg",
+        "images/home/03.svg",
+        "images/home/04.svg",
+        "images/home/05.svg",
+        "images/home/06.svg",
       ],
       slidesJpg: [
-        'images/home/01.jpg',
-        'images/home/02.jpg',
-        'images/home/03.jpg',
-        'images/home/05.jpg',
-        'images/home/06.jpg',
-        'images/home/07.jpg',
+        "images/home/01.jpg",
+        "images/home/02.jpg",
+        "images/home/03.jpg",
+        "images/home/05.jpg",
+        "images/home/06.jpg",
+        "images/home/07.jpg",
       ],
-      animation: 'uk-animation-fade',
+      animation: "uk-animation-fade",
     };
   },
   methods: {
@@ -121,21 +121,20 @@ export default {
     padding-top: 15%;
     padding-bottom: 15%;
 
-    @media screen and (max-width: 600px){
+    @media screen and (max-width: 600px) {
       margin-top: 20px;
     }
   }
   .hero-text-container {
     span {
       display: block;
-
     }
     .inner-span {
       display: inline;
       position: relative;
       overflow: hidden;
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         z-index: -1;
         right: 0;
@@ -169,8 +168,7 @@ export default {
       line-height: 1.1 !important;
       text-transform: none !important;
 
-
-      @media(max-width: 600px){
+      @media (max-width: 600px) {
         font-size: 40px !important;
       }
 
@@ -191,7 +189,7 @@ export default {
     }
   }
 
-  .btn{
+  .btn {
     font-size: 20px;
     width: max-content;
     white-space: nowrap;
@@ -210,11 +208,11 @@ export default {
     align-items: center;
     gap: 10px;
 
-    @media screen and (max-width: 600px){
-        font-size: 16px;
+    @media screen and (max-width: 600px) {
+      font-size: 16px;
     }
   }
-  .yyg-application{
+  .yyg-application {
     font-size: 30px;
     font-weight: 700;
     color: #0b9bbf;
