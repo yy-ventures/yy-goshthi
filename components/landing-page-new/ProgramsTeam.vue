@@ -167,6 +167,14 @@ export default {
     grid-gap: 60px 40px;
 
     @media screen and (min-width: 1301px) {
+      grid-template-columns: repeat(2, minmax(250px, 450px));
+      justify-content: center;
+    }
+    @media screen and (min-width: 1920px) {
+      grid-template-columns: repeat(2, minmax(250px, 550px));
+      justify-content: center;
+    }
+    @media screen and (max-width: 1300px) {
       grid-template-columns: repeat(2, minmax(250px, 350px));
       justify-content: center;
     }
