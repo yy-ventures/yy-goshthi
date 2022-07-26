@@ -22,7 +22,8 @@
         <div class="img-container">
           <div class="mask"></div>
           <img
-            src="../../assets/images/landing-new-image/members/mazbah.webp"
+            class="img-mazbah"
+            src="../../assets/images/landing-new-image/members/mazbah.png"
             alt="image"
           />
         </div>
@@ -200,12 +201,13 @@ export default {
       }
 
       .img-container {
-        height: 400px;
+        height: 500px;
         overflow: hidden;
         position: relative;
+        background-color: white;
 
         @media screen and (max-width: 960px) {
-          height: 300px;
+          height: 400px;
         }
 
         @media screen and (max-width: 600px) {
@@ -230,6 +232,9 @@ export default {
           height: 100%;
           width: 100%;
           object-fit: cover;
+        }
+        .img-mazbah {
+          margin-top: 2rem;
         }
       }
       .content {
