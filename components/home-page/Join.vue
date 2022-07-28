@@ -7,8 +7,6 @@
     <span class="yyg-application"
       >Application for Fall 2022 cohort will open soon</span
     >
-    <!-- <a href="https://incubator.yy.ventures/application/" target="_blank" class="btn">Apply</a>
-        <span class="yyg-application-1">Application closes on 4th June, 2022</span> -->
   </div>
 </template>
 

@@ -17,20 +17,13 @@
       a.link(v-on:click='handleVisible = !handleVisible') apply
 
       .dropdown(v-if='handleVisible')
-        //- - var appId = isAppId;
-        //- if (!this.isAppId)
         div(v-if='isAppId')
           a.new-form(href='/application')  Application form
           a.login(@click='logout') Logout
           
         div(v-if='!isAppId')
           a.new-form(href='/application') Start New Application
-          a.login(href='/login') Login to your accout
-          
-
-        //- else
-
-        
+          a.login(href='/login') Login to your accout        
 </template>
 
 <script>
@@ -68,32 +61,26 @@ export default {
 <style lang="sass">
 nav
   background: rgba(white, 0.8)
-  // backdrop-filter: blur(5px)
+  padding: 0 30px
+  transition: transform 500ms ease-in-out
 
   display: flex
   justify-content: space-between
   align-items: center
-
-  @media (max-width: 601px)
-   justify-content: flex-start
-
-
-  // padding: 5px 30px
-  padding: 0 30px
 
   position: fixed
   width: 100%
   max-width: 1920px
   z-index: 99
 
-  transition: transform 500ms ease-in-out
+  @media (max-width: 601px)
+   justify-content: flex-start
 
   input
     display: none
 
   #toggler:checked
     ~ .menu
-      // transform: scale(1)
       transform: translateX(0)
     ~ label #menu_button #bar
       background: none
@@ -143,10 +130,6 @@ nav
           top: 15px
 
   #logo
-    // position: absolute
-    // left: 50%
-    // transform: translateX(-50%)
-    // z-index: 99
     width: 150px
     @media (max-width: 601px)
       all: unset
@@ -156,17 +139,12 @@ nav
   .menu
     position: absolute
     top: 0
+
     width: 100vw
     height: 100vh
     transition: transform 500ms
-    // transform: scale(0)
     transform: translateX(100%)
     background: #fff
-
-    // display: flex
-    // flex-direction: column
-    // justify-content: center
-    // align-items: center
     padding-top: 100px
 
     .dropdown
@@ -199,8 +177,6 @@ nav
         text-transform: capitalize
         cursor: pointer
 
-
-
     @media (min-width: 601px)
       all: unset
       display: flex
@@ -210,17 +186,7 @@ nav
 
     a
       display: block !important
-      // @media (min-width: 601px)
-      //   &:first-of-type
-      //     display: none !important
 
-
-    // display: flex
-    // display: none
-    //
-    // & > * + *
-    //   margin-left: 10px
-    //
     .nuxt-link-exact-active,
     a:hover
       color: $yy_blue !important
@@ -261,7 +227,6 @@ nav
         display: none
         @media (min-width: 601px)
           position: absolute
-          // margin-top: 5px
           background: rgba(white, 0.9)
 
       &:hover
@@ -274,30 +239,4 @@ nav
           display: block
         ~ label .sub_menu__name:after
           transform: rotate(225deg)
-
-    // .sub_menu
-    //   &__items
-    //     background: rgba(white, 0.9)
-    //     position: absolute
-    //     z-index: 9
-    //     top: 55px
-    //     display: none
-    //     a
-    //       display: block
-    //
-    //   &__indicators
-    //     display: flex
-    //     align-items: flex-start
-    //
-    //     &__icon
-    //       border: solid $yy_grey
-    //       border-width: 0 3px 3px 0
-    //       padding: 3px
-    //       transform: rotate(45deg)
-    //       -webkit-transform: rotate(45deg)
-    //       margin-top: 15px
-    // .sub_menu:hover .sub_menu__items
-    //   display: block
-    // .sub_menu:hover .sub_menu__indicators_icon
-    //   transform: rotate(180deg)
 </style>

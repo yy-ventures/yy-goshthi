@@ -69,26 +69,6 @@ export default {
         impactText.style.backgroundPosition = `${-pageY * 0.7 + 1300}px`;
       }
     });
-
-    // counting --------->
-    // const counters = document.querySelectorAll('.number');
-    // const speed = 500;
-
-    // counters.forEach((counter) => {
-    //     const updateCount = () => {
-    //         const target = parseInt(counter.getAttribute('data-target'));
-    //         const count = parseInt(counter.innerText);
-    //         const increment = Math.trunc(target / speed);
-
-    //         if (count < target) {
-    //         counter.innerText = count + increment;
-    //         setTimeout(updateCount, 1);
-    //         } else {
-    //         counter.innerText = target;
-    //         }
-    //     };
-    //     updateCount();
-    // });
   },
 };
 </script>
@@ -247,7 +227,6 @@ export default {
         font-size: 18px;
         font-weight: 600;
         white-space: nowrap;
-        // text-align: center;
 
         @media screen and (max-width: 600px) {
           font-size: 16px;

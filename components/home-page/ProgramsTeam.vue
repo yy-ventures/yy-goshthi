@@ -5,19 +5,6 @@
       <div id="team"></div>
     </div>
     <div class="programs-team__members">
-      <!-- <div class="programs-team__members--member faded_out">
-                <div class="img-container">
-                    <div class="mask"></div>
-                    <img src="../../assets/images/landing-new-image/members/sharika.webp" alt="image">
-                </div>
-                <div class="content">
-                    <div class="content__info">
-                        <h4 class="content__info--name">Sharika Sadaf</h4>
-                        <span class="content__info--designation">Head of Program & Partnerships</span>
-                    </div>
-                    <a class="content__icon" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/sharikasadaf/" uk-icon="icon: linkedin; ratio: 1"></a>
-                </div>
-            </div> -->
       <div class="programs-team__members--member faded_out">
         <div class="img-container">
           <div class="mask"></div>
@@ -152,11 +139,11 @@ export default {
       }
     }
     #programs {
-      background-image: url("../../assets/images/landing-new-image/animated-text/programs.png");
+      background-image: url("~/assets/images/landing-new-image/animated-text/programs.png");
       margin-bottom: 20px;
     }
     #team {
-      background-image: url("../../assets/images/landing-new-image/animated-text/team.png");
+      background-image: url("~/assets/images/landing-new-image/animated-text/team.png");
     }
   }
 
