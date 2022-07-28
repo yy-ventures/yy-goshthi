@@ -67,7 +67,6 @@ export default {
               }
             );
             if (draftData) {
-              // localStorage.setItem('draftData', JSON.stringify(draftData.data.data))
               localStorage.setItem("app_id", draftData.data.data.app_id);
               (this.isAppId = true), this.$router.push("/application");
             }
@@ -76,12 +75,6 @@ export default {
           console.log(err);
         }
       }
-
-      // const response = { jwt: 'dgfagsdfgdsfgassdfasd' }
-
-      //   console.log(response);
-
-      // localStorage.setItem('jwt', response.jwt);
     },
     checkInput: function (e) {
       // e.preventDefault();
@@ -171,11 +164,6 @@ export default {
       }
       .box small {
         visibility: hidden;
-      }
-      .box {
-        // &:not(:last-child){
-        //     margin-bottom: 1rem;
-        // }
       }
       small {
         display: block;

@@ -3,7 +3,7 @@
     <div class="footer__yy-goshti">
       <img
         class="footer__yy-logo yy-goshthi-logo"
-        src="../../../assets/images/landing-new-image/yyg-logo/yyg-logo.png"
+        src="~/assets/images/landing-new-image/yyg-logo/yyg-logo.png"
         alt=""
       />
       <p>
@@ -31,7 +31,7 @@
       <h4 class="footer__heading">Powered By</h4>
       <img
         class="footer__nea-logo"
-        src="../../../assets/images/landing-new-image/yyg-logo/nea-logo.png"
+        src="~/assets/images/landing-new-image/yyg-logo/nea-logo.png"
         alt=""
       />
       <p>
@@ -45,7 +45,7 @@
       <h4 class="footer__heading mb-1">Created By</h4>
       <img
         class="footer__yy-logo"
-        src="../../../assets/images/landing-new-image/yyg-logo/yyv-logo.png"
+        src="~/assets/images/landing-new-image/yyg-logo/yyv-logo.png"
         alt=""
       />
       <p>

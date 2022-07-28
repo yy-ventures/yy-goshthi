@@ -1,5 +1,6 @@
 <template>
   <div id="application">
+    <!-- Heading section start -->
     <div class="heading-container">
       <div class="img-container">
         <img
@@ -11,7 +12,9 @@
         <span>Spring Cohort 2022</span>
       </div>
     </div>
-    <!-- <h1 class="heading"> YY Goshthi Spring {{getCurrentyear()}}</h1> -->
+    <!-- Heading section end -->
+
+    <!-- Form section start -->
     <form id="form" @submit="submit">
       <div class="form-heading-container">
         <h1 class="form-heading-container__heading">Application Form</h1>
@@ -744,9 +747,15 @@
         </div>
       </div>
     </form>
+    <!-- Form section end -->
+
+    <!-- Success popup start -->
     <div v-if="this.show_message">
       <SuccessPopup />
     </div>
+    <!-- Success popup end -->
+
+    <!-- Draft success popup start -->
     <div v-if="this.show_draft_success_message">
       <SuccessDraftPopup
         :appId="this.appId"
@@ -755,14 +764,15 @@
         :email2="this.email2"
       />
     </div>
+    <!-- Draft success popup end -->
   </div>
 </template>
 
 <script>
 // import { post } from '@/assets/scripts/api';
 import axios from "axios";
-import SuccessPopup from "../components/landing-page-new/components/SuccessPopup.vue";
-import SuccessDraftPopup from "../components/landing-page-new/components/SuccessDraftPopup.vue";
+import SuccessPopup from "../components/SuccessPopup.vue";
+import SuccessDraftPopup from "../components/SuccessDraftPopup.vue";
 
 export default {
   components: {
@@ -815,8 +825,6 @@ export default {
       errors: [],
       appId: "",
       password: "",
-      // co_founder_email_1: this.setEmail1(),
-      // co_founder_email_2: this.setEmail2()
     };
   },
   methods: {
@@ -1039,23 +1047,6 @@ export default {
       } else {
         this.setSuccessFor(enterpriseVision);
       }
-      // --------- client side validation --------------->
-      // if(this.enterpriseSocialMedia !== ''){
-      //     if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseSocialMedia)){
-      //         this.setErrorFor(enterpriseSocialMedia, 'Should be an URL')
-      //         error = true
-      //     }else{
-      //         this.setSuccessFor(enterpriseSocialMedia)
-      //     }
-      // }
-      // if(this.enterpriseWebsite !== ''){
-      //     if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.enterpriseWebsite)){
-      //         this.setErrorFor(enterpriseWebsite, 'Should be an URL')
-      //         error = true
-      //     }else{
-      //         this.setSuccessFor(enterpriseWebsite)
-      //     }
-      // }
 
       if (this.team === "") {
         this.setErrorForTeam("Choose any option");
@@ -1098,18 +1089,6 @@ export default {
         this.setSuccessFor(phone1);
       }
 
-      // not required
-
-      // if(this.linkedin1 === ''){
-      //     this.setErrorFor(linkedin1, 'link cannot be empty')
-      //     error = true
-      // }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin1)){
-      //     this.setErrorFor(linkedin1, 'Not a valid URL')
-      //     error = true
-      // }else{
-      //     this.setSuccessFor(linkedin1)
-      // }
-
       if (this.cofounderName2 === "") {
         this.setErrorFor(cofounderName2, "Co-founder name cannot be empty");
         error = true;
@@ -1145,18 +1124,6 @@ export default {
       } else {
         this.setSuccessFor(phone2);
       }
-
-      // not required
-
-      // if(this.linkedin2 === ''){
-      //     this.setErrorFor(linkedin2, 'link cannot be empty')
-      //     error = true
-      // }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin2)){
-      //     this.setErrorFor(linkedin1, 'Not a valid URL')
-      //     error = true
-      // }else{
-      //     this.setSuccessFor(linkedin2)
-      // }
 
       if (this.reduceProblem.length <= 0) {
         this.setErrorReduceProblem("Choose any option");
@@ -1220,39 +1187,6 @@ export default {
       } else {
         this.setSuccessFor(customerAmount);
       }
-      // --------- client side validation --------------->
-      // if(this.media_link_1 !== ''){
-      //     if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_1)){
-      //         this.setErrorFor(mediaLink1, 'Not a valid URL')
-      //         error = true
-      //     }else{
-      //         this.setSuccessFor(mediaLink1)
-      //     }
-      // }
-      // if(this.media_link_2 !== ''){
-      //     if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_2)){
-      //         this.setErrorFor(mediaLink2, 'Not a valid URL')
-      //         error = true
-      //     }else{
-      //         this.setSuccessFor(mediaLink2)
-      //     }
-      // }
-      // if(this.media_link_3 !== ''){
-      //     if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_3)){
-      //         this.setErrorFor(mediaLink3, 'Not a valid URL')
-      //         error = true
-      //     }else{
-      //         this.setSuccessFor(mediaLink3)
-      //     }
-      // }
-      // if(this.media_link_4 !== ''){
-      //     if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.media_link_4)){
-      //         this.setErrorFor(mediaLink4, 'Not a valid URL')
-      //         error = true
-      //     }else{
-      //         this.setSuccessFor(mediaLink4)
-      //     }
-      // }
       if (this.file === "") {
         this.setErrorFor(pitchDeck, "Please upload your pitch deck");
         error = true;
@@ -1389,18 +1323,6 @@ export default {
         this.setSuccessFor(phone1);
       }
 
-      // not required
-
-      // if(this.linkedin1 === ''){
-      //     this.setErrorFor(linkedin1, 'link cannot be empty for draft')
-      //     error = true
-      // }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin1)){
-      //     this.setErrorFor(linkedin1, 'Not a valid URL')
-      //     error = true
-      // }else{
-      //     this.setSuccessFor(linkedin1)
-      // }
-
       if (this.cofounderName2 === "") {
         this.setErrorFor(
           cofounderName2,
@@ -1440,21 +1362,6 @@ export default {
         this.setSuccessFor(phone2);
       }
 
-      // not required
-
-      // if(this.linkedin2 === ''){
-      //     this.setErrorFor(linkedin2, 'link cannot be empty for draft')
-      //     error = true
-      // }else if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(this.linkedin2)){
-      //     this.setErrorFor(linkedin1, 'Not a valid URL')
-      //     error = true
-      // }else{
-      //     this.setSuccessFor(linkedin2)
-      // }
-
-      // if (error = false){
-      //     draftBtn.disabled = false;
-      // }
       return !error;
     },
     legalStatusOption: function () {
@@ -1560,14 +1467,11 @@ export default {
     },
   },
   mounted: async function () {
-    // const data = localStorage.getItem('draftData');
     let appId = localStorage.getItem("app_id");
     let draftData;
-    // const draftData = JSON.parse(data);
     if (appId != null) {
       const headers = {
         "Content-Type": "application/json",
-        // 'Authorization': response.data.data.token
       };
 
       const data = await axios.get(
@@ -1621,8 +1525,6 @@ export default {
         this.media_link_4 = draftData.media_links[3];
       }
       this.file = draftData.pitch_deck;
-
-      // data.set('media_links',[this.media_link_1, this.media_link_2, this.media_link_3, this.media_link_4]);
     }
   },
 };

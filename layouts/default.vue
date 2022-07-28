@@ -7,34 +7,31 @@ main
 </template>
 
 <script>
-import Navigation from '../components/Navigation';
-// import Footer from '../components/Footer';
-import FooterNew from '../components/landing-page-new/components/FooterNew.vue';
-// import links from '../assets/data/links.json';
+import Navigation from "../components/Navigation";
+import FooterNew from "../components/FooterNew.vue";
 import {
   toggle_navigation_on_scroll,
   click_listener,
   doms,
   update_scroll,
   add_class_on_focus,
-} from '@/assets/scripts/dom_utils';
+} from "@/assets/scripts/dom_utils";
 
 export default {
   components: {
     Navigation,
     FooterNew,
     // Footer,
-
   },
   mounted: () => {
     toggle_navigation_on_scroll();
-    click_listener('nav .link', () => {
-      doms('nav input').forEach((dom) => {
+    click_listener("nav .link", () => {
+      doms("nav input").forEach((dom) => {
         dom.checked = false;
       });
     });
     add_class_on_focus({
-      ['.faded_out']: 'fade_in',
+      [".faded_out"]: "fade_in",
     });
   },
 };
@@ -42,17 +39,8 @@ export default {
 
 <style>
 html {
-  /* font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI'; */
-  font-family: 'Graphik', sans;
+  font-family: "Graphik", sans;
   line-height: 1.6;
-  /* Roboto, 'Helvetica Neue', Arial, sans-serif; */
-  /* font-size: 16px; */
-  /* word-spacing: 1px; */
-  /* -ms-text-size-adjust: 100%; */
-  /* -webkit-text-size-adjust: 100%; */
-  /* -moz-osx-font-smoothing: grayscale; */
-  /* -webkit-font-smoothing: antialiased; */
-  /* box-sizing: border-box; */
 }
 
 *,
