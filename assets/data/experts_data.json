@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Tazin Shadid",
+    "designation": "Co-founder and CEO, AmarLab",
+    "image": "/_nuxt/assets/images/landing-new-image/members/tazin-shadid.png",
+    "linkedinLink": "https://www.linkedin.com/in/tazins/"
+  },
+  {
+    "id": 2,
+    "name": "Akkie Okma",
+    "designation": "Technical Advisor, YY Ventures",
+    "image": "/_nuxt/assets/images/landing-new-image/members/akkie-okma.png",
+    "linkedinLink": "https://www.linkedin.com/in/akkieokma/"
+  },
+  {
+    "id": 3,
+    "name": "Sabbir Amin",
+    "designation": "User-Centred Designer, Inked Studios",
+    "image": "/_nuxt/assets/images/landing-new-image/members/sabbir-amin.png",
+    "linkedinLink": "https://www.linkedin.com/in/sabbir-amin-848b275a/"
+  },
+  {
+    "id": 4,
+    "name": "Prof Jacqueline Strayer",
+    "designation": "Brand Builder, Educator, Advisor",
+    "image": "/_nuxt/assets/images/landing-new-image/members/jacqueline-strayer.png",
+    "linkedinLink": "https://www.linkedin.com/in/jfstrayer/"
+  },
+  {
+    "id": 5,
+    "name": "Shazeeb M Khairul Islam",
+    "designation": "Managing Director, YY Ventures",
+    "image": "/_nuxt/assets/images/landing-new-image/members/shazeeb-khairul.png",
+    "linkedinLink": "https://www.linkedin.com/in/shazeebislam/"
+  },
+  {
+    "id": 6,
+    "name": "Debojit Saha",
+    "designation": "Managing Director, Kaizen CRS",
+    "image": "/_nuxt/assets/images/landing-new-image/members/tanzin-shadid.png",
+    "linkedinLink": "https://www.linkedin.com/in/debojit-saha-434aa827/"
+  }
+]

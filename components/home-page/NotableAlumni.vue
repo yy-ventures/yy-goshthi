@@ -6,322 +6,53 @@
     </div>
     <div class="notable-alumni__carousel-track faded_out">
       <!-- Garbagmen Slide -->
-      <div class="notable-alumni__carousel-track__content current">
+      <div
+        :class="`notable-alumni__carousel-track__content ${alumniData.current}`"
+        v-for="alumniData in alumniDatas"
+        :key="alumniData.id"
+      >
         <div class="notable-alumni__carousel-track__content--image">
           <img
             class="img"
-            src="~/assets/images/programs/garbagemen.png"
+            :src="`/_nuxt/assets/images/incubator/${alumniData.image}`"
             alt="alumni image"
           />
         </div>
         <div class="notable-alumni__carousel-track__content--info">
           <div class="text-container">
-            <h3 class="text-container__heading">GARBAGEMAN</h3>
-            <p class="text-container__details">
-              GARBAGEMAN, the first ICT tech-based recycling business in
-              Bangladesh, is dedicated to creating an efficient, affordable, and
-              smooth waste management system by ‘upcycling’ waste into
-              resources. With the vision of creating a Cleaner and Greener
-              Bangladesh, GARBAGEMAN is focused on introducing a modern and
-              scientific approach to establish an efficient waste management
-              system and enhancing the socioeconomic stance of the system.
-            </p>
+            <h3 class="text-container__heading">{{ alumniData.name }}</h3>
+            <p class="text-container__details">{{ alumniData.description }}</p>
           </div>
           <div class="logo-container__social">
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.facebook.com/transgenderempowerment/"
+              :href="`${alumniData.facebookLink}`"
               uk-icon="icon: facebook; ratio: 1"
             ></a>
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://twitter.com/GARBAGEMANbd"
+              :href="`${alumniData.twitterLink}`"
               uk-icon="icon: twitter; ratio: 1"
             ></a>
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.linkedin.com/company/garbageman/"
+              :href="`${alumniData.linkedInLink}`"
               uk-icon="icon: linkedin; ratio: 1"
             ></a>
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.instagram.com/garbagemanbd/"
+              :href="`${alumniData.instaLink}`"
               uk-icon="icon: instagram; ratio: 1"
             ></a>
           </div>
         </div>
       </div>
-      <!-- AmarLab Slide -->
-      <div class="notable-alumni__carousel-track__content">
-        <div class="notable-alumni__carousel-track__content--image">
-          <img
-            class="img"
-            src="~/assets/images/incubator/amarlab.jpeg"
-            alt="alumni image"
-          />
-        </div>
-        <div class="notable-alumni__carousel-track__content--info">
-          <div class="text-container">
-            <h3 class="text-container__heading">AmarLab</h3>
-            <p class="text-container__details">
-              AmarLab provides on-demand diagnostic services, partnering with
-              top local and international diagnostic labs. They cater to
-              patients who face difficulty travelling to and from healthcare
-              facilities for multiple reasons including inaccessible transport,
-              disability, traffic etc. Their end-to-end diagnostics test
-              services include sample collection, testing and report delivery.
-            </p>
-          </div>
-          <div class="logo-container__social">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.facebook.com/amarlab.bd/"
-              uk-icon="icon: facebook; ratio: 1"
-            ></a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.linkedin.com/company/amarlab/"
-              uk-icon="icon: linkedin; ratio: 1"
-            ></a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.instagram.com/amarlab.bd/"
-              uk-icon="icon: instagram; ratio: 1"
-            ></a>
-          </div>
-        </div>
-      </div>
-      <!-- Avijatrik Slide -->
-      <div class="notable-alumni__carousel-track__content">
-        <div class="notable-alumni__carousel-track__content--image">
-          <img
-            class="img"
-            src="~/assets/images/incubator/avijatrik.jpg"
-            alt="alumni image"
-          />
-        </div>
-        <div class="notable-alumni__carousel-track__content--info">
-          <div class="text-container">
-            <h3 class="text-container__heading">Avijatrik Tourism</h3>
-            <p class="text-container__details">
-              With the aim of promoting local travel experiences, Avijatrik is
-              upholding and preserving the vibrant culture and nature of
-              Bangladesh. Avijatrik works in collaboration with the local
-              community to offer an authentic, meaningful and memorable
-              travelling experience to the tourists. By harnessing the power of
-              tourism, Avijatrik empowers local communities by creating economic
-              opportunities and enabling sustainable tourism.
-            </p>
-          </div>
-          <div class="logo-container__social">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.facebook.com/avijatrik"
-              uk-icon="icon: facebook; ratio: 1"
-            ></a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.linkedin.com/company/avijatrik/"
-              uk-icon="icon: linkedin; ratio: 1"
-            ></a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.instagram.com/avijatrik.tourism/"
-              uk-icon="icon: instagram; ratio: 1"
-            ></a>
-          </div>
-        </div>
-      </div>
-      <!-- Broqué Slide -->
-      <div class="notable-alumni__carousel-track__content">
-        <div class="notable-alumni__carousel-track__content--image">
-          <img
-            class="img"
-            src="~/assets/images/incubator/broque.jpg"
-            alt="alumni image"
-          />
-        </div>
-        <div class="notable-alumni__carousel-track__content--info">
-          <div class="text-container">
-            <h3 class="text-container__heading">Broqué</h3>
-            <p class="text-container__details">
-              Broqué is the first and only zero-waste streetwear label in
-              Bangladesh. It transforms unloved clothes into wearable art.
-              Leading & pioneering the culture of slow fashion in Bangladesh by
-              building a community through clothes swaps, upcycling workshops
-              across boards. Social impact and climate action being the
-              forefront of the organization, it empowers youth to make a
-              statement by wearing second hand.
-            </p>
-          </div>
-          <div class="logo-container__social">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.facebook.com/broque.af"
-              uk-icon="icon: facebook; ratio: 1"
-            ></a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://twitter.com/Broque_af"
-              uk-icon="icon: twitter; ratio: 1"
-            ></a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.linkedin.com/company/broqu%C3%A9/"
-              uk-icon="icon: linkedin; ratio: 1"
-            ></a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.instagram.com/broque.af/"
-              uk-icon="icon: instagram; ratio: 1"
-            ></a>
-          </div>
-        </div>
-      </div>
-      <!-- Max TapWater Slide -->
-      <div class="notable-alumni__carousel-track__content">
-        <div class="notable-alumni__carousel-track__content--image">
-          <img
-            class="img"
-            src="~/assets/images/incubator/max.jpg"
-            alt="alumni image"
-          />
-        </div>
-        <div class="notable-alumni__carousel-track__content--info">
-          <div class="text-container">
-            <h3 class="text-container__heading">Max TapWater</h3>
-            <p class="text-container__details">
-              A spin-off from Max Foundation, Max Tapwater is a Bangladesh-Dutch
-              team committed to creating a Bangladesh where everyone has access
-              to safe, sufficient and affordable drinking water. Max TapWater
-              builds piped water grids to avail safe water to the underserved
-              communities struggling with this fundamental need of life.
-            </p>
-          </div>
-          <div class="logo-container__social">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.facebook.com/MaxTapWater"
-              uk-icon="icon: facebook; ratio: 1"
-            ></a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.linkedin.com/company/maxtapwater/"
-              uk-icon="icon: linkedin; ratio: 1"
-            ></a>
-          </div>
-        </div>
-      </div>
-      <!-- TransEnd Slide -->
-      <div class="notable-alumni__carousel-track__content">
-        <div class="notable-alumni__carousel-track__content--image">
-          <img
-            class="img"
-            src="~/assets/images/incubator/transend.jpg"
-            alt="alumni image"
-          />
-        </div>
-        <div class="notable-alumni__carousel-track__content--info">
-          <div class="text-container">
-            <h3 class="text-container__heading">TransEnd</h3>
-            <p class="text-container__details">
-              TransEnd aims to help 1 million marginalized and underrepresented
-              hijra, non-binary, gender queer, transgender and intersex
-              community in Bangladesh be skilled in order to pursue social and
-              economical empowerment. They work to bridge the gap between the
-              transgender community and mainstream community through education,
-              training, employment and entrepreneurship. TransEnd equips people
-              from transgender community with necessary transferrable work
-              skills and connects them to startups and companies looking to hire
-              capable and dedicated transgender workers for cost efficiency and
-              positive publicity.
-            </p>
-          </div>
-          <div class="logo-container__social">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.facebook.com/transgenderempowerment/"
-              uk-icon="icon: facebook; ratio: 1"
-            ></a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.linkedin.com/company/transgenderempowerment/"
-              uk-icon="icon: linkedin; ratio: 1"
-            ></a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.instagram.com/transend.bd/"
-              uk-icon="icon: instagram; ratio: 1"
-            ></a>
-          </div>
-        </div>
-      </div>
-      <!-- Wizkit Slide -->
-      <div class="notable-alumni__carousel-track__content">
-        <div class="notable-alumni__carousel-track__content--image">
-          <img
-            class="img"
-            src="~/assets/images/incubator/wizkit.jpeg"
-            alt="alumni image"
-          />
-        </div>
-        <div class="notable-alumni__carousel-track__content--info">
-          <div class="text-container">
-            <h3 class="text-container__heading">Wizkit</h3>
-            <p class="text-container__details">
-              Wizkit is an educational technology company empowering youth
-              involvement in STEM through research, innovation, product
-              development and training. They enable students to explore,
-              discover and innovate by providing them with engaging and hands-on
-              education opportunities. They also utilise STEM-based training,
-              research, and product innovation to create local solutions for
-              local problems by increasing accessibility or enhancing anything
-              previously unavailable.
-            </p>
-          </div>
-          <div class="logo-container__social">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.facebook.com/wizkitglobal"
-              uk-icon="icon: facebook; ratio: 1"
-            ></a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.linkedin.com/company/wizkitglobal/"
-              uk-icon="icon: linkedin; ratio: 1"
-            ></a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.instagram.com/wizkitglobal/"
-              uk-icon="icon: instagram; ratio: 1"
-            ></a>
-          </div>
-        </div>
-      </div>
-      <!-- button -->
     </div>
+    <!-- button -->
     <div class="slider-btn-container">
       <div
         class="notable-alumni__carousel-track__navigator-prev"
@@ -349,10 +80,12 @@
 
 <script>
 import { dom } from "@/assets/scripts/dom_utils";
+import alumniDatas from "@/assets/data/notable_alumni.json";
 
 export default {
   data() {
     return {
+      alumniDatas,
       pageY: null,
     };
   },
