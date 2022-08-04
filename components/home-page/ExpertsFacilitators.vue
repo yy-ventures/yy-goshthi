@@ -30,78 +30,13 @@
           ></a>
         </div>
       </div>
-      <!-- <div class="experts__members--member faded_out">
-                <div class="img-container">
-                    <div class="mask"></div>
-                    <img src="../../assets/images/landing-new-image/members/akkie-okma.png" alt="image">
-                </div>
-                <div class="content">
-                    <div class="content__info">
-                        <h4 class="content__info--name">Akkie Okma</h4>
-                        <span class="content__info--designation">Technical Advisor, YY Ventures</span>
-                    </div>
-                    <a class="content__icon" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/akkieokma/" uk-icon="icon: linkedin; ratio: 1"></a>
-                </div>
-            </div>
-            <div class="experts__members--member faded_out">
-                <div class="img-container">
-                    <div class="mask"></div>
-                    <img src="../../assets/images/landing-new-image/members/sabbir-amin.png" alt="image">
-                </div>
-                <div class="content">
-                    <div class="content__info">
-                        <h4 class="content__info--name">Sabbir Amin</h4>
-                        <span class="content__info--designation">User-Centred Designer, Inked Studios</span>
-                    </div>
-                    <a class="content__icon" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/sabbir-amin-848b275a/" uk-icon="icon: linkedin; ratio: 1"></a>
-                </div>
-            </div>
-            <div class="experts__members--member faded_out">
-                <div class="img-container">
-                    <div class="mask"></div>
-                    <img src="../../assets/images/landing-new-image/members/jacqueline-strayer.png" alt="image">
-                </div>
-                <div class="content">
-                    <div class="content__info">
-                        <h4 class="content__info--name">Prof Jacqueline Strayer</h4>
-                        <span class="content__info--designation">Brand Builder, Educator, Advisor</span>
-                    </div>
-                    <a class="content__icon" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jfstrayer/" uk-icon="icon: linkedin; ratio: 1"></a>
-                </div>
-            </div>
-            <div class="experts__members--member faded_out">
-                <div class="img-container">
-                    <div class="mask"></div>
-                    <img src="../../assets/images/landing-new-image/members/shazeeb-khairul.png" alt="image">
-                </div>
-                <div class="content">
-                    <div class="content__info">
-                        <h4 class="content__info--name">Shazeeb M Khairul Islam</h4>
-                        <span class="content__info--designation">Managing Director, YY Ventures</span>
-                    </div>
-                    <a class="content__icon" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/shazeebislam/" uk-icon="icon: linkedin; ratio: 1"></a>
-                </div>
-            </div>
-            <div class="experts__members--member faded_out">
-                <div class="img-container">
-                    <div class="mask"></div>
-                    <img src="../../assets/images/landing-new-image/members/tanzin-shadid.png" alt="image">
-                </div>
-                <div class="content">
-                    <div class="content__info">
-                        <h4 class="content__info--name">Debojit Saha</h4>
-                        <span class="content__info--designation">Managing Director, Kaizen CRS</span>
-                    </div>
-                    <a class="content__icon" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/debojit-saha-434aa827/" uk-icon="icon: linkedin; ratio: 1"></a>
-                </div>
-            </div> -->
     </div>
   </div>
 </template>
 
 <script>
 import expertsDatas from "~/assets/data/experts_data.json";
-console.log(expertsDatas);
+
 export default {
   data() {
     return {

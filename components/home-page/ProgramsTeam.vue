@@ -5,49 +5,31 @@
       <div id="team"></div>
     </div>
     <div class="programs-team__members">
-      <div class="programs-team__members--member faded_out">
+      <div
+        class="programs-team__members--member faded_out"
+        v-for="programsTeamData in programsTeamDatas"
+        :key="programsTeamData.id"
+      >
         <div class="img-container">
           <div class="mask"></div>
           <img
             class="img-mazbah"
-            src="../../assets/images/landing-new-image/members/mazbah.png"
+            :src="`${programsTeamData.image}`"
             alt="image"
           />
         </div>
         <div class="content">
           <div class="content__info">
-            <h4 class="content__info--name">Mazbahul Islam</h4>
-            <span class="content__info--designation">Program Manager</span>
+            <h4 class="content__info--name">{{ programsTeamData.name }}</h4>
+            <span class="content__info--designation">{{
+              programsTeamData.designation
+            }}</span>
           </div>
           <a
             class="content__icon"
             target="_blank"
             rel="noopener noreferrer"
-            href="https://www.linkedin.com/in/mazbahnow/"
-            uk-icon="icon: linkedin; ratio: 1"
-          ></a>
-        </div>
-      </div>
-      <div class="programs-team__members--member faded_out">
-        <div class="img-container">
-          <div class="mask"></div>
-          <img
-            src="../../assets/images/landing-new-image/members/maisha.webp"
-            alt="image"
-          />
-        </div>
-        <div class="content">
-          <div class="content__info">
-            <h4 class="content__info--name">Maisha Ahmed</h4>
-            <span class="content__info--designation"
-              >Deputy Program Manager</span
-            >
-          </div>
-          <a
-            class="content__icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.linkedin.com/in/maisha-ahmed-nandita-892792134/"
+            :href="`${programsTeamData.linkedinLink}`"
             uk-icon="icon: linkedin; ratio: 1"
           ></a>
         </div>
@@ -64,9 +46,13 @@
 </template>
 
 <script>
+import programsTeamDatas from "~/assets/data/programs_team.json";
+
+console.log(programsTeamDatas);
 export default {
   data() {
     return {
+      programsTeamDatas,
       pageY: null,
     };
   },

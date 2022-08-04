@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Mazbahul Islam",
+    "designation": "Program Manager",
+    "image": "/_nuxt/assets/images/landing-new-image/members/mazbah.png",
+    "linkedinLink": "https://www.linkedin.com/in/mazbahnow/"
+  },
+  {
+    "id": 2,
+    "name": "Maisha Ahmed",
+    "designation": "Deputy Program Manager",
+    "image": "/_nuxt/assets/images/landing-new-image/members/maisha.webp",
+    "linkedinLink": "https://www.linkedin.com/in/maisha-ahmed-nandita-892792134/"
+  }
+]
