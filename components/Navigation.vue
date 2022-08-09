@@ -25,7 +25,7 @@
           
         div(v-if='!isAppId')
           a.new-form(href='/application') Start New Application
-          a.login(href='/login') Login to your accout
+          a.login(href='/login') Login to your account
           
 
         //- else
@@ -34,35 +34,35 @@
 </template>
 
 <script>
-  export default{
-    data(){
-      return{
-        handleVisible: false,
-        handleLoginPopup: false,
-        isAppId: false,
-        link: 'login',
-        isLogin: false
-      }
+export default {
+  data() {
+    return {
+      handleVisible: false,
+      handleLoginPopup: false,
+      isAppId: false,
+      link: "login",
+      isLogin: false,
+    };
+  },
+  methods: {
+    logout: function () {
+      localStorage.removeItem("app_id");
+      localStorage.removeItem("draftData");
+      this.isAppId = false;
+      this.link = "login";
+      this.$router.push("/");
     },
-    methods: {
-      logout: function(){
-        localStorage.removeItem('app_id');
-        localStorage.removeItem('draftData')
-        this.isAppId = false
-        this.link = 'login'
-        this.$router.push('/')
-      }
-    },
-    mounted: function() {
-      if(localStorage.getItem('app_id') !== null){
-        this.isAppId = true
-        this.link = 'logout'
-      } else{
-        this.isAppId = false
-        this.link = 'login'
-      }
+  },
+  mounted: function () {
+    if (localStorage.getItem("app_id") !== null) {
+      this.isAppId = true;
+      this.link = "logout";
+    } else {
+      this.isAppId = false;
+      this.link = "login";
     }
-  }
+  },
+};
 </script>
 
 <style lang="sass">
