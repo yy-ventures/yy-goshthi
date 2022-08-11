@@ -50,8 +50,15 @@
           <!-- <h2>YY Goshthi Fall 2021 Cohort Application is closed.</h2> -->
           <!-- <a href="https://airtable.com/shraT8HKyxXMuaG6X" class="link_button">Apply Now</a> -->
 
-          <!-- <span class="yyg-application">Application for Spring 2022 cohort is open now</span>
-          <a href="https://incubator.yy.ventures/application/" target="_blank" class="btn">Apply</a> -->
+          <span class="yyg-application"
+            >Application for Fall 2022 cohort is open now</span
+          >
+          <a
+            href="https://incubator.yy.ventures/application/"
+            target="_blank"
+            class="btn"
+            >Apply</a
+          >
         </div>
       </div>
     </div>

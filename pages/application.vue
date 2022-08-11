@@ -73,11 +73,12 @@ import { form } from "~/assets/scripts/api";
       </header>
       <!-- step bar end -->
 
-      <!-- Step 1 start -->
-      <div class="enterprise-info-container" v-if="step == 1">
+      <!-- step 2 start -->
+      <div v-if="step === 1">
         <div class="step">
-          <p class="step__title">Section 01: ENTERPRISE</p>
+          <p class="step__title">Section 01: FOUNDERS</p>
         </div>
+
         <!-- question 1 start -->
         <div class="enterprise-name">
           <h5 class="required no-margin">
@@ -89,101 +90,6 @@ import { form } from "~/assets/scripts/api";
           <small></small>
         </div>
         <!-- question 1 end -->
-        <!-- question 2 start -->
-        <div class="enterprise-summary">
-          <h5 class="required no-margin">
-            Describe what your enterprise does <span>(100 words max)</span>
-          </h5>
-        </div>
-        <div class="enterprise-summary-field">
-          <textarea
-            v-model="enterpriseSummary"
-            id="enterpriseSummary"
-            cols="30"
-            rows="8"
-            maxlength="500"
-          ></textarea>
-          <small></small>
-        </div>
-        <!-- question 2 end -->
-        <!-- question 3 start -->
-        <div class="about-product">
-          <h5 class="required no-margin">
-            Describe your product/service <span>(100 words max)</span>
-          </h5>
-        </div>
-        <div class="about-product-field">
-          <textarea
-            v-model="aboutProduct"
-            id="aboutProduct"
-            cols="30"
-            rows="8"
-            maxlength="500"
-          ></textarea>
-          <small></small>
-        </div>
-        <!-- question 3 end -->
-
-        <!-- question 4 start -->
-        <div class="enterprise-mission">
-          <h5 class="required no-margin">
-            What is your mission? <span>(60 words max)</span>
-          </h5>
-        </div>
-        <div class="enterprise-mission-field">
-          <textarea
-            v-model="enterpriseMission"
-            id="enterpriseMission"
-            maxlength="300"
-            cols="50"
-            rows="5"
-          ></textarea>
-          <small></small>
-        </div>
-        <!-- question 4 end -->
-        <!-- question 5 start -->
-        <div class="enterprise-vision">
-          <h5 class="required no-margin">
-            What is your vision? <span>(60 words max)</span>
-          </h5>
-        </div>
-        <div class="enterprise-vision-field">
-          <textarea
-            v-model="enterpriseVision"
-            id="enterpriseVision"
-            maxlength="200"
-            cols="50"
-            rows="5"
-          ></textarea>
-          <small></small>
-        </div>
-        <!-- question 5 start -->
-        <!-- question 6 start -->
-        <div class="enterprise-website">
-          <h5 class="no-margin">Enterprise Website (if any)</h5>
-        </div>
-        <div class="enterprise-website-field">
-          <input
-            type="text"
-            v-model="enterpriseWebsite"
-            id="enterpriseWebsite"
-          />
-          <small></small>
-        </div>
-        <!-- question 6 end -->
-        <!-- button container -->
-        <div class="btn-container">
-          <button @click="prev" type="button">previous</button>
-          <button @click="next" type="button">next</button>
-        </div>
-      </div>
-      <!-- step 1 end -->
-
-      <!-- step 2 start -->
-      <div v-if="step === 2">
-        <div class="step">
-          <p class="step__title">Section 02: FOUNDERS</p>
-        </div>
         <!-- question 7 start -->
         <h5 class="required">How many founders are on the team?</h5>
         <div class="box" id="team">
@@ -203,6 +109,34 @@ import { form } from "~/assets/scripts/api";
           <small></small>
         </div>
         <!-- question 7 end -->
+        <!-- note start -->
+        <ol>
+          <li>
+            We encourage enterprises with at least two (2) co-founders to apply
+            for the YY Goshthi Incubation program; among which, at least one (1)
+            co-founder must be female.
+          </li>
+          <li>
+            If your enterprise is selected, it is mandatory for both co-founders
+            to attend and fully participate in all events organised as a part of
+            the incubation program.
+
+            <ul>
+              <li>
+                If there is only one Founder on your team, please ensure that a
+                senior colleague from your core team is committing to fully
+                participate in the incubation program along with the Founder.
+              </li>
+              <li>
+                Similarly, if you do not have a female co-founder on the team,
+                please invite a senior female colleague from the core team to
+                fully participate in the incubation program along with the
+                Founder.
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <!-- note end -->
         <!-- question 8 start -->
         <div class="cofounder-container">
           <!-- Co-founder 1 -->
@@ -374,7 +308,7 @@ import { form } from "~/assets/scripts/api";
 
         <!-- button container -->
         <div class="btn-container">
-          <button @click="prev" type="button">previous</button>
+          <button @click="prev" type="button">Previous</button>
           <div>
             <input
               type="button"
@@ -382,11 +316,115 @@ import { form } from "~/assets/scripts/api";
               id="draftButton"
               value="Save as draft"
             />
-            <button @click="next" type="button">next</button>
+            <button @click="next" type="button" id="next-btn">Next</button>
           </div>
         </div>
       </div>
       <!-- step 2 end -->
+
+      <!-- Step 1 start -->
+      <div class="enterprise-info-container" v-if="step == 2">
+        <div class="step">
+          <p class="step__title">Section 02: ENTERPRISE</p>
+        </div>
+
+        <!-- question 2 start -->
+        <div class="enterprise-summary">
+          <h5 class="required no-margin">
+            Describe what your enterprise does <span>(100 words max)</span>
+          </h5>
+        </div>
+        <div class="enterprise-summary-field">
+          <textarea
+            v-model="enterpriseSummary"
+            id="enterpriseSummary"
+            cols="30"
+            rows="8"
+            maxlength="500"
+          ></textarea>
+          <small></small>
+        </div>
+        <!-- question 2 end -->
+        <!-- question 3 start -->
+        <div class="about-product">
+          <h5 class="required no-margin">
+            Describe your product/service <span>(100 words max)</span>
+          </h5>
+        </div>
+        <div class="about-product-field">
+          <textarea
+            v-model="aboutProduct"
+            id="aboutProduct"
+            cols="30"
+            rows="8"
+            maxlength="500"
+          ></textarea>
+          <small></small>
+        </div>
+        <!-- question 3 end -->
+
+        <!-- question 4 start -->
+        <div class="enterprise-mission">
+          <h5 class="required no-margin">
+            What is your mission? <span>(60 words max)</span>
+          </h5>
+        </div>
+        <div class="enterprise-mission-field">
+          <textarea
+            v-model="enterpriseMission"
+            id="enterpriseMission"
+            maxlength="300"
+            cols="50"
+            rows="5"
+          ></textarea>
+          <small></small>
+        </div>
+        <!-- question 4 end -->
+        <!-- question 5 start -->
+        <div class="enterprise-vision">
+          <h5 class="required no-margin">
+            What is your vision? <span>(60 words max)</span>
+          </h5>
+        </div>
+        <div class="enterprise-vision-field">
+          <textarea
+            v-model="enterpriseVision"
+            id="enterpriseVision"
+            maxlength="200"
+            cols="50"
+            rows="5"
+          ></textarea>
+          <small></small>
+        </div>
+        <!-- question 5 start -->
+        <!-- question 6 start -->
+        <div class="enterprise-website">
+          <h5 class="no-margin">Enterprise Website (if any)</h5>
+        </div>
+        <div class="enterprise-website-field">
+          <input
+            type="text"
+            v-model="enterpriseWebsite"
+            id="enterpriseWebsite"
+          />
+          <small></small>
+        </div>
+        <!-- question 6 end -->
+        <!-- button container -->
+        <div class="btn-container">
+          <button @click="prev" type="button">Previous</button>
+          <div>
+            <input
+              type="button"
+              @click="saveAsDraft"
+              id="draftButton"
+              value="Save as draft"
+            />
+            <button @click="next" type="button" id="next-btn">Next</button>
+          </div>
+        </div>
+      </div>
+      <!-- step 1 end -->
 
       <!-- step 3 start -->
       <div v-if="step === 3">
@@ -413,7 +451,7 @@ import { form } from "~/assets/scripts/api";
               :value="sdgData.id"
             />
             <label :for="'order_by' + sdgData.id">{{ sdgData.title }}</label>
-            <small class="sd_goal_error">TTTT</small>
+            <small class="sd_goal_error"></small>
           </div>
         </div>
         <!-- question 9 end -->
@@ -489,7 +527,7 @@ import { form } from "~/assets/scripts/api";
 
         <!-- button container -->
         <div class="btn-container">
-          <button @click="prev" type="button">previous</button>
+          <button @click="prev" type="button">Previous</button>
           <div>
             <input
               type="button"
@@ -497,7 +535,7 @@ import { form } from "~/assets/scripts/api";
               id="draftButton"
               value="Save as draft"
             />
-            <button @click="next" type="button">next</button>
+            <button @click="next" type="button" id="next-btn">Next</button>
           </div>
         </div>
       </div>
@@ -506,7 +544,7 @@ import { form } from "~/assets/scripts/api";
       <!-- step 4 start -->
       <div v-if="step === 4">
         <div class="step">
-          <p class="step__title">Section 04: Progress</p>
+          <p class="step__title">Section 04: PROGRESS</p>
         </div>
         <!-- question 12 start -->
         <h5 class="required">
@@ -583,7 +621,7 @@ import { form } from "~/assets/scripts/api";
 
         <!-- question 14 start -->
         <h5 class="required">
-          Do you have any paid customers as of August 5, 2022?
+          Do you have any paid customers as of August 10, 2022?
         </h5>
         <div class="box" id="paidCustomer">
           <div class="option">
@@ -680,7 +718,7 @@ import { form } from "~/assets/scripts/api";
 
         <!-- question 16 start -->
         <h5 class="required">
-          Have you generated any revenue as of August 5, 2022?
+          Have you generated any revenue as of August 10, 2022?
         </h5>
         <div class="box" id="generatedRevenue">
           <div class="option">
@@ -874,7 +912,7 @@ import { form } from "~/assets/scripts/api";
 
         <!-- question 23 start -->
         <h5 class="required">
-          If you have applied to our previous cohort with the same enterprise,
+          If you have applied to our Previous cohort with the same enterprise,
           did anything change since then? If you are applying with a different
           enterprise, why did you pivot and what was the learning from the last
           idea?
@@ -893,7 +931,7 @@ import { form } from "~/assets/scripts/api";
 
         <!-- button container -->
         <div class="btn-container">
-          <button @click="prev" type="button">previous</button>
+          <button @click="prev" type="button">Previous</button>
           <div>
             <input
               type="button"
@@ -901,7 +939,7 @@ import { form } from "~/assets/scripts/api";
               id="draftButton"
               value="Save as draft"
             />
-            <button @click="next" type="button">next</button>
+            <button @click="next" type="button" id="next-btn">Next</button>
           </div>
         </div>
       </div>
@@ -910,7 +948,7 @@ import { form } from "~/assets/scripts/api";
       <!-- step 5 start -->
       <div v-if="step === 5">
         <div class="step">
-          <p class="step__title">Section 06: Legal</p>
+          <p class="step__title">Section 05: IDEA</p>
         </div>
         <!-- question 24 start -->
         <h5 class="required">
@@ -950,7 +988,7 @@ import { form } from "~/assets/scripts/api";
 
         <!-- button container -->
         <div class="btn-container">
-          <button @click="prev" type="button">previous</button>
+          <button @click="prev" type="button">Previous</button>
           <div>
             <input
               type="button"
@@ -958,7 +996,7 @@ import { form } from "~/assets/scripts/api";
               id="draftButton"
               value="Save as draft"
             />
-            <button @click="next" type="button">next</button>
+            <button @click="next" type="button" id="next-btn">Next</button>
           </div>
         </div>
       </div>
@@ -967,7 +1005,7 @@ import { form } from "~/assets/scripts/api";
       <!-- step 6 start -->
       <div v-if="step === 6">
         <div class="step">
-          <p class="step__title">Section 07: Media and Exposure</p>
+          <p class="step__title">Section 06: LEGAL</p>
         </div>
         <!-- question 26 start -->
         <h5 class="required">
@@ -1047,7 +1085,7 @@ import { form } from "~/assets/scripts/api";
 
         <!-- question 28 start -->
         <h5>
-          Have you received any funding for your enterprise as of August 5,
+          Have you received any funding for your enterprise as of August 10,
           2022? If so, please let us know how much funding you have received,
           from whom you have received (if possible), what it covers and when did
           you receive it.
@@ -1084,7 +1122,7 @@ import { form } from "~/assets/scripts/api";
 
         <!-- button container -->
         <div class="btn-container">
-          <button @click="prev" type="button">previous</button>
+          <button @click="prev" type="button">Previous</button>
           <div>
             <input
               type="button"
@@ -1092,7 +1130,7 @@ import { form } from "~/assets/scripts/api";
               id="draftButton"
               value="Save as draft"
             />
-            <button @click="next" type="button">next</button>
+            <button @click="next" type="button" id="next-btn">Next</button>
           </div>
         </div>
       </div>
@@ -1101,7 +1139,7 @@ import { form } from "~/assets/scripts/api";
       <!-- strep 7 start -->
       <div v-if="step === 7">
         <div class="step">
-          <p class="step__title">Section 07: Media and Exposure</p>
+          <p class="step__title">Section 07: MEDIA AND EXPOSURE</p>
         </div>
         <!-- question 30 start -->
         <h5>
@@ -1146,7 +1184,7 @@ import { form } from "~/assets/scripts/api";
 
         <!-- button container -->
         <div class="btn-container">
-          <button @click="prev" type="button">previous</button>
+          <button @click="prev" type="button">Previous</button>
           <div>
             <input
               type="button"
@@ -1154,7 +1192,7 @@ import { form } from "~/assets/scripts/api";
               id="draftButton"
               value="Save as draft"
             />
-            <button @click="next" type="button">next</button>
+            <button @click="next" type="button" id="next-btn">Next</button>
           </div>
         </div>
       </div>
@@ -1171,6 +1209,26 @@ import { form } from "~/assets/scripts/api";
         </h5>
         <div class="box-1">
           <div class="box">
+            <div class="option">
+              <input
+                type="radio"
+                id="wordOfMouth"
+                v-model="sourceOfYY"
+                name="sourceOfYY"
+                value="Friends & Family"
+              />
+              <label for="wordOfMouth">Friends & Family</label>
+            </div>
+            <div class="option">
+              <input
+                type="radio"
+                id="yyGoshthiAlumni"
+                v-model="sourceOfYY"
+                name="sourceOfYY"
+                value="YY Goshthi Alumni"
+              />
+              <label for="yyGoshthiAlumni">YY Goshthi Alumni</label>
+            </div>
             <div class="option">
               <input
                 type="radio"
@@ -1214,16 +1272,6 @@ import { form } from "~/assets/scripts/api";
             <div class="option">
               <input
                 type="radio"
-                id="wordOfMouth"
-                v-model="sourceOfYY"
-                name="sourceOfYY"
-                value="Word of Mouth"
-              />
-              <label for="wordOfMouth">Word of Mouth</label>
-            </div>
-            <div class="option">
-              <input
-                type="radio"
                 id="yyGoshthiWebsite"
                 v-model="sourceOfYY"
                 name="sourceOfYY"
@@ -1251,16 +1299,6 @@ import { form } from "~/assets/scripts/api";
               />
               <label for="impactHubNetwork">Impact Hub Network</label>
             </div>
-            <div class="option">
-              <input
-                type="radio"
-                id="yyGoshthiAlumni"
-                v-model="sourceOfYY"
-                name="sourceOfYY"
-                value="YY Goshthi Alumni"
-              />
-              <label for="yyGoshthiAlumni">YY Goshthi Alumni</label>
-            </div>
           </div>
           <div class="option h-align">
             <label for="other">Other (Please Specify): </label>
@@ -1272,7 +1310,7 @@ import { form } from "~/assets/scripts/api";
 
         <!-- button container -->
         <div class="btn-container">
-          <button @click="prev" type="button">previous</button>
+          <button @click="prev" type="button">Previous</button>
           <div>
             <input
               type="button"
@@ -1280,7 +1318,7 @@ import { form } from "~/assets/scripts/api";
               id="draftButton"
               value="Save as draft"
             />
-            <button @click="next" type="button">next</button>
+            <button @click="next" type="button" id="next-btn">Next</button>
           </div>
         </div>
       </div>
@@ -1316,20 +1354,51 @@ import { form } from "~/assets/scripts/api";
             </ul>
           </div>
           <div class="option mb-2 pb">
-            <input
-              type="file"
-              id="pitchDeck"
-              class="mb"
-              @change="handleFileUpload"
-              name="pitch_deck"
-            />
-            <small></small>
+            <div class="container">
+              <input
+                type="file"
+                id="pitchDeck"
+                class="mb"
+                @change="handleFileUpload"
+                name="pitch_deck"
+              />
+
+              <a
+                class="download-btn"
+                href="/YY_Goshthi_Sample_Pitch_Deck.pdf"
+                download
+                >Download Sample Pitch Deck</a
+              >
+              <small></small>
+            </div>
+          </div>
+          <div v-if="pdfError"><PdfErrorPopup /></div>
+          <div class="application_info">
+            <p>
+              <strong
+                >Thank you for applying to the YY Goshthi Incubation Program!
+              </strong>
+            </p>
+            <p>
+              You will receive a confirmation email when your application has
+              been submitted successfully.
+            </p>
+            <p>
+              If you do not receive a confirmation email, or if you have any
+              queries, please write to incubator@yy.ventures
+            </p>
+            <p>
+              Please note that we only accept one (1) application per
+              enterprise.
+            </p>
+            <p>Please ensure you have completed all required sections.</p>
+            <p><strong>DEADLINE - 8 October, 2022 </strong></p>
           </div>
         </div>
 
         <!-- button container -->
         <div class="btn-container">
-          <button @click="prev" type="button">previous</button>
+          <button @click="prev" type="button">Previous</button>
           <div>
             <input
               type="submit"
@@ -1367,16 +1436,18 @@ import { form } from "~/assets/scripts/api";
 import axios from "axios";
 import SuccessPopup from "../components/landing-page-new/components/SuccessPopup.vue";
 import SuccessDraftPopup from "../components/landing-page-new/components/SuccessDraftPopup.vue";
-
+import PdfErrorPopup from "../components/landing-page-new/components/PdfErrorPopup.vue";
 export default {
   components: {
     SuccessPopup,
     SuccessDraftPopup,
+    PdfErrorPopup,
   },
   data() {
     return {
       formPosition: [1, 2, 3, 4, 5, 6, 7, 8, 9],
       step: 0,
+      pdfError: false,
       // section 1
       enterpriseName: "",
       aboutProduct: "",
@@ -1436,7 +1507,7 @@ export default {
 
       customers: "",
       year: "2022",
-      season: "Spring",
+      season: "Fall",
       file: "",
       checkFile: "",
       show_message: false,
@@ -1455,10 +1526,17 @@ export default {
     },
 
     next() {
-      this.step++;
+      let success = false;
+      if (this.step > 0) {
+        success = this.checkInput();
+        success && this.step++;
+      }
+      this.step === 0 && this.step++;
+      // this.step++;
       window.scrollTo({ top: 300 });
-      console.log("step", this.step);
-      // this.step > 1 && this.checkInput();
+      // this.step++;
+      // console.log("step", this.step);
+      // this.step++;
       this.updateProgressbar();
     },
 
@@ -1612,9 +1690,26 @@ export default {
     },
     disableDraftButton: function () {
       const draftBtn = document.querySelector("#draftButton");
+      const nextBtn = document.querySelector("#next-btn");
       draftBtn.disabled = true;
       draftBtn.style.opacity = "0.4";
       draftBtn.style.cursor = "wait";
+
+      if (nextBtn) {
+        nextBtn.disabled = true;
+        nextBtn.style.opacity = "0.4";
+        nextBtn.style.cursor = "wait";
+      }
+      setTimeout(() => {
+        draftBtn.disabled = false;
+        draftBtn.style.opacity = "1";
+        draftBtn.style.cursor = "pointer";
+        if (nextBtn) {
+          nextBtn.disabled = false;
+          nextBtn.style.opacity = "1";
+          nextBtn.style.cursor = "pointer";
+        }
+      }, 10000);
     },
 
     getCurrentyear: function () {
@@ -1625,11 +1720,13 @@ export default {
     handleFileUpload: function (e) {
       this.checkFile = e.target.files[0];
       if (this.checkFile.size > 5242880) {
-        alert(
-          `Please upload your file between 5MB, your file is ${Math.round(
-            this.checkFile.size / 1048576
-          )}MB`
-        );
+        this.pdfError = true;
+
+        // alert(
+        //   `Please upload your file between 5MB, your file is ${Math.round(
+        //     this.checkFile.size / 1048576
+        //   )}MB`
+        // );
         e.target.value = "";
       } else {
         this.file = this.checkFile;
@@ -1709,54 +1806,7 @@ export default {
         } else {
           this.setSuccessFor(enterpriseName);
         }
-        if (this.aboutProduct === "") {
-          this.setErrorFor(aboutProduct, "field cannot be empty for draft");
-          error = true;
-        } else {
-          this.setSuccessFor(aboutProduct);
-        }
-        if (this.enterpriseSummary === "") {
-          this.setErrorFor(
-            enterpriseSummary,
-            "Enterprise summary cannot be empty for draft"
-          );
-          error = true;
-        } else {
-          this.setSuccessFor(enterpriseSummary);
-        }
-        if (this.enterpriseMission === "") {
-          this.setErrorFor(
-            enterpriseMission,
-            "Enterprise mission cannot be empty for draft"
-          );
-          error = true;
-        } else {
-          this.setSuccessFor(enterpriseMission);
-        }
-        if (this.enterpriseVision === "") {
-          this.setErrorFor(
-            enterpriseVision,
-            "Enterprise vision cannot be empty for draft"
-          );
-          error = true;
-        } else {
-          this.setSuccessFor(enterpriseVision);
-        }
-        if (this.enterpriseWebsite !== "") {
-          if (
-            !/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(
-              this.enterpriseWebsite
-            )
-          ) {
-            this.setErrorFor(enterpriseWebsite, "Should be an URL");
-            error = true;
-          } else {
-            this.setSuccessFor(enterpriseWebsite);
-          }
-        }
-      }
-      // Step 2
-      if (this.step === 2) {
+
         if (this.numberOfFounder === "") {
           console.log("Draft=>>>", this.numberOfFounder);
           this.setErrorForFounders("Choose any option");
@@ -1841,6 +1891,56 @@ export default {
           this.setSuccessFor(phone2);
         }
       }
+      // Step 2
+      if (this.step === 2) {
+        // ==========
+        if (this.aboutProduct === "") {
+          this.setErrorFor(aboutProduct, "field cannot be empty for draft");
+          error = true;
+        } else {
+          this.setSuccessFor(aboutProduct);
+        }
+        if (this.enterpriseSummary === "") {
+          this.setErrorFor(
+            enterpriseSummary,
+            "Enterprise summary cannot be empty for draft"
+          );
+          error = true;
+        } else {
+          this.setSuccessFor(enterpriseSummary);
+        }
+        if (this.enterpriseMission === "") {
+          this.setErrorFor(
+            enterpriseMission,
+            "Enterprise mission cannot be empty for draft"
+          );
+          error = true;
+        } else {
+          this.setSuccessFor(enterpriseMission);
+        }
+        if (this.enterpriseVision === "") {
+          this.setErrorFor(
+            enterpriseVision,
+            "Enterprise vision cannot be empty for draft"
+          );
+          error = true;
+        } else {
+          this.setSuccessFor(enterpriseVision);
+        }
+        if (this.enterpriseWebsite !== "") {
+          if (
+            !/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(
+              this.enterpriseWebsite
+            )
+          ) {
+            this.setErrorFor(enterpriseWebsite, "Should be an URL");
+            error = true;
+          } else {
+            this.setSuccessFor(enterpriseWebsite);
+          }
+        }
+        // =============
+      }
       // Step 3
       if (this.step === 3) {
         if (this.sdGoal.length <= 0) {
@@ -1855,13 +1955,6 @@ export default {
         } else {
           this.setSuccessFor(reduceProblem);
         }
-
-        if (this.howEnterpriseReduce === "") {
-          this.setErrorHowEnterpriseReduce("field can't be empty");
-          error = true;
-        } else {
-          this.setSuccessFor(howEnterpriseReduce);
-        }
       }
       // Step 4
       if (this.step === 4) {
@@ -1874,26 +1967,32 @@ export default {
         if (this.paidCustomer === "") {
           this.setErrorForPaidCustomer("Choose any option");
           error = true;
+        }
+        if (this.paidCustomer === 1) {
+          if (this.customerServed === "") {
+            this.setErrorForCustomerServed("Choose any option");
+            error = true;
+          } else {
+            this.setSuccessFor(customerServed);
+          }
+          error = true;
         } else {
           this.setSuccessFor(paidCustomer);
         }
-        if (this.customerServed === "") {
-          this.setErrorForCustomerServed("Choose any option");
-          error = true;
-        } else {
-          this.setSuccessFor(customerServed);
-        }
+
         if (this.generatedRevenue === "") {
           this.setErrorForGeneratedRevenue("Choose any option");
           error = true;
         } else {
           this.setSuccessFor(generatedRevenue);
         }
-        if (this.revenue === "") {
-          this.setErrorForRevenue("Choose any option");
-          error = true;
-        } else {
-          this.setSuccessFor(revenueAmount);
+        if (this.generatedRevenue === 1) {
+          if (this.revenue === "") {
+            this.setErrorForRevenue("Choose any option");
+            error = true;
+          } else {
+            this.setSuccessFor(revenueAmount);
+          }
         }
         if (this.stage === "") {
           this.setErrorForVentureStage("Choose any option");
@@ -1958,67 +2057,19 @@ export default {
         }
       }
       // Step 7
-      if (this.step === 7) {
-        if (this.media_link_1 !== "") {
-          if (
-            !/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(
-              this.media_link_1
-            )
-          ) {
-            this.setErrorFor(mediaLink1, "Not a valid URL");
-            error = true;
-          } else {
-            this.setSuccessFor(mediaLink1);
-          }
-        }
-        if (this.media_link_2 !== "") {
-          if (
-            !/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(
-              this.media_link_2
-            )
-          ) {
-            this.setErrorFor(mediaLink2, "Not a valid URL");
-            error = true;
-          } else {
-            this.setSuccessFor(mediaLink2);
-          }
-        }
-        if (this.media_link_3 !== "") {
-          if (
-            !/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(
-              this.media_link_3
-            )
-          ) {
-            this.setErrorFor(mediaLink3, "Not a valid URL");
-            error = true;
-          } else {
-            this.setSuccessFor(mediaLink3);
-          }
-        }
-        if (this.media_link_4 !== "") {
-          if (
-            !/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(
-              this.media_link_4
-            )
-          ) {
-            this.setErrorFor(mediaLink4, "Not a valid URL");
-            error = true;
-          } else {
-            this.setSuccessFor(mediaLink4);
-          }
-        }
-      }
+
       // Step 8
       if (this.step === 8) {
         console.log("step 8");
       }
       // Step 9
       if (this.step === 9) {
+        console.log(this.file);
         if (this.file === "") {
           this.setErrorFor(pitchDeck, "Please upload your pitch deck");
           error = true;
         } else {
-          this.setSuccessFor(pitchDeck);
+          // this.setSuccessFor(pitchDeck);
         }
       }
 
@@ -2060,77 +2111,8 @@ export default {
 
       // Step 1
       if (this.step === 1) {
-        if (this.enterpriseName === "") {
-          this.setErrorFor(
-            enterpriseName,
-            "Enterprise name cannot be empty for draft"
-          );
-          error = true;
-        } else {
-          this.setSuccessFor(enterpriseName);
-        }
-        if (this.aboutProduct === "") {
-          this.setErrorFor(aboutProduct, "field cannot be empty for draft");
-          error = true;
-        } else {
-          this.setSuccessFor(aboutProduct);
-        }
-        if (this.enterpriseSummary === "") {
-          this.setErrorFor(
-            enterpriseSummary,
-            "Enterprise summary cannot be empty for draft"
-          );
-          error = true;
-        } else {
-          this.setSuccessFor(enterpriseSummary);
-        }
-        if (this.enterpriseMission === "") {
-          this.setErrorFor(
-            enterpriseMission,
-            "Enterprise mission cannot be empty for draft"
-          );
-          error = true;
-        } else {
-          this.setSuccessFor(enterpriseMission);
-        }
-        if (this.enterpriseVision === "") {
-          this.setErrorFor(
-            enterpriseVision,
-            "Enterprise vision cannot be empty for draft"
-          );
-          error = true;
-        } else {
-          this.setSuccessFor(enterpriseVision);
-        }
-        // if (this.enterpriseSocialMedia !== "") {
-        //   if (
-        //     !/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(
-        //       this.enterpriseSocialMedia
-        //     )
-        //   ) {
-        //     this.setErrorFor(enterpriseSocialMedia, "Should be an URL");
-        //     error = true;
-        //   } else {
-        //     this.setSuccessFor(enterpriseSocialMedia);
-        //   }
-        // }
-        if (this.enterpriseWebsite !== "") {
-          if (
-            !/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(
-              this.enterpriseWebsite
-            )
-          ) {
-            this.setErrorFor(enterpriseWebsite, "Should be an URL");
-            error = true;
-          } else {
-            this.setSuccessFor(enterpriseWebsite);
-          }
-        }
-      }
-      // Step 2
-      if (this.step === 2) {
+        // ========
         if (this.numberOfFounder === "") {
-          console.log("Draft=>>>", this.numberOfFounder);
           this.setErrorForFounders("Choose any option");
           error = true;
         } else {
@@ -2224,6 +2206,77 @@ export default {
         } else {
           this.setSuccessFor(phone2);
         }
+        // ==========
+
+        if (this.enterpriseName === "") {
+          this.setErrorFor(
+            enterpriseName,
+            "Enterprise name cannot be empty for draft"
+          );
+          error = true;
+        } else {
+          this.setSuccessFor(enterpriseName);
+        }
+        // if (this.aboutProduct === "") {
+        //   this.setErrorFor(aboutProduct, "field cannot be empty for draft");
+        //   error = true;
+        // } else {
+        //   this.setSuccessFor(aboutProduct);
+        // }
+        // if (this.enterpriseSummary === "") {
+        //   this.setErrorFor(
+        //     enterpriseSummary,
+        //     "Enterprise summary cannot be empty for draft"
+        //   );
+        //   error = true;
+        // } else {
+        //   this.setSuccessFor(enterpriseSummary);
+        // }
+        // if (this.enterpriseMission === "") {
+        //   this.setErrorFor(
+        //     enterpriseMission,
+        //     "Enterprise mission cannot be empty for draft"
+        //   );
+        //   error = true;
+        // } else {
+        //   this.setSuccessFor(enterpriseMission);
+        // }
+        // if (this.enterpriseVision === "") {
+        //   this.setErrorFor(
+        //     enterpriseVision,
+        //     "Enterprise vision cannot be empty for draft"
+        //   );
+        //   error = true;
+        // } else {
+        //   this.setSuccessFor(enterpriseVision);
+        // }
+        // if (this.enterpriseSocialMedia !== "") {
+        //   if (
+        //     !/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(
+        //       this.enterpriseSocialMedia
+        //     )
+        //   ) {
+        //     this.setErrorFor(enterpriseSocialMedia, "Should be an URL");
+        //     error = true;
+        //   } else {
+        //     this.setSuccessFor(enterpriseSocialMedia);
+        //   }
+        // }
+        // if (this.enterpriseWebsite !== "") {
+        //   if (
+        //     !/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(
+        //       this.enterpriseWebsite
+        //     )
+        //   ) {
+        //     this.setErrorFor(enterpriseWebsite, "Should be an URL");
+        //     error = true;
+        //   } else {
+        //     this.setSuccessFor(enterpriseWebsite);
+        //   }
+        // }
+      }
+      // Step 2
+      if (this.step === 2) {
       }
       // Step 3
       if (this.step === 3) {
@@ -2348,7 +2401,7 @@ export default {
       small.innerText = message;
     },
     setErrorForGeneratedRevenue: function (message) {
-      const formControl = document.querySelector("#measure");
+      const formControl = document.querySelector("#generatedRevenue");
       const small = formControl.querySelector("small");
 
       formControl.className = "form-control error";
@@ -2415,7 +2468,9 @@ export default {
       small.innerText = message;
     },
     setErrorHowEnterpriseReduce: function (message) {
-      const formControl = document.querySelector("#howEnterpriseReduce");
+      const formControl = document.querySelector(
+        "#howEnterpriseReduce"
+      ).parentElement;
       const small = formControl.querySelector("small");
 
       formControl.className = "form-control error";
@@ -2531,6 +2586,9 @@ export default {
 #application {
   position: relative;
   padding: 10rem 5rem;
+  #pitchDeck {
+    width: 50%;
+  }
 
   @media screen and (max-width: 600px) {
     padding: 8rem 0;
@@ -2599,7 +2657,7 @@ export default {
         font-weight: 600;
       }
       p {
-        color: #1e87f0;
+        color: black;
       }
     }
 
@@ -2812,7 +2870,7 @@ export default {
       }
     }
     .sm-box {
-      width: 70%;
+      width: 100%;
 
       @media screen and (max-width: 600px) {
         width: 100%;
@@ -2895,6 +2953,21 @@ export default {
 
     .option {
       margin: 10px 0;
+      // background-color: #2ecc71;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+
+      padding-top: 5px !important;
+
+      .download-btn {
+        font-size: 16px;
+        padding: 11px 37px;
+        background-color: #049abf;
+        color: #fff;
+        text-decoration: none;
+      }
     }
     .checkbox-option {
       display: flex;
@@ -2968,8 +3041,12 @@ export default {
 
     .important-text {
       font-style: italic;
-      color: #1e87f0;
+      color: black;
     }
   }
+}
+.application_info {
+  text-align: center;
+  color: black;
 }
 </style>

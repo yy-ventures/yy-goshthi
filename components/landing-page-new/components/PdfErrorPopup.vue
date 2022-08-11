@@ -1,37 +1,46 @@
 <template>
-  <div class="success-popup">
+  <div :class="`success-popup ${displayNone && 'display-none'}`">
     <div class="success-popup__container">
       <div class="success-popup__container--heading">
-        <span>Application successful!</span>
-        <div class="icon-container">
-          <img
-            src="../../../assets/images/landing-new-image/icon/successful-icon.jpg"
-            alt="success icon"
-          />
-        </div>
+        <span
+          >Your pitch deck file size exceeds the limit of 5MB. Please reduce the
+          size of the file.</span
+        >
       </div>
-      <p>
-        <strong
-          >Thank you for submitting your application for the YY Goshthi
-          Incubation Program Fall 2022 Cohort.</strong
-        >
-      </p>
       <br />
+      <p>You can use these online tools to reduce your file size.</p>
       <p>
-        We have sent you a confirmation email. If you haven't received any
-        confirmation email, please email at
-        <a href="mailto:incubator@yy.ventures" target="_blank"
-          >incubator@yy.ventures</a
+        > If you are uploading a PDF file:
+        <a href="https://www.ilovepdf.com/compress_pdf"
+          >Use this online tool.</a
         >
       </p>
-      <a href="/" class="btn">Done</a>
+      <p>
+        > If you are uploading a PPT/PPTX file:
+        <a href="https://www.zamzar.com/compress-ppt/">Use this online tool</a>
+      </p>
+      <a href="#" @click="displayNone = true" class="btn">Close</a>
     </div>
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      displayNone: false,
+    };
+  },
+  mounted: function () {
+    // this.displayNone = false;
+  },
+};
+</script>
 
 <style lang="scss">
+.display-none {
+  display: none;
+}
 .success-popup {
   position: absolute;
   top: 0;
@@ -46,7 +55,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px 40px;
-    background-color: white;
+    background-color: rgb(218, 218, 218);
     width: 500px;
 
     @media screen and (max-width: 600px) {

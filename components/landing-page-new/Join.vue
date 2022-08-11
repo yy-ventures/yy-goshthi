@@ -4,11 +4,18 @@
     <h1 class="text text-lg-space">Social Business?</h1>
     <h1 class="join-text highlight">JOIN</h1>
     <p class="dhaka-text">OUR INCUBATION PROGRAM IN DHAKA</p>
-    <span class="yyg-application"
+    <!-- <span class="yyg-application"
       >Application for Fall 2022 cohort will open soon</span
+    > -->
+    <a
+      href="https://incubator.yy.ventures/application/"
+      target="_blank"
+      class="btn"
+      >Apply</a
     >
-    <!-- <a href="https://incubator.yy.ventures/application/" target="_blank" class="btn">Apply</a>
-        <span class="yyg-application-1">Application closes on 4th June, 2022</span> -->
+    <span class="yyg-application-1"
+      >Application closes on 8th October, 2022</span
+    >
   </div>
 </template>
 
