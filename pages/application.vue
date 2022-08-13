@@ -1208,7 +1208,7 @@ import { form } from "~/assets/scripts/api";
           How did you hear about the YY Goshthi Incubation Program?
         </h5>
         <div class="box-1">
-          <div class="box">
+          <div class="box-8">
             <div class="option">
               <input
                 type="radio"
@@ -1301,7 +1301,7 @@ import { form } from "~/assets/scripts/api";
             </div>
           </div>
           <div class="option h-align">
-            <label for="other">Other (Please Specify): </label>
+            <label for="other">Other: </label>
             <input type="text" id="other" v-model="sourceOfYYOther" />
           </div>
           <small></small>
@@ -1355,21 +1355,22 @@ import { form } from "~/assets/scripts/api";
           </div>
           <div class="option mb-2 pb">
             <div class="container">
-              <input
-                type="file"
-                id="pitchDeck"
-                class="mb"
-                @change="handleFileUpload"
-                name="pitch_deck"
-              />
+              <div class="flex-container" id="pitchDeck">
+                <input
+                  type="file"
+                  id="pitchDeck"
+                  @change="handleFileUpload"
+                  name="pitch_deck"
+                />
 
-              <a
-                class="download-btn"
-                href="/YY_Goshthi_Sample_Pitch_Deck.pdf"
-                download
-                >Download Sample Pitch Deck</a
-              >
-              <small></small>
+                <a
+                  class="download-btn"
+                  href="/YY_Goshthi_Sample_Pitch_Deck.pdf"
+                  download
+                  >Download Sample Pitch Deck</a
+                >
+              </div>
+              <small class="pitchdeck-error"></small>
             </div>
           </div>
           <div v-if="pdfError"><PdfErrorPopup /></div>
@@ -1537,16 +1538,56 @@ export default {
       // this.step++;
       // console.log("step", this.step);
       // this.step++;
-      this.updateProgressbar();
+      if (this.step > 1) {
+        this.updateProgressbar();
+      }
     },
 
     updateProgressbar() {
       const progressActive = document.querySelectorAll(".active");
-      const progress = document.getElementsByClassName("progress");
-      // console.log(progress);
+      const progress = document.getElementById("progress");
+      console.log(progressActive.length);
+      console.log("step: " + this.step);
 
-      // progress.style.width =
-      //   (progressActive.length - 1 / this.step - 1) * 100 + "%";
+      console.log("progress active: " + progressActive);
+      console.log("progess: " + progress);
+
+      if (this.step === 2) {
+        progress.style.width =
+          (progressActive.length / this.step / 4) * 100 + "%";
+
+        console.log(`'step '${this.step}':' ` + progress.style.width);
+      }
+      if (this.step === 3) {
+        progress.style.width = "25%";
+        console.log(`'step '${this.step}':' ` + progress.style.width);
+      }
+      if (this.step === 4) {
+        progress.style.width = "37.5%";
+        console.log(`'step '${this.step}':' ` + progress.style.width);
+      }
+      if (this.step === 5) {
+        progress.style.width = "50%";
+        console.log(`'step '${this.step}':' ` + progress.style.width);
+      }
+      if (this.step === 6) {
+        progress.style.width = "62.5%";
+        console.log(`'step '${this.step}':' ` + progress.style.width);
+      }
+      if (this.step === 7) {
+        progress.style.width = "75%";
+        console.log(`'step '${this.step}':' ` + progress.style.width);
+      }
+      if (this.step === 8) {
+        progress.style.width = "87.5%";
+        console.log(`'step '${this.step}':' ` + progress.style.width);
+      }
+      if (this.step === 9) {
+        progress.style.width = "100%";
+        console.log(`'step '${this.step}':' ` + progress.style.width);
+      }
+
+      console.log("progress width: " + progress.style.width);
     },
 
     setFormData: function () {
@@ -1798,17 +1839,13 @@ export default {
 
       if (this.step === 1) {
         if (this.enterpriseName === "") {
-          this.setErrorFor(
-            enterpriseName,
-            "Enterprise name cannot be empty for draft"
-          );
+          this.setErrorFor(enterpriseName, "Enterprise name cannot be empty");
           error = true;
         } else {
           this.setSuccessFor(enterpriseName);
         }
 
         if (this.numberOfFounder === "") {
-          console.log("Draft=>>>", this.numberOfFounder);
           this.setErrorForFounders("Choose any option");
           error = true;
         } else {
@@ -2586,9 +2623,9 @@ export default {
 #application {
   position: relative;
   padding: 10rem 5rem;
-  #pitchDeck {
-    width: 50%;
-  }
+  // #pitchDeck {
+  //   width: 50%;
+  // }
 
   @media screen and (max-width: 600px) {
     padding: 8rem 0;
@@ -2668,13 +2705,11 @@ export default {
 
       position: relative;
       z-index: 1;
-      // background-color: #0070e0;
 
       display: flex;
       justify-content: space-between;
 
-      &::after,
-      .progress {
+      &::after {
         content: "";
         height: 4px;
         width: 100%;
@@ -2685,8 +2720,14 @@ export default {
         transform: translate(-50%, -50%);
       }
       .progress {
-        background-color: #0070e0;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        z-index: 1;
+        background-color: #049abf;
         width: 0%;
+        height: 4px;
       }
 
       div {
@@ -2704,6 +2745,12 @@ export default {
           justify-content: center;
           align-items: center;
           border-radius: 50%;
+
+          @media screen and (max-width: 600px) {
+            font-size: 14px;
+            height: 1.5rem;
+            width: 1.5rem;
+          }
         }
         .active {
           background-color: #049abf;
@@ -2752,6 +2799,10 @@ export default {
         border: none;
         cursor: pointer;
         transition: 0.2s all;
+
+        @media screen and (max-width: 600px) {
+          width: 100%;
+        }
 
         &:hover {
           background-color: #03738f;
@@ -2869,6 +2920,16 @@ export default {
         gap: 0;
       }
     }
+    .box-8 {
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      column-gap: 10rem;
+
+      @media screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+      }
+    }
     .sm-box {
       width: 100%;
 
@@ -2953,21 +3014,23 @@ export default {
 
     .option {
       margin: 10px 0;
-      // background-color: #2ecc71;
     }
     .container {
+      padding-top: 30px !important;
+    }
+    .flex-container {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      align-items: center;
+      gap: 10rem;
 
-      padding-top: 5px !important;
-
-      .download-btn {
-        font-size: 16px;
-        padding: 11px 37px;
-        background-color: #049abf;
-        color: #fff;
-        text-decoration: none;
+      @media screen and (max-width: 600px) {
+        flex-direction: column-reverse;
+        gap: 2rem;
       }
+    }
+    .pitchdeck-error {
+      margin-left: 20%;
     }
     .checkbox-option {
       display: flex;
@@ -3013,13 +3076,25 @@ export default {
     input[type="file"] {
       padding: 10px 20px;
       background-color: white;
-      width: 100%;
+      // width: 100%;
       cursor: pointer;
+    }
+    .download-btn {
+      font-size: 16px;
+      padding: 10px 20px;
+      line-height: 1.3;
+      background-color: #049abf;
+      color: #fff;
+      text-decoration: none;
     }
 
     .btn-container {
       display: flex;
       gap: 2rem;
+
+      @media screen and (max-width: 600px) {
+        flex-direction: column-reverse;
+      }
 
       input[type="submit"],
       input[type="button"] {
