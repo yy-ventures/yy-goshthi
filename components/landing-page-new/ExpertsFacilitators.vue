@@ -354,6 +354,9 @@ export default {
           &--designation {
             color: white;
             transition: all 0.3s;
+            @media screen and (max-width: 1366px) {
+              font-size: 14px;
+            }
 
             @media screen and (max-width: 960px) {
               font-size: 12px;
