@@ -911,7 +911,7 @@ import { form } from "~/assets/scripts/api";
         <!-- question 22 end -->
 
         <!-- question 23 start -->
-        <h5 class="required">
+        <h5>
           If you have applied to our Previous cohort with the same enterprise,
           did anything change since then? If you are applying with a different
           enterprise, why did you pivot and what was the learning from the last
@@ -1853,10 +1853,7 @@ export default {
         }
 
         if (this.cofounderName1 === "") {
-          this.setErrorFor(
-            cofounderName1,
-            "Co-founder name cannot be empty for draft"
-          );
+          this.setErrorFor(cofounderName1, "Co-founder name cannot be empty");
           error = true;
         } else {
           this.setSuccessFor(cofounderName1);
@@ -1868,7 +1865,7 @@ export default {
           this.setSuccessFor(gender1);
         }
         if (this.email1 === "") {
-          this.setErrorFor(email1, "email cannot be empty for draft");
+          this.setErrorFor(email1, "email cannot be empty");
           error = true;
         } else if (
           !/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(
@@ -1880,7 +1877,7 @@ export default {
           this.setSuccessFor(email1);
         }
         if (this.phone1 === "") {
-          this.setErrorFor(phone1, "Phone number cannot be empty for draft");
+          this.setErrorFor(phone1, "Phone number cannot be empty");
           error = true;
         } else if (!/[0-9]+/.test(this.phone1)) {
           this.setErrorFor(phone1, "invalid number");
@@ -1890,10 +1887,7 @@ export default {
         }
 
         if (this.cofounderName2 === "") {
-          this.setErrorFor(
-            cofounderName2,
-            "Co-founder name cannot be empty for draft"
-          );
+          this.setErrorFor(cofounderName2, "Co-founder name cannot be empty");
           error = true;
         } else {
           this.setSuccessFor(cofounderName2);
@@ -1906,7 +1900,7 @@ export default {
           this.setSuccessFor(gender2);
         }
         if (this.email2 === "") {
-          this.setErrorFor(email2, "email cannot be empty for draft");
+          this.setErrorFor(email2, "email cannot be empty");
           error = true;
         } else if (
           !/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(
@@ -1919,7 +1913,7 @@ export default {
           this.setSuccessFor(email2);
         }
         if (this.phone2 === "") {
-          this.setErrorFor(phone2, "Phone number cannot be empty for draft");
+          this.setErrorFor(phone2, "Phone number cannot be empty");
           error = true;
         } else if (!/[0-9]+/.test(this.phone2)) {
           this.setErrorFor(phone2, "invalid number");
@@ -1932,7 +1926,7 @@ export default {
       if (this.step === 2) {
         // ==========
         if (this.aboutProduct === "") {
-          this.setErrorFor(aboutProduct, "field cannot be empty for draft");
+          this.setErrorFor(aboutProduct, "field cannot be empty");
           error = true;
         } else {
           this.setSuccessFor(aboutProduct);
@@ -1940,7 +1934,7 @@ export default {
         if (this.enterpriseSummary === "") {
           this.setErrorFor(
             enterpriseSummary,
-            "Enterprise summary cannot be empty for draft"
+            "Enterprise summary cannot be empty"
           );
           error = true;
         } else {
@@ -1949,7 +1943,7 @@ export default {
         if (this.enterpriseMission === "") {
           this.setErrorFor(
             enterpriseMission,
-            "Enterprise mission cannot be empty for draft"
+            "Enterprise mission cannot be empty"
           );
           error = true;
         } else {
@@ -1958,7 +1952,7 @@ export default {
         if (this.enterpriseVision === "") {
           this.setErrorFor(
             enterpriseVision,
-            "Enterprise vision cannot be empty for draft"
+            "Enterprise vision cannot be empty"
           );
           error = true;
         } else {
@@ -2062,12 +2056,12 @@ export default {
         } else {
           this.setSuccessFor(enterpriseInnovationMore);
         }
-        if (this.newOrOldIdea === "") {
-          this.setErrorFor(newOrOldIdea, "field cannot be empty");
-          error = true;
-        } else {
-          this.setSuccessFor(newOrOldIdea);
-        }
+        // if (this.newOrOldIdea === "") {
+        //   this.setErrorFor(newOrOldIdea, "field cannot be empty");
+        //   error = true;
+        // } else {
+        //   this.setSuccessFor(newOrOldIdea);
+        // }
       }
       // Step 5
       if (this.step === 5) {
