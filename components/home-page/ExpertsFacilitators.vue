@@ -35,16 +35,30 @@
 </template>
 
 <script>
-import expertsDatas from "~/assets/data/experts_data.json";
+// import expertsDatas from "~/assets/data/experts_data.json";
+
+import Axios from "axios";
+
+// console.log("experts data: " + this.expertsDatas);
 
 export default {
   data() {
     return {
-      expertsDatas,
+      expertsDatas: [],
       pageY: null,
     };
   },
   mounted() {
+    // API
+    const response = Axios.get(
+      "https://yyv.yyventures.org/api/get-experts-facilitators-data"
+    ).then((res) => (this.expertsDatas = res.data.data));
+    // console.log("expert & faciliators: " + this.expertsDatas);
+    // console.log("expert & faciliators: " + expertsDatas);
+
+    // console.log("experts data: " + this.expertsDatas);
+
+    // ON SCROLL ANIMATION
     window.addEventListener("scroll", function () {
       let pageY = window.pageYOffset;
       const mediaQueryLargeDesktop = window.matchMedia("(min-width: 1920px)");
@@ -75,6 +89,8 @@ export default {
         facilitator.style.backgroundPosition = `${-pageY * 0.55 + 4000}px`;
       }
     });
+
+    // console.log("expert & faciliators: " + expertsDatas);
   },
 };
 </script>
