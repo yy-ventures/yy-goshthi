@@ -5,6 +5,7 @@
       <div id="team"></div>
     </div>
     <div class="programs-team__members">
+      <h1>{{ programsTeamDatas }}</h1>
       <div
         class="programs-team__members--member faded_out"
         v-for="programsTeamData in programsTeamDatas"
@@ -46,17 +47,24 @@
 </template>
 
 <script>
+import Axios from "axios";
 import programsTeamDatas from "~/assets/data/programs_team.json";
 
-console.log(programsTeamDatas);
+// console.log(programsTeamDatas);
 export default {
   data() {
     return {
-      programsTeamDatas,
+      programsTeamDatas: [],
       pageY: null,
     };
   },
   mounted() {
+    // API
+    Axios.get("https://yyv.yyventures.org/api/get-program-team-data")
+      .then((res) => (this.programsTeamDatas = res.data.data))
+      .catch((err) => console.log(err));
+
+    // ON SCROLL ANIMATION
     window.addEventListener("scroll", function () {
       let pageY = window.pageYOffset;
       const mediaQueryLargeDesktop = window.matchMedia("(min-width: 1920px)");

@@ -107,7 +107,7 @@
 import { add_class_on_focus } from "@/assets/scripts/dom_utils";
 import howWeHelpDatas from "~/assets/data/howWeHelp.json";
 
-console.log(howWeHelpDatas);
+// console.log(howWeHelpDatas);
 
 export default {
   data() {

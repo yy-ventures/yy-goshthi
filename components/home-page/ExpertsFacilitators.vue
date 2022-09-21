@@ -5,18 +5,22 @@
       <div id="facilitator"></div>
     </div>
     <div class="experts__members">
+      <!-- {{ expertsDatas[0] }} -->
       <div
-        class="experts__members--member faded_out"
+        class="experts__members--member"
         v-for="expertsData in expertsDatas"
         :key="expertsData.id"
       >
         <div class="img-container">
           <div class="mask"></div>
-          <img :src="`${expertsData.image}`" alt="image" />
+          <img
+            :src="`https://yyv.yyventures.org${expertsData.thumb_image}`"
+            alt="image"
+          />
         </div>
         <div class="content">
           <div class="content__info">
-            <h4 class="content__info--name">{{ expertsData.name }}</h4>
+            <h4 class="content__info--name">{{ expertsData.title }}</h4>
             <span class="content__info--designation">{{
               expertsData.designation
             }}</span>
@@ -25,7 +29,7 @@
             class="content__icon"
             target="_blank"
             rel="noopener noreferrer"
-            :href="`${expertsData.linkedinLink}`"
+            :href="`${expertsData.link}`"
             uk-icon="icon: linkedin; ratio: 1"
           ></a>
         </div>
@@ -50,13 +54,9 @@ export default {
   },
   mounted() {
     // API
-    const response = Axios.get(
-      "https://yyv.yyventures.org/api/get-experts-facilitators-data"
-    ).then((res) => (this.expertsDatas = res.data.data));
-    // console.log("expert & faciliators: " + this.expertsDatas);
-    // console.log("expert & faciliators: " + expertsDatas);
-
-    // console.log("experts data: " + this.expertsDatas);
+    Axios.get("https://yyv.yyventures.org/api/get-experts-facilitators-data")
+      .then((res) => (this.expertsDatas = res.data.data))
+      .catch((err) => console.log(err));
 
     // ON SCROLL ANIMATION
     window.addEventListener("scroll", function () {
@@ -175,6 +175,7 @@ export default {
         height: 400px;
         overflow: hidden;
         position: relative;
+        background-color: palegreen;
 
         @media screen and (max-width: 960px) {
           height: 300px;
